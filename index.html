@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiservice Fyn | Fliserens, Terrasserens & Facaderens på Fyn</title>
+  <meta name="description" content="Professionel fliserens, terrasserens, facaderens og vinduespudsning på Fyn. Kontakt Multiservice Fyn i dag – svar inden for 1 time. Ring +45 57 20 91 41." />
+  <meta name="keywords" content="fliserens fyn, terrasserens odense, facaderens fyn, vinduespudsning odense, multiservice fyn, rengøring odense, udvendig rengøring fyn" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.multiservice-fyn.dk/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Multiservice Fyn | Professionel Udvendig Rengøring" />
+  <meta property="og:description" content="Fliserens, terrasserens, facaderens og vinduespudsning på Fyn. Over 150 tilfredse kunder. Gratis tilbud på 1 time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="da_DK" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Multiservice Fyn",
+    "image": "logo.png",
+    "telephone": ["+4557209141", "+4557202351"],
+    "email": "Kontakt@Multiservice.dk",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Fyn",
+      "addressCountry": "DK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.4038,
+      "longitude": 10.4024
+    },
+    "areaServed": ["Odense", "Svendborg", "Nyborg", "Middelfart", "Assens", "Kerteminde", "Bogense", "Faaborg"],
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 07:00-18:00",
+    "sameAs": ["https://www.facebook.com/multiservicefyn"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a4fa8;
+      --navy-dark: #0f3080;
+      --blue: #4a9eff;
+      --blue-mid: #2e7fe8;
+      --blue-light: #dbeafe;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --yellow: #f59e0b;
+      --red: #dc2626;
+      --gray-50: #f2f0ec;
+      --gray-100: #e8e5df;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --font-display: 'Oswald', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.6; overflow-x: hidden; }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 1rem;
+      cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap; text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { background: var(--blue); color: white; }
+    .btn-white { background: white; color: var(--navy); }
+    .btn-outline { background: transparent; color: white; border: 2px solid white; }
+    .btn-green { background: var(--green); color: white; }
+    .btn-lg { padding: 18px 36px; font-size: 1.1rem; }
+    .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    header.hide {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .header-top {
+      background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
+      text-align: center;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-top a { color: white; font-weight: 700; }
+    .header-main {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; max-width: 1200px; margin: 0 auto;
+      height: 89px;
+    }
+    .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: white; }
+
+    /* ─── DROPDOWN ─── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
+    .dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: rgba(30,30,30,0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-top: none;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      padding: 8px 8px 12px; min-width: 200px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s;
+      padding-top: 16px;
+    }
+    .dropdown-menu::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 16px;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: all;
+    }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600;
+      padding: 10px 14px; border-radius: 8px; transition: background 0.15s;
+    }
+    .dropdown-menu a:hover { background: rgba(255,255,255,0.15); color: white !important; }
+    .dropdown-menu .d-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+    .header-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .header-contact a { color: white; font-size: 0.82rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .header-contact a:hover { color: var(--yellow); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: white; display: block; transition: 0.3s; border-radius: 2px; }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: var(--navy-dark);
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: white; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+
+    /* ─── FLOATING CALL BUTTON (mobile) ─── */
+    .floating-call {
+      display: none;
+      position: fixed; bottom: 20px; right: 20px; z-index: 999;
+      background: var(--green); color: white;
+      width: 60px; height: 60px; border-radius: 50%;
+      align-items: center; justify-content: center;
+      font-size: 1.6rem; box-shadow: 0 4px 20px rgba(5,150,105,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(5,150,105,0.5); }
+      50% { box-shadow: 0 4px 32px rgba(5,150,105,0.8); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100svh;
+      background: #000;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/forsidebilledebaggrund.jpg') center/cover no-repeat;
+      opacity: 0.75;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 700px;
+      padding: 160px 20px 80px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white; padding: 8px 18px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7.5vw, 4.6rem); font-weight: 800;
+      color: white; line-height: 1.05; margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+    .hero-slogan {
+      font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 600;
+      color: rgba(255,255,255,0.95); margin-bottom: 16px;
+      font-style: italic; letter-spacing: 0.01em;
+    }
+    .hero p { color: rgba(255,255,255,0.75); font-size: clamp(0.95rem, 2vw, 1.05rem); margin-bottom: 36px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 40px; }
+    .hero-trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.9); font-size: 0.88rem; font-weight: 600;
+    }
+    .trust-item .icon { font-size: 1.2rem; }
+    .hero-services-btn {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255,255,255,0.35); color: white;
+      padding: 10px 28px; border-radius: 50px; font-size: 0.9rem; font-weight: 700;
+      white-space: nowrap; transition: background 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .hero-services-btn:hover { background: rgba(255,255,255,0.25); }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: linear-gradient(90deg, #0f3080 0%, #1a4fa8 50%, #0f3080 100%);
+      padding: 28px 20px;
+    }
+    .trust-bar-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 24px; max-width: 900px; margin: 0 auto;
+    }
+    .trust-stat { text-align: center; color: white; }
+    .trust-stat .num { font-size: 2rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+    .trust-stat .label { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 80px 20px; }
+    .section-label {
+      display: inline-block; background: var(--blue-light); color: var(--blue);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 14px;
+    }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--gray-900); line-height: 1.2; margin-bottom: 16px; }
+    h2 .highlight { color: var(--blue); }
+    .lead { font-size: 1.1rem; color: var(--gray-600); max-width: 600px; }
+
+    /* ─── SERVICES ─── */
+    .services { background: #f2f0ec; }
+    .services-header { text-align: center; margin-bottom: 56px; }
+    .services-header .lead { margin: 0 auto; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px; max-width: 1200px; margin: 0 auto 48px;
+    }
+    .service-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      position: relative; aspect-ratio: 4/3; cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: block; text-decoration: none; color: inherit;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.2); }
+    .service-header-band {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    }
+    .service-header-band img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-header-band img { transform: scale(1.06); }
+    .service-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+      padding: 40px 20px 20px;
+    }
+    .service-body h3 { font-size: 1.2rem; font-weight: 800; color: white; margin-bottom: 0; }
+    .service-body p { display: none; }
+    .service-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.75); font-size: 0.8rem; font-weight: 600; margin-top: 6px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .service-card:hover .service-link { color: white; gap: 10px; }
+    .services-cta { text-align: center; }
+
+    /* ─── QUALITY / ABOUT ─── */
+    .quality { background: #f2f0ec; }
+    .quality .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; }
+    .quality-img {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); aspect-ratio: 4/3;
+      background: var(--gray-100); display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .quality-img img { width: 100%; height: 100%; object-fit: cover; }
+    .quality-text { }
+    .quality-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+    .quality-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; }
+    .quality-list li .check { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ─── BEFORE/AFTER ─── */
+    .before-after { background: var(--navy); }
+    .before-after h2 { color: white; text-align: center; margin-bottom: 12px; }
+    .before-after .lead { color: rgba(255,255,255,0.7); text-align: center; margin: 0 auto 48px; }
+    .ba-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 0 auto;
+    }
+    .ba-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .ba-reveal {
+      position: relative; height: 260px; overflow: hidden;
+      background: var(--gray-200); user-select: none;
+    }
+    .ba-reveal img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center center;
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .ba-reveal .img-before { z-index: 1; }
+    .ba-reveal .img-after { z-index: 2; clip-path: inset(0 0 0 50%); }
+    .ba-tag-before, .ba-tag-after {
+      position: absolute; top: 12px; z-index: 5;
+      color: white; font-size: 0.72rem; font-weight: 800;
+      padding: 4px 12px; border-radius: 50px; letter-spacing: 0.05em;
+      font-family: var(--font-display); pointer-events: none;
+    }
+    .ba-tag-before { left: 12px; background: rgba(0,0,0,0.6); }
+    .ba-tag-after  { right: 12px; background: var(--green); }
+    .ba-slider-line {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 3px;
+      background: white; z-index: 3; transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5); pointer-events: none;
+    }
+    .ba-slider-handle {
+      position: absolute; top: 50%; left: 50%; z-index: 4;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      transform: translate(-50%, -50%);
+      cursor: ew-resize;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--navy); font-weight: 900;
+    }
+    .ba-hint {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      z-index: 4; color: white; font-size: 0.75rem; font-weight: 600;
+      background: rgba(0,0,0,0.45); padding: 4px 14px; border-radius: 50px;
+      white-space: nowrap; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .ba-reveal.dragging .ba-hint { opacity: 0; }
+    .ba-label {
+      background: white; padding: 14px 18px; text-align: center;
+      font-weight: 700; font-size: 0.9rem; color: var(--gray-800);
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews { background: var(--gray-50); }
+    .reviews-header { text-align: center; margin-bottom: 48px; }
+    .stars { color: var(--yellow); font-size: 1.2rem; letter-spacing: 2px; }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto 40px;
+    }
+    .review-card {
+      background: #ffffff; border-radius: var(--radius-lg); padding: 28px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .review-card .stars { margin-bottom: 14px; font-size: 1rem; }
+    .review-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    }
+    .reviewer-name { font-weight: 700; font-size: 0.9rem; }
+    .reviewer-sub { font-size: 0.78rem; color: var(--gray-400); }
+    .reviews-cta { text-align: center; }
+    .google-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; border: 1px solid var(--gray-200);
+      padding: 12px 24px; border-radius: 50px; box-shadow: var(--shadow);
+      font-weight: 700; font-size: 0.9rem;
+    }
+    .google-badge .g { font-size: 1.3rem; }
+
+    /* ─── WHY US ─── */
+    .why-us { background: #f2f0ec; }
+    .why-us .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; }
+    .why-img {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); aspect-ratio: 4/3;
+    }
+    .why-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .why-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 16px; }
+    .why-item { display: flex; align-items: flex-start; gap: 16px; }
+    .why-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .why-item-text h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+    .why-item-text p { font-size: 0.85rem; color: var(--gray-600); }
+
+    /* ─── SERVICE AREAS ─── */
+    .areas { background: var(--blue-light); }
+    .areas-header { text-align: center; margin-bottom: 40px; }
+    .areas-grid {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+      max-width: 800px; margin: 0 auto 32px;
+    }
+    .area-tag {
+      display: flex; align-items: center; gap: 8px;
+      background: white; color: var(--navy);
+      padding: 10px 20px; border-radius: 50px;
+      font-weight: 600; font-size: 0.88rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .areas-note { text-align: center; color: var(--gray-600); font-size: 0.9rem; }
+
+    /* ─── FAQ ─── */
+    .faq { background: #faf9f7; }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 0.95rem;
+      background: white; transition: background 0.2s; gap: 16px;
+    }
+    .faq-q:hover { background: var(--gray-50); }
+    .faq-q .arrow { font-size: 0.8rem; color: var(--gray-400); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 24px 20px; color: var(--gray-600); font-size: 0.92rem; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      background: linear-gradient(135deg, #0f3080 0%, #2e7fe8 100%);
+      text-align: center; padding: 80px 20px;
+    }
+    .final-cta h2 { color: white; margin-bottom: 16px; }
+    .final-cta p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 500px; margin: 0 auto 36px; }
+    .final-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px; }
+    .urgency-note {
+      color: var(--yellow); font-size: 0.85rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+
+    /* ─── CONTACT CARDS ─── */
+    .contact-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; max-width: 900px; margin: 48px auto 0;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-lg); padding: 28px; text-align: center; color: white;
+    }
+    .contact-card .person-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .contact-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .contact-card .role { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .contact-card a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      color: white; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px;
+    }
+    .contact-card a:hover { color: var(--yellow); }
+
+    /* ─── FOOTER ─── */
+    footer { background: linear-gradient(180deg, #0f3080 0%, #081e45 100%); color: white; padding: 60px 20px 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; max-width: 1200px; margin: 0 auto 48px;
+    }
+    .footer-brand .logo img { height: 180px; filter: brightness(0) invert(1); margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px; }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem; transition: background 0.2s;
+    }
+    .social-link:hover { background: var(--blue); }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,0.75); font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px; max-width: 1200px; margin: 0 auto;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .footer-bottom a { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+    .footer-bottom a:hover { color: white; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .quality .container,
+      .why-us .container { grid-template-columns: 1fr; gap: 36px; }
+      .quality-img, .why-img { order: -1; max-width: 500px; margin: 0 auto; width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 60px 16px; }
+      nav { display: none; }
+      .header-contact { display: none; }
+      .hamburger { display: flex; }
+      .floating-call { display: flex; }
+      .header-top { font-size: 0.75rem; }
+      .logo img { height: 110px; }
+      .hero { min-height: 100svh; }
+      .hero-content { padding: 40px 16px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .contact-cards { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .trust-bar-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── FLOATING CALL (mobile only) ─── -->
+  <a href="tel:+4557209141" class="floating-call" title="Ring til os">📞</a>
+
+  <!-- ─── HEADER ─── -->
+  <header>
+    <div class="header-top">
+      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a>
+    </div>
+    <div class="header-main">
+      <a href="#top" class="logo">
+        <img src="logo.png" alt="Multiservice Fyn logo" />
+      </a>
+      <nav>
+        <div class="nav-dropdown">
+          <a href="#services">Services</a>
+          <div class="dropdown-menu">
+            <a href="fliserens.html"><span class="d-icon">🧱</span> Flise-rens</a>
+            <a href="terrasserens.html"><span class="d-icon">🌿</span> Terrasse-rens</a>
+            <a href="facaderens.html"><span class="d-icon">🏠</span> Facade-rens</a>
+            <a href="vinduespudsning.html"><span class="d-icon">🪟</span> Vinduespudsning</a>
+            <a href="havearbejde.html"><span class="d-icon">🌱</span> Havearbejde</a>
+          </div>
+        </div>
+        <a href="#om-os">Om os</a>
+        <a href="#anmeldelser">Anmeldelser</a>
+        <a href="#omraader">Områder</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="header-contact">
+        <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
+        <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
+        <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#om-os" onclick="toggleMenu()">Om os</a>
+      <a href="#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
+      <a href="#omraader" onclick="toggleMenu()">Områder</a>
+      <a href="#faq" onclick="toggleMenu()">FAQ</a>
+      <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+      <div class="mobile-cta">
+        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
+        <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✓ Mere end 150 tilfredse kunder på Fyn</div>
+      <h1>Multiservice Fyn</h1>
+      <p class="hero-slogan">Vi gør det rent — du nyder resultatet</p>
+      <p>Professionel udvendig rengøring af fliser, terrasser, facader og meget mere. Lokalt og pålideligt på hele Fyn.</p>
+      <div class="hero-cta">
+        <a href="#kontakt" class="btn btn-primary btn-lg">Få gratis tilbud</a>
+        <a href="tel:+4557209141" class="btn btn-outline btn-lg">📞 Ring nu</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="icon">✅</span> Gratis tilbud</div>
+        <div class="trust-item"><span class="icon">⚡</span> Svar inden 1 time</div>
+        <div class="trust-item"><span class="icon">🔒</span> Ingen binding</div>
+        <div class="trust-item"><span class="icon">⭐</span> 5 stjerner</div>
+      </div>
+    </div>
+    <a href="#services" class="hero-services-btn">Se vores services ↓</a>
+  </section>
+
+  <!-- ─── TRUST BAR ─── -->
+  <div class="trust-bar" id="stats">
+    <div class="trust-bar-grid">
+      <div class="trust-stat">
+        <div class="num">150+</div>
+        <div class="label">Tilfredse kunder</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">5★</div>
+        <div class="label">Google anmeldelse</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">100%</div>
+        <div class="label">Tilfredshedsgaranti</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">&lt;1t</div>
+        <div class="label">Svartid på tilbud</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num">Fyn</div>
+        <div class="label">Vi dækker hele øen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">Hvad vi tilbyder</span>
+        <h2>Vores <span class="highlight">Services</span></h2>
+        <p class="lead">Fra fliserens til havearbejde – vi klarer det hele professionelt og effektivt.</p>
+      </div>
+      <div class="services-grid">
+        <a class="service-card" href="fliserens.html">
+          <div class="service-header-band">
+            <img src="images/FliserensBillede.jpg" alt="Fliserens" />
+          </div>
+          <div class="service-body">
+            <h3>Flise-rens</h3>
+            <p>Højtryksrens af indkørsel, gangstier og flisebelægninger. Vi fjerner alger, mos og snavs effektivt.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+        <a class="service-card" href="terrasserens.html">
+          <div class="service-header-band">
+            <img src="images/BilledeTerrasserens.jpg" alt="Terrasserens" style="object-position: center bottom;" />
+          </div>
+          <div class="service-body">
+            <h3>Terrasse-rens</h3>
+            <p>Grundig rengøring af træterrasser, betonterrasser og fliseterrasser. Terrassens skønhed genskabes.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+        <a class="service-card" href="facaderens.html">
+          <div class="service-header-band">
+            <img src="images/facaderensbillede.jpg" alt="Facaderens" />
+          </div>
+          <div class="service-body">
+            <h3>Facade-rens</h3>
+            <p>Professionel rensning af mursten, puds og beton. Vi genopretter facadens originale udtryk.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+        <a class="service-card" href="vinduespudsning.html">
+          <div class="service-header-band">
+            <img src="images/VinduespudsBillede.PNG" alt="Vinduespudsning" />
+          </div>
+          <div class="service-body">
+            <h3>Vinduespudsning</h3>
+            <p>Streakfri vinduespudsning indvendigt og udvendigt. Til private boliger og erhvervsejendomme.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+        <a class="service-card" href="havearbejde.html">
+          <div class="service-header-band">
+            <img src="images/havearbejdeBillede.PNG" alt="Havearbejde" />
+          </div>
+          <div class="service-body">
+            <h3>Havearbejde</h3>
+            <p>Klipning af hæk og græs, lugning, rydning og generel havepleje. Vi holder din have pæn og velholdt.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+      </div>
+      <div class="services-cta">
+        <a href="#kontakt" class="btn btn-primary btn-lg">Få gratis tilbud på en service →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUALITY / ABOUT ─── -->
+  <section class="quality" id="om-os">
+    <div class="container">
+      <div class="quality-img">
+        <img src="images/OmMultiServiceFynBillede.PNG" alt="Om Multiservice Fyn" />
+      </div>
+      <div class="quality-text">
+        <span class="section-label">Om Multiservice Fyn</span>
+        <h2>Multiservice i <span class="highlight">høj kvalitet</span></h2>
+        <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.7;">
+          Hos Multiservice Fyn er vi specialister i udvendig rengøring på hele Fyn. Vi bruger professionelt udstyr og skånsomme metoder, der giver synlige resultater – uden at skade dine overflader.
+        </p>
+        <ul class="quality-list">
+          <li><span class="check">✔</span> Professionelt udstyr til alle opgavetyper</li>
+          <li><span class="check">✔</span> Mere end 150 tilfredse kunder på Fyn</li>
+          <li><span class="check">✔</span> Miljøvenlige rengøringsmidler</li>
+          <li><span class="check">✔</span> Fuld ansvarsforsikring – vi er dækkede</li>
+          <li><span class="check">✔</span> Gratis og uforpligtende besigtigelse</li>
+          <li><span class="check">✔</span> Svar på tilbud inden for 1 time</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Kontakt os i dag</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BEFORE/AFTER ─── -->
+  <section class="before-after">
+    <div class="container" style="max-width:1100px;">
+      <h2>Resultater der <span style="color:var(--yellow);">taler for sig selv</span></h2>
+      <p class="lead">Før og efter billeder fra vores opgaver rundt på Fyn.</p>
+      <div class="ba-grid">
+        <div class="ba-card">
+          <div class="ba-reveal">
+            <img class="img-before" src="images/FørbilledeFliserens-odense.jpg" alt="Fliser før rens" />
+            <img class="img-after" src="images/EFterilledeFliserens-odense.jpg" alt="Fliser efter rens" />
+            <div class="ba-slider-line"></div>
+            <div class="ba-slider-handle">&#8644;</div>
+            <span class="ba-tag-before">FØR</span>
+            <span class="ba-tag-after">EFTER</span>
+            <div class="ba-hint">&#8596; Træk for at sammenligne</div>
+          </div>
+          <div class="ba-label">Fliserens – Odense</div>
+        </div>
+        <div class="ba-card">
+          <div class="ba-reveal">
+            <img class="img-before" src="images/BilledeTerrasserens.jpg" alt="Terrasse før rens" />
+            <img class="img-after" src="images/BilledeTerrasserens.jpg" alt="Terrasse efter rens" />
+            <div class="ba-slider-line"></div>
+            <div class="ba-slider-handle">&#8644;</div>
+            <span class="ba-tag-before">FØR</span>
+            <span class="ba-tag-after">EFTER</span>
+            <div class="ba-hint">&#8596; Træk for at sammenligne</div>
+          </div>
+          <div class="ba-label">Terrasserens – Svendborg</div>
+        </div>
+        <div class="ba-card">
+          <div class="ba-reveal">
+            <img class="img-before" src="images/facaderensbillede.jpg" alt="Facade før rens" />
+            <img class="img-after" src="images/facaderensbillede.jpg" alt="Facade efter rens" />
+            <div class="ba-slider-line"></div>
+            <div class="ba-slider-handle">&#8644;</div>
+            <span class="ba-tag-before">FØR</span>
+            <span class="ba-tag-after">EFTER</span>
+            <div class="ba-hint">&#8596; Træk for at sammenligne</div>
+          </div>
+          <div class="ba-label">Facaderens – Nyborg</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS ─── -->
+  <section class="reviews" id="anmeldelser">
+    <div class="container">
+      <div class="reviews-header">
+        <span class="section-label">Kundeanmeldelser</span>
+        <h2>Hvad vores kunder <span class="highlight">siger</span></h2>
+        <div class="stars" style="margin:12px 0;">★★★★★</div>
+        <p class="lead" style="margin:0 auto;">Over 150 tilfredse kunder på Fyn har valgt Multiservice Fyn.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Fantastisk arbejde! Min indkørsel ser helt ny ud. De kom til tiden, arbejdede hurtigt og resultatet overgik mine forventninger. Kan varmt anbefales!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MJ</div>
+            <div>
+              <div class="reviewer-name">Morten Jensen</div>
+              <div class="reviewer-sub">Odense · Fliserens</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Brugte Multiservice Fyn til terrasserens og facaderens. Super professionelt fra start til slut. God kommunikation og en fair pris. Bestiller igen!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">AL</div>
+            <div>
+              <div class="reviewer-name">Anne Larsen</div>
+              <div class="reviewer-sub">Svendborg · Terrasserens</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>"Jeg var skeptisk til at starte med, men resultatet taler for sig selv. Min facade ser fuldstændig renoveret ud. Virkelig imponerende arbejde!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">KN</div>
+            <div>
+              <div class="reviewer-name">Klaus Nielsen</div>
+              <div class="reviewer-sub">Nyborg · Facaderens</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-cta">
+        <span class="google-badge">
+          <span class="g">🔵</span> Se alle anmeldelser på Google
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY US ─── -->
+  <section class="why-us">
+    <div class="container">
+      <div class="why-img">
+        <img src="images/OmMultiServiceFynBillede.PNG" alt="Multiservice Fyn" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div>
+        <span class="section-label">Hvorfor vælge os</span>
+        <h2>Derfor vælger vores kunder <span class="highlight">Multiservice Fyn</span></h2>
+        <p style="color:var(--gray-600);font-size:0.95rem;line-height:1.7;">
+          Vi er lokale på Fyn og kender de udfordringer, som vejr og klima stiller til udvendige overflader. Det er ikke bare et job – det er vores passion.
+        </p>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-icon">🛡️</div>
+            <div class="why-item-text">
+              <h4>Fuldt forsikret</h4>
+              <p>Vi har fuld erhvervsforsikring, så du er altid dækket.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">⚡</div>
+            <div class="why-item-text">
+              <h4>Hurtig respons</h4>
+              <p>Vi svarer på alle henvendelser inden for 1 time på hverdage.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">💬</div>
+            <div class="why-item-text">
+              <h4>Personlig service</h4>
+              <p>Du taler direkte med Niklas eller Daniel – ingen mellemled.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">🌿</div>
+            <div class="why-item-text">
+              <h4>Miljøvenlig tilgang</h4>
+              <p>Vi bruger skånsomme og miljøgodkendte rengøringsmidler.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">💰</div>
+            <div class="why-item-text">
+              <h4>Fair og gennemsigtig pris</h4>
+              <p>Ingen skjulte gebyrer. Du ved præcis hvad du betaler.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Book en gratis besigtigelse</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICE AREAS ─── -->
+  <section class="areas" id="omraader">
+    <div class="container">
+      <div class="areas-header">
+        <span class="section-label">Vi kommer til dig</span>
+        <h2>Vi dækker <span class="highlight">hele Fyn</span></h2>
+        <p class="lead" style="margin:0 auto 8px;">Find din by herunder – er den ikke på listen, er du velkommen til at ringe.</p>
+      </div>
+      <div class="areas-grid">
+        <div class="area-tag">📍 Odense</div>
+        <div class="area-tag">📍 Svendborg</div>
+        <div class="area-tag">📍 Nyborg</div>
+        <div class="area-tag">📍 Middelfart</div>
+        <div class="area-tag">📍 Assens</div>
+        <div class="area-tag">📍 Kerteminde</div>
+        <div class="area-tag">📍 Faaborg</div>
+        <div class="area-tag">📍 Bogense</div>
+        <div class="area-tag">📍 Ringe</div>
+        <div class="area-tag">📍 Odense SV</div>
+        <div class="area-tag">📍 Bellinge</div>
+        <div class="area-tag">📍 Og mere...</div>
+      </div>
+      <p class="areas-note">Er din by ikke på listen? Ring til os – vi kører gerne ud! 📞 <a href="tel:+4557209141" style="color:var(--blue);font-weight:700;">+45 57 20 91 41</a></p>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header">
+        <span class="section-label">Ofte stillede spørgsmål</span>
+        <h2>Vi svarer på dine <span class="highlight">spørgsmål</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Hvad koster fliserens?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Prisen afhænger af arealet og tilstanden. Vi tilbyder altid et gratis og uforpligtende tilbud inden vi starter. Ring til os på <a href="tel:+4557209141" style="color:var(--blue);">+45 57 20 91 41</a> eller send en mail.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Hvor lang tid tager en terrasserens?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Det afhænger af terrassens størrelse og tilstand. En gennemsnitlig terrasse tager 2–4 timer. Vi giver dig et præcist estimat ved besigtigelsen.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Behøver jeg at være hjemme under arbejdet?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Nej, du behøver ikke at være hjemme. Vi aftaler det hele på forhånd og sender billeder af det færdige resultat. Du skal blot sikre adgang til vand.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Er I forsikrede?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Ja, Multiservice Fyn har fuld erhvervs- og ansvarsforsikring. Du er altid dækket, når vi arbejder på din ejendom.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Hvornår kan I komme?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Vi bestræber os på at komme ud inden for få dage. I spidsperioder (forår og sommer) kan der være lidt ventetid. Kontakt os for at høre om aktuel tilgængelighed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Hvad skal jeg gøre for at forberede mig?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-a">Flyt møbler og løse genstande væk fra det område, der skal renses. Sørg for adgang til en vandkran. Det er det hele – vi klarer resten!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA + CONTACT ─── -->
+  <section class="final-cta" id="kontakt">
+    <div class="container">
+      <h2>Klar til et <span style="color:var(--yellow);">rent resultat?</span></h2>
+      <p>Kontakt os i dag og få et gratis, uforpligtende tilbud. Vi svarer inden for 1 time.</p>
+      <div class="final-cta-btns">
+        <a href="tel:+4557209141" class="btn btn-green btn-lg">📞 Ring til Niklas</a>
+        <a href="tel:+4557202351" class="btn btn-white btn-lg">📞 Ring til Daniel</a>
+        <a href="mailto:Kontakt@Multiservice.dk" class="btn btn-outline btn-lg">✉ Send email</a>
+      </div>
+      <p class="urgency-note">⏰ Ledige tider denne uge – book din plads nu</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="person-icon">👨‍💼</div>
+          <h4>Niklas</h4>
+          <p class="role">Multiservice Fyn</p>
+          <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
+          <a href="mailto:niklas@multiservice.dk">✉ niklas@multiservice.dk</a>
+        </div>
+        <div class="contact-card">
+          <div class="person-icon">👨‍💼</div>
+          <h4>Daniel</h4>
+          <p class="role">Multiservice Fyn</p>
+          <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
+          <a href="mailto:daniel@multiservice.dk">✉ daniel@multiservice.dk</a>
+        </div>
+        <div class="contact-card">
+          <div class="person-icon">✉</div>
+          <h4>Generel henvendelse</h4>
+          <p class="role">Skriv til os direkte</p>
+          <a href="mailto:Kontakt@Multiservice.dk">Kontakt@Multiservice.dk</a>
+          <a href="mailto:Kontakt@Multiservice.dk" class="btn btn-primary btn-sm" style="margin-top:10px;width:100%;justify-content:center;">Send besked</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo"><img src="logo.png" alt="Multiservice Fyn" /></a>
+        <p>Professionel udvendig rengøring på hele Fyn. Vi hjælper private og erhvervskunder med fliserens, terrasserens, facaderens og meget mere.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Facebook">f</a>
+          <a href="#" class="social-link" title="Instagram">📸</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Fliserens</a></li>
+          <li><a href="#services">Terrasserens</a></li>
+          <li><a href="#services">Facaderens</a></li>
+          <li><a href="#services">Vinduespudsning</a></li>
+          <li><a href="#services">Havearbejde</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#top">Forside</a></li>
+          <li><a href="#om-os">Om os</a></li>
+          <li><a href="#anmeldelser">Anmeldelser</a></li>
+          <li><a href="#omraader">Områder</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt os</h4>
+        <ul>
+          <li><a href="tel:+4557209141">+45 57 20 91 41</a></li>
+          <li><a href="tel:+4557202351">+45 57 20 23 51</a></li>
+          <li><a href="mailto:Kontakt@Multiservice.dk">Kontakt@Multiservice.dk</a></li>
+          <li style="margin-top:12px;">
+            <a href="#kontakt" class="btn btn-primary btn-sm">Ring til os</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Multiservice Fyn. Alle rettigheder forbeholdes.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#">Privatlivspolitik</a>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('open');
+    }
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Transparent header → solid on scroll, hide on scroll down
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      const current = window.scrollY;
+
+      // Hide on scroll down, show on scroll up
+      if (current > lastScroll && current > 200) {
+        header.classList.add('hide');
+      } else {
+        header.classList.remove('hide');
+      }
+      lastScroll = current;
+    });
+
+    // Animate stats on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.style.opacity = '1';
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.trust-stat, .service-card, .review-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.ba-reveal').forEach(function(reveal) {
+      var handle = reveal.querySelector('.ba-slider-handle');
+      var line   = reveal.querySelector('.ba-slider-line');
+      var after  = reveal.querySelector('.img-after');
+
+      function setPosition(x) {
+        var rect = reveal.getBoundingClientRect();
+        var pct  = Math.min(Math.max((x - rect.left) / rect.width * 100, 0), 100);
+        after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+        handle.style.left = pct + '%';
+        line.style.left   = pct + '%';
+      }
+
+      reveal.addEventListener('mousemove', function(e) {
+        setPosition(e.clientX);
+        reveal.classList.add('dragging');
+      });
+
+      reveal.addEventListener('mouseleave', function() {
+        reveal.classList.remove('dragging');
+      });
+
+      // Touch support
+      reveal.addEventListener('touchmove', function(e) {
+        setPosition(e.touches[0].clientX);
+        reveal.classList.add('dragging');
+      }, { passive: true });
+
+      reveal.addEventListener('touchend', function() {
+        reveal.classList.remove('dragging');
+      });
+    });
+  </script>
+</body>
+</html>

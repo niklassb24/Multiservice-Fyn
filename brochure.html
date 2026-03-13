@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Multiservice Fyn – Brochure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #08193d;
+      --blue:   #1546a0;
+      --orange: #e8500a;
+      --gold:   #f5be00;
+      --green:  #0d6b3a;
+      --white:  #ffffff;
+      --off:    #f7f5f1;
+      --dark:   #0c0f18;
+      --mid:    #3d4a5c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #5a5a5a;
+      padding: 36px 24px 80px;
+    }
+
+    /* ── labels (screen only) ── */
+    .lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #fff; background: #222;
+      display: inline-block; padding: 5px 14px; border-radius: 4px;
+      margin-bottom: 10px; margin-top: 32px;
+    }
+    .lbl:first-of-type { margin-top: 0; }
+    .hint { font-family:'Inter',sans-serif; font-size:11px; color:#ccc; margin-bottom:14px; }
+
+    /* ── A4 LANDSCAPE SPREAD ── */
+    .spread {
+      width: 297mm; height: 210mm;
+      display: flex; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      position: relative;
+    }
+    /* fold crease */
+    .spread::after {
+      content:'';
+      position:absolute; left:50%; top:0; bottom:0; width:1px;
+      background: rgba(0,0,0,.18); z-index:200;
+    }
+
+    .panel { width:148.5mm; height:210mm; flex-shrink:0; overflow:hidden; position:relative; }
+
+    /* ═══════════════════════════════════════
+       FORSIDE
+    ═══════════════════════════════════════ */
+    /* ── FORSIDE: sommer design ── */
+    .front {
+      background: linear-gradient(170deg, #56c0f5 0%, #2882e0 30%, #1050b8 62%, #08193d 100%);
+      display:flex; flex-direction:column; position:relative; overflow:hidden;
+    }
+
+    /* bølge øverst — lys skyet himmel-effekt */
+    .front::before {
+      content:'';
+      position:absolute; top:-80px; left:-30px; right:-30px;
+      height:200px; border-radius:0 0 60% 60%;
+      background: rgba(255,255,255,.08);
+      z-index:0;
+    }
+    /* bølge forneden — vandoverflade */
+    .front::after {
+      content:'';
+      position:absolute; bottom:60px; left:-20px; right:-20px;
+      height:90px; border-radius:50% 50% 0 0;
+      background: rgba(255,255,255,.06);
+      z-index:0;
+    }
+
+    /* hvide prikker = solskin/bobler */
+    .front-sun-ring {
+      position:absolute; inset:0;
+      background: radial-gradient(circle, rgba(255,255,255,.11) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+      z-index:0;
+    }
+
+    /* orange top-stripe */
+    .f-topstripe {
+      background:var(--orange);
+      height:7px; flex-shrink:0; z-index:1; position:relative;
+    }
+
+    /* logo-sektion — midten af forsiden */
+    .f-logo-section {
+      flex:1; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding:24px 22px 14px;
+      position:relative; z-index:1;
+    }
+
+    /* sæson-badge */
+    .f-season-badge {
+      background:rgba(245,190,0,.15);
+      border:1.5px solid var(--gold);
+      color:var(--gold);
+      font-size:8px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase;
+      padding:5px 14px; border-radius:20px;
+      margin-bottom:14px;
+    }
+
+    /* logo cirkel */
+    .f-logo-ring {
+      width:158px; height:158px;
+      border-radius:50%;
+      background: rgba(255,255,255,.12);
+      border:2px solid rgba(255,255,255,.28);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:16px;
+      box-shadow:
+        0 0 0 12px rgba(255,255,255,.05),
+        0 14px 40px rgba(0,0,0,.25);
+    }
+    .f-logo-ring img {
+      height:108px; object-fit:contain;
+      filter:brightness(0) invert(1);
+    }
+    .f-logo-ring-fb {
+      font-size:20px; font-weight:900; color:white;
+      text-align:center; line-height:1.2;
+    }
+    .f-logo-ring-fb span { color:var(--gold); }
+
+    /* headline */
+    .f-h1 {
+      font-size:26px; font-weight:900; line-height:1.05;
+      color:white; letter-spacing:-.5px;
+      text-align:center; margin-bottom:8px;
+    }
+    .f-h1 span { color:var(--gold); }
+    .f-sub {
+      font-size:10px; font-weight:500;
+      color:rgba(255,255,255,.7);
+      text-align:center; line-height:1.5;
+      max-width:200px; margin-bottom:18px;
+    }
+
+    /* service-pills i midten */
+    .f-svc-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:5px; width:100%; margin-bottom:0;
+    }
+    .f-svc-item {
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:8px; padding:6px 9px;
+      display:flex; align-items:center; gap:6px;
+    }
+    .f-svc-icon { font-size:14px; flex-shrink:0; }
+    .f-svc-name { font-size:9px; font-weight:700; color:white; line-height:1.2; }
+    .f-svc-item.wide {
+      grid-column: span 2;
+    }
+
+    /* bottom contact strip */
+    .f-bottom {
+      background: var(--navy);
+      padding: 11px 20px 13px;
+      flex-shrink:0; z-index:1; position:relative;
+    }
+    .f-contact {
+      display:flex; gap:8px; align-items:stretch;
+    }
+    .f-phone-box {
+      background: var(--orange);
+      border-radius:9px; padding:9px 14px;
+      flex:1;
+    }
+    .f-phone-num { font-size:15px; font-weight:900; color:white; line-height:1.1; }
+    .f-phone-sub { font-size:8px; font-weight:600; color:rgba(255,255,255,.8); margin-top:1px; }
+    .f-trust {
+      display:flex; flex-direction:column;
+      justify-content:center; gap:4px;
+    }
+    .f-trust-i {
+      display:flex; align-items:center; gap:5px;
+      font-size:8px; font-weight:600; color:rgba(255,255,255,.75);
+    }
+    .f-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+
+    /* ═══════════════════════════════════════
+       BAGSIDE
+    ═══════════════════════════════════════ */
+    .back { background:var(--off); display:flex; flex-direction:column; }
+
+    .b-header {
+      background: var(--navy);
+      padding: 15px 20px 13px;
+      flex-shrink:0; text-align:center; position:relative; overflow:hidden;
+    }
+    /* decorative circle */
+    .b-header::before {
+      content:'';
+      position:absolute; right:-30px; top:-30px;
+      width:100px; height:100px; border-radius:50%;
+      background:rgba(255,255,255,.05);
+    }
+    .b-header img { height:42px; object-fit:contain; filter:brightness(0) invert(1); position:relative; z-index:1; }
+    .b-header-fb { font-size:19px; font-weight:900; color:white; line-height:1.1; }
+    .b-header-fb span { color:var(--gold); }
+    .b-header-sub { font-size:9px; font-weight:500; color:rgba(255,255,255,.65); margin-top:3px; letter-spacing:.3px; position:relative; z-index:1; }
+
+    /* orange divider line */
+    .b-line { height:3px; background:var(--orange); flex-shrink:0; }
+
+    /* stats row */
+    .b-stats { display:flex; flex-shrink:0; }
+    .b-stat {
+      flex:1; text-align:center; padding:10px 6px;
+      border-right:1px solid #e2ddd6;
+      background:white;
+    }
+    .b-stat:last-child { border-right:none; }
+    .b-stat-num { font-size:20px; font-weight:900; color:var(--navy); line-height:1; }
+    .b-stat-lbl { font-size:8px; font-weight:600; color:var(--mid); margin-top:2px; }
+
+    /* reviews */
+    .b-reviews { padding:10px 14px 8px; flex-shrink:0; }
+    .b-rev-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--navy); margin-bottom:7px; }
+    .b-rev {
+      background:white;
+      border-radius:8px;
+      padding:8px 11px;
+      margin-bottom:6px;
+      border-left:3px solid var(--orange);
+      box-shadow:0 1px 6px rgba(0,0,0,.07);
+    }
+    .b-rev-stars { color:var(--gold); font-size:10px; line-height:1; margin-bottom:3px; }
+    .b-rev-text { font-size:9px; color:var(--mid); line-height:1.45; font-style:italic; }
+    .b-rev-name { font-size:8px; font-weight:800; color:var(--navy); margin-top:4px; }
+
+    /* contact */
+    .b-contact { padding:0 14px 8px; flex-shrink:0; }
+    .b-con-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--navy); margin-bottom:7px; }
+    .b-con-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .b-con-card {
+      background:white; border-radius:7px; border:1.5px solid #e2ddd6;
+      padding:7px 9px; display:flex; align-items:center; gap:7px;
+      box-shadow:0 1px 4px rgba(0,0,0,.05);
+    }
+    .b-icon {
+      width:26px; height:26px; border-radius:6px;
+      background:var(--navy);
+      display:flex; align-items:center; justify-content:center;
+      font-size:13px; flex-shrink:0;
+    }
+    .b-con-lbl { font-size:7.5px; font-weight:600; color:#9ca3af; text-transform:uppercase; letter-spacing:.3px; }
+    .b-con-val { font-size:9.5px; font-weight:800; color:var(--dark); margin-top:1px; }
+
+    /* areas */
+    .b-areas { padding:0 14px 8px; flex:1; }
+    .b-areas-title { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--navy); margin-bottom:6px; }
+    .b-chips { display:flex; flex-wrap:wrap; gap:4px; }
+    .b-chip { font-size:8.5px; font-weight:700; background:var(--navy); color:white; padding:3px 9px; border-radius:9px; }
+
+    /* footer */
+    .b-foot {
+      background:var(--orange); padding:8px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-shrink:0;
+    }
+    .b-foot-web { font-size:10px; font-weight:900; color:white; }
+    .b-foot-hours { font-size:9px; font-weight:600; color:rgba(255,255,255,.85); }
+
+
+    /* ═══════════════════════════════════════
+       YDELSER (inside left)
+    ═══════════════════════════════════════ */
+    .svc-panel { background:white; display:flex; flex-direction:column; }
+
+    .svc-top {
+      background:var(--navy); padding:14px 18px 13px;
+      flex-shrink:0; position:relative; overflow:hidden;
+    }
+    .svc-top::after {
+      content:'';
+      position:absolute; right:-20px; bottom:-28px;
+      width:90px; height:90px; border-radius:50%;
+      border:18px solid rgba(255,255,255,.06);
+    }
+    .svc-top-eye { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--gold); margin-bottom:3px; }
+    .svc-top-h   { font-size:23px; font-weight:900; color:white; line-height:1.05; }
+    .svc-top-h span { color:var(--gold); }
+    .svc-top-sub { font-size:9px; color:rgba(255,255,255,.65); margin-top:4px; font-weight:500; }
+
+    .svc-items { padding:10px 14px; flex:1; display:flex; flex-direction:column; gap:7px; }
+
+    .svc {
+      display:flex; border-radius:9px; overflow:hidden;
+      border:1.5px solid #e8e4de; background:var(--off);
+      box-shadow:0 1px 5px rgba(0,0,0,.06);
+    }
+    .svc-bar { width:5px; flex-shrink:0; }
+    .svc-thumb { width:54px; flex-shrink:0; overflow:hidden; }
+    .svc-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .svc-thumb-ph {
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center; font-size:20px;
+    }
+    .svc-info { padding:7px 10px; flex:1; display:flex; flex-direction:column; justify-content:center; }
+    .svc-name { font-size:12px; font-weight:800; color:var(--dark); line-height:1.2; }
+    .svc-desc { font-size:9px; color:var(--mid); margin-top:2px; line-height:1.4; }
+    .svc-badge {
+      display:inline-block; font-size:8px; font-weight:800;
+      padding:2px 8px; border-radius:8px; margin-top:4px;
+    }
+
+    .svc-cta {
+      margin:0 14px 12px;
+      background:var(--orange); border-radius:9px;
+      padding:10px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-shrink:0;
+      box-shadow:0 3px 12px rgba(232,80,10,.35);
+    }
+    .svc-cta-left {}
+    .svc-cta-main { font-size:12px; font-weight:900; color:white; }
+    .svc-cta-sub  { font-size:9px; font-weight:500; color:rgba(255,255,255,.8); margin-top:1px; }
+    .svc-cta-num  { font-size:17px; font-weight:900; color:white; text-align:right; line-height:1; }
+    .svc-cta-num small { display:block; font-size:8px; font-weight:500; color:rgba(255,255,255,.7); margin-top:1px; }
+
+
+    /* ═══════════════════════════════════════
+       PRISER (inside right)
+    ═══════════════════════════════════════ */
+    .price-panel { background:var(--off); display:flex; flex-direction:column; border-left:2px solid #ddd8d0; }
+
+    .p-top {
+      background:var(--orange); padding:14px 18px 13px;
+      flex-shrink:0; position:relative; overflow:hidden;
+    }
+    .p-top::before {
+      content:''; position:absolute; left:-20px; bottom:-30px;
+      width:90px; height:90px; border-radius:50%;
+      border:16px solid rgba(255,255,255,.08);
+    }
+    .p-top-eye { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,.7); margin-bottom:3px; }
+    .p-top-h   { font-size:23px; font-weight:900; color:white; line-height:1.05; }
+    .p-top-sub { font-size:9px; color:rgba(255,255,255,.75); margin-top:4px; font-weight:500; }
+
+    /* offer banner */
+    .p-offer {
+      background:var(--gold); padding:8px 14px;
+      display:flex; align-items:center; gap:9px;
+      flex-shrink:0;
+    }
+    .p-offer-badge {
+      background:var(--navy); color:var(--gold);
+      font-size:13px; font-weight:900;
+      width:38px; height:38px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .p-offer-txt { font-size:10.5px; font-weight:800; color:var(--navy); line-height:1.3; }
+    .p-offer-txt small { font-size:8.5px; font-weight:500; color:#374151; display:block; }
+
+    /* packages */
+    .p-section-lbl {
+      font-size:8.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px;
+      color:var(--navy); padding:9px 14px 4px; flex-shrink:0;
+    }
+    .p-pkgs { padding:0 14px; display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
+
+    .pkg {
+      background:white; border-radius:9px;
+      border:2px solid #e2ddd6; overflow:hidden; display:flex;
+      box-shadow:0 1px 5px rgba(0,0,0,.06);
+    }
+    .pkg.star {
+      border-color:var(--navy);
+      box-shadow:0 3px 14px rgba(8,25,61,.18);
+    }
+    .pkg-bar  { width:5px; flex-shrink:0; }
+    .pkg-body { padding:8px 10px; flex:1; display:flex; align-items:center; gap:8px; }
+    .pkg-ico  { font-size:19px; flex-shrink:0; }
+    .pkg-info { flex:1; }
+    .pkg-lbl  { font-size:7.5px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; margin-bottom:1px; }
+    .pkg-name { font-size:12px; font-weight:900; color:var(--dark); }
+    .pkg-inc  { font-size:8.5px; color:var(--mid); margin-top:2px; line-height:1.35; }
+    .pkg-p    { text-align:right; flex-shrink:0; padding-right:4px; }
+    .pkg-num  { font-size:22px; font-weight:900; line-height:1; }
+    .pkg-unit { font-size:8px; font-weight:600; color:#9ca3af; }
+
+    /* other services */
+    .p-other-lbl { font-size:8.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--navy); padding:8px 14px 5px; flex-shrink:0; }
+    .p-other-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; padding:0 14px 8px; flex-shrink:0; }
+    .p-og {
+      background:white; border-radius:7px; border:1.5px solid #e2ddd6;
+      padding:6px 8px; display:flex; align-items:center; gap:6px;
+      box-shadow:0 1px 4px rgba(0,0,0,.05);
+    }
+    .p-og-i { font-size:14px; }
+    .p-og-n { font-size:10px; font-weight:700; color:var(--dark); }
+    .p-og-p { font-size:8px; font-weight:500; color:var(--mid); }
+
+    /* guarantees */
+    .p-guar { padding:0 14px 8px; display:flex; flex-direction:column; gap:5px; flex-shrink:0; }
+    .p-g {
+      display:flex; align-items:center; gap:7px;
+      background:white; border-radius:7px; border:1.5px solid #e2ddd6;
+      padding:6px 9px; box-shadow:0 1px 4px rgba(0,0,0,.05);
+    }
+    .p-g-i { font-size:15px; }
+    .p-g-t { font-size:9.5px; font-weight:700; color:var(--dark); }
+    .p-g-t small { font-size:8.5px; font-weight:400; color:var(--mid); display:block; margin-top:1px; }
+
+    /* cta */
+    .p-cta {
+      margin: 0 14px 12px;
+      background:var(--navy); border-radius:9px;
+      padding:10px 14px; text-align:center;
+      flex-shrink:0; margin-top:auto;
+      box-shadow:0 3px 12px rgba(8,25,61,.3);
+    }
+    .p-cta-num { font-size:19px; font-weight:900; color:var(--gold); line-height:1; }
+    .p-cta-sub { font-size:9px; font-weight:600; color:rgba(255,255,255,.7); margin-top:3px; }
+
+
+    /* ═══════════════════════════════════════
+       PRINT
+    ═══════════════════════════════════════ */
+    @media print {
+      body { background:white; padding:0; margin:0; }
+      .lbl,.hint,.print-btn { display:none !important; }
+      .spread {
+        box-shadow:none;
+        page-break-after:always; break-after:page;
+        width:297mm; height:210mm;
+      }
+      .spread:last-of-type { page-break-after:avoid; }
+      .spread::after { display:none; }
+      @page { size:A4 landscape; margin:0; }
+    }
+
+    /* print button */
+    .print-btn {
+      position:fixed; bottom:24px; right:24px;
+      background:var(--orange); color:white; border:none;
+      padding:13px 26px; border-radius:30px;
+      font-family:'Inter',sans-serif; font-size:13px; font-weight:800;
+      cursor:pointer; z-index:999;
+      box-shadow:0 6px 24px rgba(232,80,10,.45);
+      letter-spacing:.3px;
+    }
+    .print-btn:hover { background:#c2400a; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SIDE 1 — UDVENDIG
+     Venstre panel = BAGSIDE  |  Højre panel = FORSIDE
+══════════════════════════════════════════ -->
+<div class="lbl">Side 1 — Udvendig &nbsp;·&nbsp; Venstre: Bagside &nbsp;|&nbsp; Højre: Forside</div>
+<div class="hint">Print denne side. Vend arket. Print Side 2 bagpå. Fold på midten.</div>
+
+<div class="spread">
+
+  <!-- ══ BAGSIDE ══ -->
+  <div class="panel back">
+
+    <div class="b-header">
+      <img src="logo.png" alt="Multiservice Fyn"
+           onerror="this.style.display='none';document.getElementById('bfb').style.display='block'">
+      <div id="bfb" class="b-header-fb" style="display:none">Multiservice <span>Fyn</span></div>
+      <div class="b-header-sub">Professionel udvendig rengøring på Fyn</div>
+    </div>
+
+    <div class="b-line"></div>
+
+    <!-- stats -->
+    <div class="b-stats">
+      <div class="b-stat">
+        <div class="b-stat-num" style="color:var(--orange)">150+</div>
+        <div class="b-stat-lbl">Tilfredse kunder</div>
+      </div>
+      <div class="b-stat">
+        <div class="b-stat-num" style="color:var(--navy)">1t</div>
+        <div class="b-stat-lbl">Svar på tilbud</div>
+      </div>
+      <div class="b-stat">
+        <div class="b-stat-num" style="color:var(--gold)">5★</div>
+        <div class="b-stat-lbl">Kundescore</div>
+      </div>
+    </div>
+
+    <div class="b-reviews">
+      <div class="b-rev-title">⭐ Hvad kunderne siger</div>
+
+      <div class="b-rev">
+        <div class="b-rev-stars">★★★★★</div>
+        <div class="b-rev-text">"Min terrasse ser fuldstændig ny ud. Imponerende arbejde — hurtig, effektiv og til en super fair pris."</div>
+        <div class="b-rev-name">— Mette H., Odense</div>
+      </div>
+
+      <div class="b-rev">
+        <div class="b-rev-stars">★★★★★</div>
+        <div class="b-rev-text">"Indkørslen var sort af alger. Nu er den som ny. Jeg troede aldrig det var muligt. Bestiller igen til foråret!"</div>
+        <div class="b-rev-name">— Thomas B., Svendborg</div>
+      </div>
+
+      <div class="b-rev">
+        <div class="b-rev-stars">★★★★★</div>
+        <div class="b-rev-text">"Super service og lynhurtig kommunikation. Facaden er ren og frisk igen. Kan kun anbefales til alle på Fyn!"</div>
+        <div class="b-rev-name">— Lene K., Nyborg</div>
+      </div>
+    </div>
+
+    <div class="b-contact">
+      <div class="b-con-title">Kontakt os</div>
+      <div class="b-con-grid">
+        <div class="b-con-card">
+          <div class="b-icon">📱</div>
+          <div><div class="b-con-lbl">Mobil — Niklas</div><div class="b-con-val">57 20 91 41</div></div>
+        </div>
+        <div class="b-con-card">
+          <div class="b-icon">📱</div>
+          <div><div class="b-con-lbl">Mobil — Daniel</div><div class="b-con-val">57 20 23 51</div></div>
+        </div>
+        <div class="b-con-card">
+          <div class="b-icon">✉️</div>
+          <div><div class="b-con-lbl">Email</div><div class="b-con-val" style="font-size:8.5px">Kontakt@Multiservice.dk</div></div>
+        </div>
+        <div class="b-con-card">
+          <div class="b-icon">🌐</div>
+          <div><div class="b-con-lbl">Web</div><div class="b-con-val" style="font-size:8.5px">multiservice-fyn.dk</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-areas">
+      <div class="b-areas-title">Vi dækker hele Fyn</div>
+      <div class="b-chips">
+        <span class="b-chip">Odense</span>
+        <span class="b-chip">Svendborg</span>
+        <span class="b-chip">Nyborg</span>
+        <span class="b-chip">Middelfart</span>
+        <span class="b-chip">Assens</span>
+        <span class="b-chip">Kerteminde</span>
+        <span class="b-chip">Bogense</span>
+        <span class="b-chip">Faaborg</span>
+        <span class="b-chip">+ omegn</span>
+      </div>
+    </div>
+
+    <div class="b-foot">
+      <div class="b-foot-web">www.multiservice-fyn.dk</div>
+      <div class="b-foot-hours">Man–Fre &nbsp;07:00 – 18:00</div>
+    </div>
+
+  </div><!-- /back -->
+
+
+  <!-- ══ FORSIDE ══ -->
+  <div class="panel front">
+
+    <div class="front-sun-ring"></div>
+    <div class="f-topstripe"></div>
+
+    <div class="f-logo-section">
+
+      <div class="f-season-badge">⭐ Forårstilbud 2025 — Spar 10%</div>
+
+      <div class="f-logo-ring">
+        <img src="logo.png" alt="Multiservice Fyn"
+             onerror="this.style.display='none';document.getElementById('ffb').style.display='block'">
+        <div id="ffb" class="f-logo-ring-fb" style="display:none">Multiservice<br><span>Fyn</span></div>
+      </div>
+
+      <div class="f-h1">Giv din ejendom<br>et <span>nyt liv</span></div>
+      <div class="f-sub">Professionel udvendig rengøring<br>på Fyn — svar inden 1 time</div>
+
+      <div class="f-svc-grid">
+        <div class="f-svc-item">
+          <div class="f-svc-icon">🧱</div>
+          <div class="f-svc-name">Fliserens</div>
+        </div>
+        <div class="f-svc-item">
+          <div class="f-svc-icon">🌿</div>
+          <div class="f-svc-name">Terrasserens</div>
+        </div>
+        <div class="f-svc-item">
+          <div class="f-svc-icon">🏠</div>
+          <div class="f-svc-name">Facaderens</div>
+        </div>
+        <div class="f-svc-item">
+          <div class="f-svc-icon">🪟</div>
+          <div class="f-svc-name">Vinduespudsning</div>
+        </div>
+        <div class="f-svc-item wide">
+          <div class="f-svc-icon">🌱</div>
+          <div class="f-svc-name">Havearbejde & meget mere</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="f-bottom">
+      <div class="f-contact">
+        <div class="f-phone-box">
+          <div class="f-phone-num">+45 57 20 91 41</div>
+          <div class="f-phone-sub">Gratis tilbud — svar inden 1 time</div>
+        </div>
+        <div class="f-trust">
+          <div class="f-trust-i"><span class="f-dot"></span>150+ tilfredse kunder</div>
+          <div class="f-trust-i"><span class="f-dot"></span>5-stjernet service</div>
+          <div class="f-trust-i"><span class="f-dot"></span>Fuldt forsikret</div>
+          <div class="f-trust-i"><span class="f-dot"></span>Tilfredshedsgaranti</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /front -->
+
+</div><!-- /spread 1 -->
+
+
+
+<!-- ══════════════════════════════════════════
+     SIDE 2 — INDVENDIG
+     Venstre panel = YDELSER  |  Højre panel = PRISER
+══════════════════════════════════════════ -->
+<div class="lbl" style="margin-top:36px;">Side 2 — Indvendig &nbsp;·&nbsp; Venstre: Ydelser &nbsp;|&nbsp; Højre: Priser</div>
+<div class="hint">Print denne side bagpå Side 1.</div>
+
+<div class="spread">
+
+  <!-- ══ YDELSER ══ -->
+  <div class="panel svc-panel">
+
+    <div class="svc-top">
+      <div class="svc-top-eye">Alt vi tilbyder</div>
+      <div class="svc-top-h">Vores <span>ydelser</span></div>
+      <div class="svc-top-sub">Professionelt udstyr · Miljøgodkendte midler · Garanti</div>
+    </div>
+
+    <div class="svc-items">
+
+      <div class="svc">
+        <div class="svc-bar" style="background:#1546a0"></div>
+        <div class="svc-thumb">
+          <img src="images/FliserensBillede.jpg" alt=""
+               onerror="this.parentElement.innerHTML='<div class=\'svc-thumb-ph\'>🧱</div>'">
+        </div>
+        <div class="svc-info">
+          <div class="svc-name">Fliserens</div>
+          <div class="svc-desc">Højtryksrens af indkørsler, gangstier og belægning. Fjerner alger, mos og årelangt snavs effektivt.</div>
+          <span class="svc-badge" style="background:#dbeafe;color:#1546a0">Fra 35 kr./m²</span>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bar" style="background:#0d6b3a"></div>
+        <div class="svc-thumb">
+          <img src="images/BilledeTerrasserens.jpg" alt=""
+               onerror="this.parentElement.innerHTML='<div class=\'svc-thumb-ph\'>🌿</div>'">
+        </div>
+        <div class="svc-info">
+          <div class="svc-name">Terrasserens</div>
+          <div class="svc-desc">Grundig rengøring af terrasser og altaner. Klar til sæsonen på ingen tid.</div>
+          <span class="svc-badge" style="background:#dcfce7;color:#0d6b3a">Gratis tilbud</span>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bar" style="background:#e8500a"></div>
+        <div class="svc-thumb">
+          <img src="images/facaderensbillede.jpg" alt=""
+               onerror="this.parentElement.innerHTML='<div class=\'svc-thumb-ph\'>🏠</div>'">
+        </div>
+        <div class="svc-info">
+          <div class="svc-name">Facaderens</div>
+          <div class="svc-desc">Blød- og højtryksrens. Fjerner vejrskader, alger og misfarvninger fra din facade.</div>
+          <span class="svc-badge" style="background:#fff7ed;color:#e8500a">Gratis tilbud</span>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bar" style="background:#0284c7"></div>
+        <div class="svc-thumb">
+          <img src="images/VinduespudsBillede.PNG" alt=""
+               onerror="this.parentElement.innerHTML='<div class=\'svc-thumb-ph\'>🪟</div>'">
+        </div>
+        <div class="svc-info">
+          <div class="svc-name">Vinduespudsning</div>
+          <div class="svc-desc">Professionel pudsning uden striber — indvendig og udvendig.</div>
+          <span class="svc-badge" style="background:#e0f2fe;color:#0284c7">Gratis tilbud</span>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc-bar" style="background:#7c3aed"></div>
+        <div class="svc-thumb">
+          <img src="images/havearbejdeBillede.PNG" alt=""
+               onerror="this.parentElement.innerHTML='<div class=\'svc-thumb-ph\'>🌱</div>'">
+        </div>
+        <div class="svc-info">
+          <div class="svc-name">Havearbejde</div>
+          <div class="svc-desc">Klipning, rydning, kantskæring og løbende vedligehold af din have.</div>
+          <span class="svc-badge" style="background:#ede9fe;color:#7c3aed">Gratis tilbud</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="svc-cta">
+      <div class="svc-cta-left">
+        <div class="svc-cta-main">Ring for gratis tilbud nu</div>
+        <div class="svc-cta-sub">Vi svarer inden for 1 time på hverdage</div>
+      </div>
+      <div class="svc-cta-num">
+        57 20 91 41
+        <small>+45 prefix</small>
+      </div>
+    </div>
+
+  </div><!-- /services -->
+
+
+  <!-- ══ PRISER ══ -->
+  <div class="panel price-panel">
+
+    <div class="p-top">
+      <div class="p-top-eye">Ingen skjulte omkostninger</div>
+      <div class="p-top-h">Priser</div>
+      <div class="p-top-sub">Inkl. transport på Fyn · Ingen opstartsgebyr · Prismatch garanti</div>
+    </div>
+
+    <div class="p-offer">
+      <div class="p-offer-badge">10%</div>
+      <div class="p-offer-txt">
+        Forårstilbud — spar 10% nu
+        <small>Bestil inden 1. april · Alle pakker · Begrænset antal pladser</small>
+      </div>
+    </div>
+
+    <div class="p-section-lbl">Fliserens — vælg din pakke (pris pr. m²)</div>
+
+    <div class="p-pkgs">
+
+      <div class="pkg">
+        <div class="pkg-bar" style="background:#93c5fd"></div>
+        <div class="pkg-body">
+          <div class="pkg-ico">💧</div>
+          <div class="pkg-info">
+            <div class="pkg-lbl" style="color:#1546a0">Basis pakke</div>
+            <div class="pkg-name">Basis</div>
+            <div class="pkg-inc">Fliserens · Algebehandling</div>
+          </div>
+          <div class="pkg-p">
+            <div class="pkg-num" style="color:#1546a0">35 kr.</div>
+            <div class="pkg-unit">pr. m²</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pkg star">
+        <div class="pkg-bar" style="background:var(--navy)"></div>
+        <div class="pkg-body">
+          <div class="pkg-ico">🛡️</div>
+          <div class="pkg-info">
+            <div class="pkg-lbl" style="color:var(--navy)">⭐ Mest valgt</div>
+            <div class="pkg-name">Standard</div>
+            <div class="pkg-inc">+ Fugesand · Fejning af sand</div>
+          </div>
+          <div class="pkg-p">
+            <div class="pkg-num" style="color:var(--navy)">50 kr.</div>
+            <div class="pkg-unit">pr. m²</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-bar" style="background:#a78bfa"></div>
+        <div class="pkg-body">
+          <div class="pkg-ico">✨</div>
+          <div class="pkg-info">
+            <div class="pkg-lbl" style="color:#7c3aed">Premium pakke</div>
+            <div class="pkg-name">Premium</div>
+            <div class="pkg-inc">+ Imprægnering · Fugesand</div>
+          </div>
+          <div class="pkg-p">
+            <div class="pkg-num" style="color:#7c3aed">60 kr.</div>
+            <div class="pkg-unit">pr. m²</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="p-other-lbl">Øvrige ydelser — gratis uforpligtende tilbud</div>
+    <div class="p-other-grid">
+      <div class="p-og"><div class="p-og-i">🌿</div><div><div class="p-og-n">Terrasserens</div><div class="p-og-p">Pris efter areal</div></div></div>
+      <div class="p-og"><div class="p-og-i">🏠</div><div><div class="p-og-n">Facaderens</div><div class="p-og-p">Pris efter areal</div></div></div>
+      <div class="p-og"><div class="p-og-i">🪟</div><div><div class="p-og-n">Vinduespudsning</div><div class="p-og-p">Pris efter antal</div></div></div>
+      <div class="p-og"><div class="p-og-i">🌱</div><div><div class="p-og-n">Havearbejde</div><div class="p-og-p">Pris efter opgave</div></div></div>
+    </div>
+
+    <div class="p-guar">
+      <div class="p-g">
+        <div class="p-g-i">✅</div>
+        <div class="p-g-t">Tilfredshedsgaranti <small>Ikke tilfreds? Vi kommer tilbage — gratis</small></div>
+      </div>
+      <div class="p-g">
+        <div class="p-g-i">🎁</div>
+        <div class="p-g-t">Gratis prøverensning 1 m² <small>Se resultatet inden vi starter</small></div>
+      </div>
+      <div class="p-g">
+        <div class="p-g-i">🔒</div>
+        <div class="p-g-t">Prismatch garanti <small>Find det billigere — vi matcher</small></div>
+      </div>
+      <div class="p-g">
+        <div class="p-g-i">🛡️</div>
+        <div class="p-g-t">Fuldt forsikret <small>Fuld erhvervs- og ansvarsforsikring</small></div>
+      </div>
+    </div>
+
+    <div class="p-cta">
+      <div class="p-cta-num">+45 57 20 91 41</div>
+      <div class="p-cta-sub">Gratis & uforpligtende tilbud · Svar inden 1 time</div>
+    </div>
+
+  </div><!-- /prices -->
+
+</div><!-- /spread 2 -->
+
+<button class="print-btn" onclick="window.print()">🖨️ Print — A4 Landskab</button>
+
+</body>
+</html>
