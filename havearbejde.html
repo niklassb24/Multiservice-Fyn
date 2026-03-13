@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Havearbejde på Fyn | Professionel Haveservice | Multiservice Fyn</title>
+  <meta name="description" content="Professionelt havearbejde på Fyn. Græsklipning, hækkeklipning, ukrudtsbekæmpelse og meget mere. Gratis tilbud inden for 1 time. Ring +45 57 20 91 41." />
+  <meta name="keywords" content="havearbejde fyn, haveservice fyn, græsklipning fyn, hækkeklipning fyn, haveservice odense, havehjælp fyn" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.multiservice-fyn.dk/havearbejde.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Havearbejde på Fyn | Multiservice Fyn" />
+  <meta property="og:description" content="Professionelt havearbejde – vi holder din have i top hele året rundt. Gratis tilbud på 1 time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="da_DK" />
+
+  <!-- Schema.org Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Havearbejde",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Multiservice Fyn",
+      "telephone": "+4557209141",
+      "email": "Kontakt@Multiservice.dk",
+      "areaServed": "Fyn"
+    },
+    "description": "Professionelt havearbejde til private og erhverv. Vi holder din have i top hele året rundt på hele Fyn.",
+    "areaServed": "Fyn"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #4a7fa8;
+      --navy-dark: #2e5f84;
+      --blue: #6a9fc0;
+      --blue-mid: #5588b0;
+      --blue-light: #daeaf6;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --yellow: #f59e0b;
+      --red: #dc2626;
+      --gray-50: #f2f0ec;
+      --gray-100: #e8e5df;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+      --shadow-premium: 0 2px 4px rgba(0,0,0,0.04), 0 8px 20px rgba(0,0,0,0.08), 0 24px 48px rgba(0,0,0,0.06);
+      --section-bg-alt: #eef4f9;
+      --font-display: 'Oswald', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --section-pad: 96px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.65; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 30px; border-radius: 100px; font-weight: 700; font-size: 1rem;
+      cursor: pointer; border: none; transition: transform 0.22s cubic-bezier(.22,.68,0,1.2), box-shadow 0.22s, filter 0.22s;
+      white-space: nowrap; text-decoration: none; position: relative; overflow: hidden;
+      font-family: var(--font-body); letter-spacing: 0.01em;
+    }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%);
+      opacity: 0; transition: opacity 0.22s; pointer-events: none;
+      border-radius: inherit;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+    .btn:hover::after { opacity: 1; }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { background: var(--blue); color: white; }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(74,158,255,0.35); }
+    .btn-white { background: white; color: var(--navy); }
+    .btn-white:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.16); }
+    .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.7); }
+    .btn-outline:hover { border-color: white; box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    .btn-green { background: var(--green); color: white; }
+    .btn-green:hover { box-shadow: 0 8px 28px rgba(5,150,105,0.35); }
+    .btn-lg { padding: 18px 38px; font-size: 1.05rem; }
+    .btn-sm { padding: 10px 22px; font-size: 0.88rem; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, opacity 0.4s ease, background 0.35s ease, box-shadow 0.35s ease;
+    }
+    header.hide { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    header.solid { background: rgba(0, 0, 0, 0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+    .header-top {
+      background: linear-gradient(90deg, #3d6f95 0%, #6a9fc0 50%, #3d6f95 100%);
+      text-align: center; padding: 5px 16px;
+      font-size: 0.72rem; font-weight: 600; color: white;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .header-top a { color: white; font-weight: 700; }
+    .header-main {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; max-width: 1200px; margin: 0 auto; height: 89px;
+    }
+    .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: white; }
+    nav a.active { color: white; font-weight: 700; }
+
+    /* ─── DROPDOWN ─── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
+    .dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15);
+      border-top: none; border-radius: 0 0 14px 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      padding: 8px 8px 12px; min-width: 200px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s; padding-top: 16px;
+    }
+    .dropdown-menu::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 16px; }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600;
+      padding: 10px 14px; border-radius: 8px; transition: background 0.15s;
+    }
+    .dropdown-menu a:hover { background: rgba(255,255,255,0.15); color: white !important; }
+    .dropdown-menu a.active { background: rgba(255,255,255,0.2); color: white !important; }
+    .dropdown-menu .d-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+    .header-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .header-contact a { color: white; font-size: 0.82rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .header-contact a:hover { color: var(--yellow); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: white; display: block; transition: 0.3s; border-radius: 2px; }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: #2e5f84; padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: white; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+
+    .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mob-drop-btn {
+      background: none; border: none; color: white;
+      width: 100%; text-align: left; padding: 12px 0;
+      font-size: 1rem; font-weight: 500; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-body);
+    }
+    .mob-arrow { font-size: 0.85rem; opacity: 0.7; transition: transform 0.25s ease; display: inline-block; }
+    .mob-drop.open .mob-arrow { transform: rotate(180deg); }
+    .mob-drop-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .mob-drop.open .mob-drop-menu { max-height: 300px; }
+    .mob-drop-menu-inner { background: rgba(255,255,255,0.06); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .mob-drop-menu a {
+      display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,0.88) !important;
+      padding: 11px 16px; font-size: 0.93rem; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }
+    .mob-drop-menu a:last-child { border-bottom: none; }
+    .mob-drop-menu a:hover { background: rgba(255,255,255,0.12); color: white !important; }
+    .mob-drop-menu .mob-icon { font-size: 1.1rem; width: 22px; text-align: center; }
+
+    /* ─── FLOATING CALL (mobile) ─── */
+    .floating-call {
+      display: none; position: fixed; bottom: 20px; right: 20px; z-index: 900;
+      background: var(--green); color: white; border-radius: 100px;
+      padding: 14px 22px; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 6px 24px rgba(5,150,105,0.45); align-items: center; gap: 8px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      background: linear-gradient(135deg, #1e4d2b 0%, #2d7a3e 50%, #4a9e5c 100%);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.2;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(30,77,43,0.92) 0%, rgba(45,122,62,0.82) 60%, rgba(74,158,92,0.7) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+      padding-top: 140px; padding-bottom: 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px; padding: 6px 16px; font-size: 0.82rem; font-weight: 600;
+      color: rgba(255,255,255,0.9); margin-bottom: 20px; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700; color: white; line-height: 1.1; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    .hero h1 span { color: #a8e6b8; }
+    .hero-sub {
+      font-size: 1.15rem; color: rgba(255,255,255,0.85); margin-bottom: 36px;
+      max-width: 500px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8); font-size: 0.88rem; font-weight: 500; }
+    .hero-trust-item svg { flex-shrink: 0; }
+    .hero-card {
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-lg);
+      padding: 32px; color: white;
+    }
+    .hero-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .hero-card-list { display: flex; flex-direction: column; gap: 14px; }
+    .hero-card-item { display: flex; align-items: flex-start; gap: 12px; }
+    .hero-card-item .icon { width: 36px; height: 36px; background: rgba(168,230,184,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .hero-card-item .text strong { display: block; font-weight: 600; font-size: 0.95rem; }
+    .hero-card-item .text span { font-size: 0.82rem; opacity: 0.75; }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 500; z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--blue); background: var(--blue-light);
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; color: var(--gray-900); text-transform: uppercase;
+      letter-spacing: 0.01em; line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--gray-600); max-width: 580px; line-height: 1.7; }
+    .section-header-centered { text-align: center; }
+    .section-header-centered .section-sub { margin: 0 auto; }
+
+    /* ─── WHY SECTION ─── */
+    .why-section { padding: var(--section-pad) 0; background: white; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 56px; }
+    .why-visual {
+      position: relative; border-radius: var(--radius-lg); overflow: hidden;
+      aspect-ratio: 4/3; background: linear-gradient(135deg, #1e4d2b, #4a9e5c);
+    }
+    .why-visual-inner {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 7rem; opacity: 0.4;
+    }
+    .why-badge-float {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      background: white; border-radius: var(--radius); padding: 16px 20px;
+      box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 16px;
+    }
+    .why-badge-icon { width: 48px; height: 48px; background: var(--green-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .why-badge-text strong { display: block; font-weight: 700; color: var(--gray-900); }
+    .why-badge-text span { font-size: 0.82rem; color: var(--gray-600); }
+    .why-list { display: flex; flex-direction: column; gap: 24px; }
+    .why-item { display: flex; gap: 16px; }
+    .why-item-icon { width: 48px; height: 48px; background: var(--green-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .why-item h4 { font-weight: 700; color: var(--gray-900); margin-bottom: 4px; font-size: 1rem; }
+    .why-item p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ─── SERVICES / FEATURES ─── */
+    .features-section { padding: var(--section-pad) 0; background: var(--section-bg-alt); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .feature-card {
+      background: white; border-radius: var(--radius-lg); padding: 32px;
+      box-shadow: var(--shadow); border: 1px solid var(--gray-200);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .feature-icon { width: 56px; height: 56px; background: var(--green-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
+    .feature-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--gray-900); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.02em; }
+    .feature-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ─── PROCESS ─── */
+    .process-section { padding: var(--section-pad) 0; background: white; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 56px; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 2px;
+      background: linear-gradient(90deg, #d1fae5, var(--green), #d1fae5);
+    }
+    .process-step { text-align: center; position: relative; }
+    .step-num {
+      width: 72px; height: 72px; background: #2d7a3e; color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+      border: 4px solid white; box-shadow: 0 4px 16px rgba(45,122,62,0.25);
+    }
+    .process-step h4 { font-weight: 700; color: var(--gray-900); margin-bottom: 8px; font-size: 0.95rem; }
+    .process-step p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section { padding: var(--section-pad) 0; background: white; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .testimonial-card {
+      background: var(--gray-50); border-radius: var(--radius-lg); padding: 28px;
+      border: 1px solid var(--gray-100);
+    }
+    .stars { color: var(--yellow); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .testimonial-card blockquote { font-size: 0.93rem; color: var(--gray-600); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .testimonial-author { font-weight: 700; color: var(--gray-900); font-size: 0.88rem; }
+    .testimonial-place { font-size: 0.8rem; color: var(--gray-400); }
+
+    /* ─── FAQ ─── */
+    .faq-section { padding: var(--section-pad) 0; background: var(--section-bg-alt); }
+    .faq-list { max-width: 800px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: white; border-radius: var(--radius); border: 1px solid var(--gray-200); overflow: hidden; }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; cursor: pointer; font-weight: 600; font-size: 0.97rem; color: var(--gray-900);
+      transition: background 0.18s;
+    }
+    .faq-q:hover { background: var(--gray-50); }
+    .faq-q .arrow { font-size: 0.8rem; color: var(--gray-400); transition: transform 0.22s; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 24px 20px; font-size: 0.9rem; color: var(--gray-600); line-height: 1.75; border-top: 1px solid var(--gray-100); padding-top: 16px; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #1e4d2b 0%, #2d7a3e 50%, #4a9e5c 100%);
+      text-align: center;
+    }
+    .cta-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: white; text-transform: uppercase; margin-bottom: 16px; }
+    .cta-band p { font-size: 1.05rem; color: rgba(255,255,255,0.8); margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-trust { margin-top: 28px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .cta-trust-item { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--gray-900); color: rgba(255,255,255,0.75); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+    .footer-brand .footer-logo { height: 60px; filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-col h4 { color: white; font-weight: 700; font-size: 0.9rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.8rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-pad: 64px; }
+      nav, .header-contact { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { grid-template-columns: 1fr; gap: 36px; padding-top: 120px; }
+      .hero-card { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .floating-call { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header id="siteHeader">
+  <div class="header-top">
+    ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a>
+  </div>
+  <div class="header-main">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Multiservice Fyn logo" />
+    </a>
+    <nav>
+      <a href="index.html">Forside</a>
+      <div class="nav-dropdown">
+        <a href="index.html#services" class="active">Ydelser</a>
+        <div class="dropdown-menu">
+          <a href="fliserens.html"><span class="d-icon">🧱</span> Flise-rens</a>
+          <a href="terrasserens.html"><span class="d-icon">🌿</span> Terrasse-rens</a>
+          <a href="Facaderens.html"><span class="d-icon">🏠</span> Facade-rens</a>
+          <a href="vinduespuds.html"><span class="d-icon">🪟</span> Vinduespudsning</a>
+          <a href="havearbejde.html" class="active"><span class="d-icon">🌱</span> Havearbejde</a>
+        </div>
+      </div>
+      <a href="index.html#om-os">Om os</a>
+      <a href="index.html#anmeldelser">Anmeldelser</a>
+      <a href="index.html#omraader">Områder</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-contact">
+      <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
+      <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
+      <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" onclick="toggleMenu()">Forside</a>
+    <div class="mob-drop" id="mobServDrop">
+      <button class="mob-drop-btn" onclick="toggleMobDrop()">
+        Ydelser <span class="mob-arrow">▾</span>
+      </button>
+      <div class="mob-drop-menu">
+        <div class="mob-drop-menu-inner">
+          <a href="fliserens.html" onclick="toggleMenu()"><span class="mob-icon">🧱</span> Fliserens</a>
+          <a href="terrasserens.html" onclick="toggleMenu()"><span class="mob-icon">🌿</span> Terrasserens</a>
+          <a href="Facaderens.html" onclick="toggleMenu()"><span class="mob-icon">🏠</span> Facaderens</a>
+          <a href="vinduespuds.html" onclick="toggleMenu()"><span class="mob-icon">🪟</span> Vinduespudsning</a>
+          <a href="havearbejde.html" onclick="toggleMenu()" style="color:white!important;font-weight:700;"><span class="mob-icon">🌱</span> Havearbejde</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#om-os" onclick="toggleMenu()">Om os</a>
+    <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
+    <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+    <div class="mobile-cta">
+      <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
+      <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
+    </div>
+  </div>
+</header>
+
+<!-- ─── FLOATING CALL ─── -->
+<a href="tel:+4557209141" class="floating-call">📞 Ring nu</a>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">🌱 Professionelt havearbejde på Fyn</div>
+      <h1>En Have<br /><span>Du Er Stolt Af</span><br />– Hele Året</h1>
+      <p class="hero-sub">
+        Vi klarer græsslåning, hækkeklipning og bladsugning – så du kan nyde haven i stedet for at arbejde i den.
+      </p>
+      <div class="hero-btns">
+        <a href="tel:+4557209141" class="btn btn-white btn-lg">📞 Få gratis tilbud</a>
+        <a href="#ydelser" class="btn btn-outline btn-lg">Se ydelser</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#a8e6b8" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#a8e6b8" stroke-width="2" stroke-linecap="round"/></svg>
+          Tilbud inden for 1 time
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#a8e6b8" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#a8e6b8" stroke-width="2" stroke-linecap="round"/></svg>
+          Fuldt forsikret
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#a8e6b8" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#a8e6b8" stroke-width="2" stroke-linecap="round"/></svg>
+          Hele Fyn
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Hvad vi tilbyder</h3>
+      <div class="hero-card-list">
+        <div class="hero-card-item">
+          <div class="icon">🌿</div>
+          <div class="text">
+            <strong>Græsslåning</strong>
+            <span>Regelmæssig slåning og kantklipning</span>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="icon">✂️</div>
+          <div class="text">
+            <strong>Hækkeklipning</strong>
+            <span>Præcis klipning af alle hæktyper</span>
+          </div>
+        </div>
+        <div class="hero-card-item">
+          <div class="icon">🍂</div>
+          <div class="text">
+            <strong>Bladsugning & oprydning</strong>
+            <span>Blade, affald og efterårsrengøring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll ned</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ─── WHY ─── -->
+<section class="why-section">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual">
+        <div class="why-visual-inner">🌿</div>
+        <div class="why-badge-float">
+          <div class="why-badge-icon">⭐</div>
+          <div class="why-badge-text">
+            <strong>4,9 ud af 5 stjerner</strong>
+            <span>Baseret på 180+ anmeldelser</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">Hvorfor vælge os</span>
+        <h2 class="section-title">Haveservice Du<br />Kan Stole På</h2>
+        <p class="section-sub">Vi behandler din have med samme omsorg og professionalisme, som var det vores egen. Erfarne folk, pålideligt udstyr og altid til tiden.</p>
+        <div class="why-list" style="margin-top: 36px;">
+          <div class="why-item">
+            <div class="why-item-icon">🛠️</div>
+            <div>
+              <h4>Professionelt udstyr</h4>
+              <p>Vi medbringer alt nødvendigt udstyr – du behøver ikke stille noget til rådighed.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">📅</div>
+            <div>
+              <h4>Fast aftale eller engangsjob</h4>
+              <p>Løbende vedligeholdelsesaftale eller en enkelt opgave – helt uden binding.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🛡️</div>
+            <div>
+              <h4>Fuldt forsikret & pålidelig</h4>
+              <p>Ansvarsforsikring og mange års erfaring – vi passer på din ejendom.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🌍</div>
+            <div>
+              <h4>Miljøbevidst</h4>
+              <p>Vi arbejder skånsomt og sorterer affald korrekt efter endt arbejde.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="features-section" id="ydelser">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Vores ydelser</span>
+      <h2 class="section-title">Vores 3 Ydelser</h2>
+      <p class="section-sub">Vi tilbyder tre kerneydelser til din have – enkelt, pålideligt og til en fair pris.</p>
+    </div>
+    <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3>Græsslåning</h3>
+        <p>Regelmæssig slåning og kantklipning af din plæne. Vi sørger for et pænt og ensartet resultat hver gang – uanset havens størrelse.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✂️</div>
+        <h3>Hækkeklipning</h3>
+        <p>Præcis og professionel klipning af alle typer hækker – bøg, thuja, liguster og meget mere. Vi fjerner afklip og rydder op bagefter.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍂</div>
+        <h3>Bladsugning & oprydning</h3>
+        <p>Vi suger blade, samler affald og rydder op i din have. Perfekt til efteråret – eller bare når haven trænger til et løft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Sådan fungerer det</span>
+      <h2 class="section-title">Fra Tilbud til Færdig Have</h2>
+      <p class="section-sub">En enkel og tryg proces – vi sørger for alt fra start til slut.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Ring eller skriv</h4>
+        <p>Kontakt os på telefon eller mail – vi svarer inden for 1 time med et tilbud.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Vi aftaler besøg</h4>
+        <p>Vi kommer forbi og vurderer opgaven, eller giver tilbud på baggrund af dine oplysninger.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Vi udfører arbejdet</h4>
+        <p>Vores team møder op til aftalt tid og udfører arbejdet grundigt og professionelt.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Du nyder resultatet</h4>
+        <p>Vi rydder op efter os og du er klar til at nyde din velholdte have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials-section" style="background: var(--section-bg-alt);">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Anmeldelser</span>
+      <h2 class="section-title">Hvad Kunderne Siger</h2>
+      <p class="section-sub">Vi er stolte af vores kunder – her er hvad nogle af dem siger om vores haveservice.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Fantastisk arbejde med vores hæk og plæne. Drengene var præcise, effektive og efterlod ikke et blad på terassen. Vil klart bruge dem igen!"</blockquote>
+        <div class="testimonial-author">Mette K.</div>
+        <div class="testimonial-place">Odense</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Har haft fast aftale om græsslåning hele sommeren – aldrig en gang de ikke dukkede op til aftalt tid. Meget professionelt og prisen er fair."</blockquote>
+        <div class="testimonial-author">Søren P.</div>
+        <div class="testimonial-place">Svendborg</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"De ryddede en totalt tilgroet have op på én dag. Utroligt imponerende arbejde – vi kan nu bruge vores have igen. Tusind tak!"</blockquote>
+        <div class="testimonial-author">Lene H.</div>
+        <div class="testimonial-place">Kerteminde</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Spørgsmål & svar</span>
+      <h2 class="section-title">Ofte Stillede Spørgsmål</h2>
+      <p class="section-sub">Har du spørgsmål om vores haveservice? Her finder du svar på de mest almindelige.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          Hvad koster haveservice?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          Prisen afhænger af opgavens omfang og type. Ring til os for et uforpligtende tilbud – vi giver svar inden for 1 time. Større opgaver kan vi komme ud og vurdere gratis.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Tilbyder I løbende vedligeholdelsesaftale?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          Ja! Mange af vores kunder har en fast aftale om ugentlig eller månedlig vedligeholdelse. Vi sørger for at din have altid ser skøn ud – du behøver ikke tænke over det.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Medbringer I eget udstyr?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          Ja, vi medbringer alt nødvendigt udstyr og værktøj. Du behøver ikke stille noget til rådighed – vi har det hele klar i vores bil.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Hvornår kan I komme?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          Vi er fleksible og tilpasser os din tidsplan. Ring til os, og vi finder et tidspunkt der passer dig. Akutte opgaver kan vi ofte løse inden for få dage.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Klar til en Have I Topklasse?</h2>
+    <p>Ring nu og få et gratis, uforpligtende tilbud inden for 1 time. Vi betjener hele Fyn.</p>
+    <div class="cta-btns">
+      <a href="tel:+4557209141" class="btn btn-white btn-lg">📞 +45 57 20 91 41</a>
+      <a href="mailto:Kontakt@Multiservice.dk" class="btn btn-outline btn-lg">✉ Send en mail</a>
+    </div>
+    <div class="cta-trust">
+      <div class="cta-trust-item">✓ Gratis tilbud inden for 1 time</div>
+      <div class="cta-trust-item">✓ Ingen binding</div>
+      <div class="cta-trust-item">✓ Fuldt forsikret</div>
+      <div class="cta-trust-item">✓ Hele Fyn</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Multiservice Fyn" class="footer-logo" />
+        <p>Multiservice Fyn leverer professionelle udendørs rengøringsydelser og haveservice på hele Fyn. Kvalitet, ærlighed og et smil med i prisen.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ydelser</h4>
+        <ul>
+          <li><a href="fliserens.html">Fliserens</a></li>
+          <li><a href="terrasserens.html">Terrasserens</a></li>
+          <li><a href="Facaderens.html">Facaderens</a></li>
+          <li><a href="vinduespuds.html">Vinduespudsning</a></li>
+          <li><a href="havearbejde.html">Havearbejde</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="index.html#om-os">Om os</a></li>
+          <li><a href="index.html#kontakt">Kontakt</a></li>
+          <li><a href="index.html#anmeldelser">Anmeldelser</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+4557209141">📞 +45 57 20 91 41</a></li>
+          <li><a href="tel:+4557202351">📞 +45 57 20 23 51</a></li>
+          <li><a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a></li>
+          <li><a href="#">📍 Fyn, Danmark</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Multiservice Fyn. Alle rettigheder forbeholdes.</p>
+      <a href="privatlivspolitik.html">Privatlivspolitik</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header hide/show on scroll
+  let lastY = 0;
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > lastY && y > 80) header.classList.add('hide');
+    else header.classList.remove('hide');
+    header.classList.toggle('solid', y > 40);
+    lastY = y;
+  }, { passive: true });
+
+  // Hamburger
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+    if (!nav.classList.contains('open')) {
+      document.getElementById('mobServDrop').classList.remove('open');
+    }
+  }
+  function toggleMobDrop() {
+    document.getElementById('mobServDrop').classList.toggle('open');
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
