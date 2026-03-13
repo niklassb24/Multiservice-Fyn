@@ -175,6 +175,31 @@
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
 
+    /* Mobile Services Accordion */
+    .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mob-drop-btn {
+      background: none; border: none; color: white;
+      width: 100%; text-align: left; padding: 12px 0;
+      font-size: 1rem; font-weight: 500; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-body);
+    }
+    .mob-arrow { font-size: 0.85rem; opacity: 0.7; transition: transform 0.25s ease; display: inline-block; }
+    .mob-drop.open .mob-arrow { transform: rotate(180deg); }
+    .mob-drop-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .mob-drop.open .mob-drop-menu { max-height: 300px; }
+    .mob-drop-menu-inner { background: rgba(255,255,255,0.06); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .mob-drop-menu a {
+      display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,0.88) !important;
+      padding: 11px 16px; font-size: 0.93rem; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }
+    .mob-drop-menu a:last-child { border-bottom: none; }
+    .mob-drop-menu a:hover { background: rgba(255,255,255,0.12); color: white !important; }
+    .mob-drop-menu .mob-icon { font-size: 1.1rem; width: 22px; text-align: center; }
+
     /* ─── FLOATING CALL (mobile) ─── */
     .floating-call {
       display: none; position: fixed; bottom: 20px; right: 20px; z-index: 900;
@@ -722,15 +747,24 @@
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Forside</a>
-      <a href="vinduespuds.html" style="color:var(--blue);font-weight:700;">🪟 Vinduespudsning</a>
-      <a href="fliserens.html">🧱 Fliserens</a>
-      <a href="terrasserens.html">🌿 Terrasserens</a>
-      <a href="facaderens.html">🏠 Facaderens</a>
-      <a href="havearbejde.html">🌱 Havearbejde</a>
-      <a href="index.html#om-os">Om os</a>
-      <a href="index.html#anmeldelser">Anmeldelser</a>
-      <a href="index.html#kontakt">Kontakt</a>
+      <a href="index.html" onclick="toggleMenu()">Forside</a>
+      <div class="mob-drop" id="mobServDrop">
+        <button class="mob-drop-btn" onclick="toggleMobDrop()">
+          Ydelser <span class="mob-arrow">▾</span>
+        </button>
+        <div class="mob-drop-menu">
+          <div class="mob-drop-menu-inner">
+            <a href="fliserens.html" onclick="toggleMenu()"><span class="mob-icon">🧱</span> Fliserens</a>
+            <a href="terrasserens.html" onclick="toggleMenu()"><span class="mob-icon">🌿</span> Terrasserens</a>
+            <a href="facaderens.html" onclick="toggleMenu()"><span class="mob-icon">🏠</span> Facaderens</a>
+            <a href="vinduespuds.html" onclick="toggleMenu()" style="color:white!important;font-weight:700;"><span class="mob-icon">🪟</span> Vinduespudsning</a>
+            <a href="havearbejde.html" onclick="toggleMenu()"><span class="mob-icon">🌱</span> Havearbejde</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#om-os" onclick="toggleMenu()">Om os</a>
+      <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
+      <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
         <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
         <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
@@ -812,131 +846,95 @@
   </div>
 </section>
 
-<!-- ─── WHY ─── -->
-<section class="why-section">
+<!-- ─── ABONNEMENT ─── -->
+<section class="abo-section" id="abonnement">
   <div class="container">
-    <div class="why-grid">
-      <div class="why-visual">
-        <div class="why-visual-inner">🪟</div>
-        <div class="why-badge-float">
-          <div class="why-badge-icon">⭐</div>
-          <div class="why-badge-text">
-            <strong>4,9 ud af 5 stjerner</strong>
-            <span>Baseret på 180+ anmeldelser</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <span class="section-label">Hvorfor vælge os</span>
-        <h2 class="section-title">Professionel Vinduesrens<br />Du Kan Stole På</h2>
-        <p class="section-sub">Vi bruger professionelt udstyr og miljøvenlige rengøringsmidler, der giver et streakfrit, gnistrende resultat – hver eneste gang.</p>
-        <div class="why-list" style="margin-top: 36px;">
-          <div class="why-item">
-            <div class="why-item-icon">💧</div>
-            <div>
-              <h4>Ioniseret rentvandssystem</h4>
-              <p>Vi anvender demineraliseret vand, der efterlader ingen kalkpletter eller striber – selv i solskin.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-item-icon">🌿</div>
-            <div>
-              <h4>Miljøvenlige produkter</h4>
-              <p>Skånsomt mod dine ruder og forseglingen – ingen aggressive kemikalier der slider på tætningslister.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-item-icon">🛡️</div>
-            <div>
-              <h4>Fuldt forsikret & erfaren</h4>
-              <p>Ansvarsforsikring og mange års erfaring – vi behandler dit hjem med respekt og omhu.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-item-icon">🗓️</div>
-            <div>
-              <h4>Fast aftale eller engangsvask</h4>
-              <p>Vælg en løbende serviceavtale med fast frekvens, eller bestil en enkelt rengøring – ingen binding.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="abo-header">
+      <span class="section-label">Abonnement</span>
+      <h2 class="section-title">Fast aftale – lavere pris</h2>
+      <p class="section-sub" style="max-width:560px;margin:0 auto;">Tilmeld dig et abonnement og spar op til 35 % sammenlignet med enkeltbesøg. Vælg det interval der passer dig bedst.</p>
     </div>
-  </div>
-</section>
+    <div class="abo-cards">
 
-<!-- ─── FEATURES ─── -->
-<section class="features-section" id="ydelser">
-  <div class="container">
-    <div class="section-header-centered">
-      <span class="section-label">Vores ydelser</span>
-      <h2 class="section-title">Alt inden for Vinduespudsning</h2>
-      <p class="section-sub">Vi tilbyder en komplet løsning – fra de nemmeste stueruder til svært tilgængelige facade- og tagvinduer.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🏡</div>
-        <h3>Privat bolig</h3>
-        <p>Komplet vinduesrens af din villa, rækkehus eller lejlighed. Vi renser indvendigt og udvendigt inkl. karme og håndtag.</p>
+      <!-- BASIS -->
+      <div class="abo-card" id="abo-basis">
+        <h3>Basis abonnement</h3>
+        <p class="abo-desc">Udvendig pudsning</p>
+        <div class="abo-intervals">
+          <div class="abo-pill active" data-card="basis" data-weeks="4" data-price="39">4 uger</div>
+          <div class="abo-pill" data-card="basis" data-weeks="8" data-price="45">8 uger</div>
+          <div class="abo-pill" data-card="basis" data-weeks="12" data-price="49">12 uger</div>
+        </div>
+        <div class="abo-price-wrap">
+          <div class="abo-price" id="abo-basis-price">39 kr.</div>
+          <div class="abo-price-unit">pr. vindue pr. besøg</div>
+        </div>
+        <div class="abo-divider"></div>
+        <ul class="abo-features">
+          <li>Udvendig pudsning</li>
+          <li>Streakfrit rentvand</li>
+          <li>Fast besøgsinterval</li>
+          <li>Ingen binding – opsig når som helst</li>
+        </ul>
+        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
+        <p class="abo-save" id="abo-basis-save">Spar 40 % vs. enkeltbesøg</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🏢</div>
-        <h3>Erhverv & butikker</h3>
-        <p>Regelmæssig vedligeholdelsesaftale til kontorer, butikker og erhvervsejendomme. Fast pris, fast dag.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🪟</div>
-        <h3>Store rudesystemer</h3>
-        <p>Specialudstyr til store panorama- og facaderuter. Professionel teleskopstang og vandmaddersystem.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔭</div>
-        <h3>Kviste & takvinduer</h3>
-        <p>Sikker rengøring af svært tilgængelige vinduer som kvistluger og ovenlyskupler med rette sikkerhedsudstyr.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚪</div>
-        <h3>Glasdøre & carporten</h3>
-        <p>Rengøring af glasdøre, overdækninger og carportvinduer. Vi fjerner fede fingeraftryk, insekter og vejrsnavs.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>Sæsonrengøring</h3>
-        <p>Grundig forårs- og efterårsrengøring af alle vinduer, inkl. fjernelse af spindelvæv og opsamlet støv i karmene.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ─── PROCESS ─── -->
-<section class="process-section">
-  <div class="container">
-    <div class="section-header-centered">
-      <span class="section-label">Sådan gør vi</span>
-      <h2 class="section-title">Fra Aftale til Skinnende Vinduer</h2>
-      <p class="section-sub">En enkel og smidig proces – du behøver ikke engang at være hjemme.</p>
+      <!-- STANDARD (Mest populær) -->
+      <div class="abo-card abo-featured" id="abo-standard">
+        <div class="abo-badge">Mest populær</div>
+        <h3>Standard abonnement</h3>
+        <p class="abo-desc">Indvendig og udvendig pudsning</p>
+        <div class="abo-intervals">
+          <div class="abo-pill active" data-card="standard" data-weeks="4" data-price="69">4 uger</div>
+          <div class="abo-pill" data-card="standard" data-weeks="8" data-price="75">8 uger</div>
+          <div class="abo-pill" data-card="standard" data-weeks="12" data-price="79">12 uger</div>
+        </div>
+        <div class="abo-price-wrap">
+          <div class="abo-price" id="abo-standard-price">69 kr.</div>
+          <div class="abo-price-unit">pr. vindue pr. besøg</div>
+        </div>
+        <div class="abo-divider"></div>
+        <ul class="abo-features">
+          <li>Indvendig og udvendig pudsning</li>
+          <li>Glasdøre inkluderet</li>
+          <li>Håndtag &amp; karme aftørres</li>
+          <li>Streakfrit ioniseret rentvand</li>
+          <li>Ingen binding – opsig når som helst</li>
+        </ul>
+        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
+        <p class="abo-save" id="abo-standard-save">Spar 27 % vs. enkeltbesøg</p>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="abo-card" id="abo-premium">
+        <h3>Premium abonnement</h3>
+        <p class="abo-desc">Komplet løsning med ekstra behandling</p>
+        <div class="abo-intervals">
+          <div class="abo-pill active" data-card="premium" data-weeks="4" data-price="95">4 uger</div>
+          <div class="abo-pill" data-card="premium" data-weeks="8" data-price="105">8 uger</div>
+          <div class="abo-pill" data-card="premium" data-weeks="12" data-price="109">12 uger</div>
+        </div>
+        <div class="abo-price-wrap">
+          <div class="abo-price" id="abo-premium-price">95 kr.</div>
+          <div class="abo-price-unit">pr. vindue pr. besøg</div>
+        </div>
+        <div class="abo-divider"></div>
+        <ul class="abo-features">
+          <li>Indvendig og udvendig pudsning</li>
+          <li>Glasdøre inkluderet</li>
+          <li>Håndtag &amp; karme aftørres</li>
+          <li>Anti-kalk behandling</li>
+          <li>Premium finish</li>
+          <li>Kvitteringsfoto efter hvert besøg</li>
+        </ul>
+        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
+        <p class="abo-save" id="abo-premium-save">Spar 24 % vs. enkeltbesøg</p>
+      </div>
+
     </div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <h4>Ring eller skriv</h4>
-        <p>Kontakt os – vi giver dig et gratis, uforpligtende tilbud inden for 1 time.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">2</div>
-        <h4>Vi aftaler dato</h4>
-        <p>Vi finder et tidspunkt der passer dig. Du behøver ikke at være hjemme ved udendørs vask.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <h4>Vi udfører opgaven</h4>
-        <p>Vores vinduspudser møder op til aftalt tid med alt udstyr og er omhyggelig med dit hjem.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">4</div>
-        <h4>Nyd det klare lys</h4>
-        <p>Du modtager faktura på mail og kan nyde krystalklare vinduer der slipper mere lys ind.</p>
-      </div>
+    <div class="abo-footnote">
+      <p>Alle abonnementer er uden binding og kan opsiges med 14 dages varsel. &nbsp;·&nbsp; Priser inkl. moms. &nbsp;·&nbsp; <a href="tel:+4557209141">Ring på +45 57 20 91 41</a> for at høre mere.</p>
     </div>
   </div>
 </section>
@@ -1164,95 +1162,131 @@
   </div>
 </section>
 
-<!-- ─── ABONNEMENT ─── -->
-<section class="abo-section" id="abonnement">
+<!-- ─── WHY ─── -->
+<section class="why-section">
   <div class="container">
-    <div class="abo-header">
-      <span class="section-label">Abonnement</span>
-      <h2 class="section-title">Fast aftale – lavere pris</h2>
-      <p class="section-sub" style="max-width:560px;margin:0 auto;">Tilmeld dig et abonnement og spar op til 35 % sammenlignet med enkeltbesøg. Vælg det interval der passer dig bedst.</p>
+    <div class="why-grid">
+      <div class="why-visual">
+        <div class="why-visual-inner">🪟</div>
+        <div class="why-badge-float">
+          <div class="why-badge-icon">⭐</div>
+          <div class="why-badge-text">
+            <strong>4,9 ud af 5 stjerner</strong>
+            <span>Baseret på 180+ anmeldelser</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">Hvorfor vælge os</span>
+        <h2 class="section-title">Professionel Vinduesrens<br />Du Kan Stole På</h2>
+        <p class="section-sub">Vi bruger professionelt udstyr og miljøvenlige rengøringsmidler, der giver et streakfrit, gnistrende resultat – hver eneste gang.</p>
+        <div class="why-list" style="margin-top: 36px;">
+          <div class="why-item">
+            <div class="why-item-icon">💧</div>
+            <div>
+              <h4>Ioniseret rentvandssystem</h4>
+              <p>Vi anvender demineraliseret vand, der efterlader ingen kalkpletter eller striber – selv i solskin.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🌿</div>
+            <div>
+              <h4>Miljøvenlige produkter</h4>
+              <p>Skånsomt mod dine ruder og forseglingen – ingen aggressive kemikalier der slider på tætningslister.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🛡️</div>
+            <div>
+              <h4>Fuldt forsikret & erfaren</h4>
+              <p>Ansvarsforsikring og mange års erfaring – vi behandler dit hjem med respekt og omhu.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon">🗓️</div>
+            <div>
+              <h4>Fast aftale eller engangsvask</h4>
+              <p>Vælg en løbende serviceavtale med fast frekvens, eller bestil en enkelt rengøring – ingen binding.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="abo-cards">
+  </div>
+</section>
 
-      <!-- BASIS -->
-      <div class="abo-card" id="abo-basis">
-        <h3>Basis abonnement</h3>
-        <p class="abo-desc">Udvendig pudsning</p>
-        <div class="abo-intervals">
-          <div class="abo-pill active" data-card="basis" data-weeks="4" data-price="39">4 uger</div>
-          <div class="abo-pill" data-card="basis" data-weeks="8" data-price="45">8 uger</div>
-          <div class="abo-pill" data-card="basis" data-weeks="12" data-price="49">12 uger</div>
-        </div>
-        <div class="abo-price-wrap">
-          <div class="abo-price" id="abo-basis-price">39 kr.</div>
-          <div class="abo-price-unit">pr. vindue pr. besøg</div>
-        </div>
-        <div class="abo-divider"></div>
-        <ul class="abo-features">
-          <li>Udvendig pudsning</li>
-          <li>Streakfrit rentvand</li>
-          <li>Fast besøgsinterval</li>
-          <li>Ingen binding – opsig når som helst</li>
-        </ul>
-        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
-        <p class="abo-save" id="abo-basis-save">Spar 40 % vs. enkeltbesøg</p>
-      </div>
-
-      <!-- STANDARD (Mest populær) -->
-      <div class="abo-card abo-featured" id="abo-standard">
-        <div class="abo-badge">Mest populær</div>
-        <h3>Standard abonnement</h3>
-        <p class="abo-desc">Indvendig og udvendig pudsning</p>
-        <div class="abo-intervals">
-          <div class="abo-pill active" data-card="standard" data-weeks="4" data-price="69">4 uger</div>
-          <div class="abo-pill" data-card="standard" data-weeks="8" data-price="75">8 uger</div>
-          <div class="abo-pill" data-card="standard" data-weeks="12" data-price="79">12 uger</div>
-        </div>
-        <div class="abo-price-wrap">
-          <div class="abo-price" id="abo-standard-price">69 kr.</div>
-          <div class="abo-price-unit">pr. vindue pr. besøg</div>
-        </div>
-        <div class="abo-divider"></div>
-        <ul class="abo-features">
-          <li>Indvendig og udvendig pudsning</li>
-          <li>Glasdøre inkluderet</li>
-          <li>Håndtag &amp; karme aftørres</li>
-          <li>Streakfrit ioniseret rentvand</li>
-          <li>Ingen binding – opsig når som helst</li>
-        </ul>
-        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
-        <p class="abo-save" id="abo-standard-save">Spar 27 % vs. enkeltbesøg</p>
-      </div>
-
-      <!-- PREMIUM -->
-      <div class="abo-card" id="abo-premium">
-        <h3>Premium abonnement</h3>
-        <p class="abo-desc">Komplet løsning med ekstra behandling</p>
-        <div class="abo-intervals">
-          <div class="abo-pill active" data-card="premium" data-weeks="4" data-price="95">4 uger</div>
-          <div class="abo-pill" data-card="premium" data-weeks="8" data-price="105">8 uger</div>
-          <div class="abo-pill" data-card="premium" data-weeks="12" data-price="109">12 uger</div>
-        </div>
-        <div class="abo-price-wrap">
-          <div class="abo-price" id="abo-premium-price">95 kr.</div>
-          <div class="abo-price-unit">pr. vindue pr. besøg</div>
-        </div>
-        <div class="abo-divider"></div>
-        <ul class="abo-features">
-          <li>Indvendig og udvendig pudsning</li>
-          <li>Glasdøre inkluderet</li>
-          <li>Håndtag &amp; karme aftørres</li>
-          <li>Anti-kalk behandling</li>
-          <li>Premium finish</li>
-          <li>Kvitteringsfoto efter hvert besøg</li>
-        </ul>
-        <a href="tel:+4557209141" class="btn-abo">Ring og tilmeld</a>
-        <p class="abo-save" id="abo-premium-save">Spar 24 % vs. enkeltbesøg</p>
-      </div>
-
+<!-- ─── FEATURES ─── -->
+<section class="features-section" id="ydelser">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Vores ydelser</span>
+      <h2 class="section-title">Alt inden for Vinduespudsning</h2>
+      <p class="section-sub">Vi tilbyder en komplet løsning – fra de nemmeste stueruder til svært tilgængelige facade- og tagvinduer.</p>
     </div>
-    <div class="abo-footnote">
-      <p>Alle abonnementer er uden binding og kan opsiges med 14 dages varsel. &nbsp;·&nbsp; Priser inkl. moms. &nbsp;·&nbsp; <a href="tel:+4557209141">Ring på +45 57 20 91 41</a> for at høre mere.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏡</div>
+        <h3>Privat bolig</h3>
+        <p>Komplet vinduesrens af din villa, rækkehus eller lejlighed. Vi renser indvendigt og udvendigt inkl. karme og håndtag.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏢</div>
+        <h3>Erhverv & butikker</h3>
+        <p>Regelmæssig vedligeholdelsesaftale til kontorer, butikker og erhvervsejendomme. Fast pris, fast dag.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🪟</div>
+        <h3>Store rudesystemer</h3>
+        <p>Specialudstyr til store panorama- og facaderuter. Professionel teleskopstang og vandmaddersystem.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔭</div>
+        <h3>Kviste & takvinduer</h3>
+        <p>Sikker rengøring af svært tilgængelige vinduer som kvistluger og ovenlyskupler med rette sikkerhedsudstyr.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚪</div>
+        <h3>Glasdøre & carporten</h3>
+        <p>Rengøring af glasdøre, overdækninger og carportvinduer. Vi fjerner fede fingeraftryk, insekter og vejrsnavs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Sæsonrengøring</h3>
+        <p>Grundig forårs- og efterårsrengøring af alle vinduer, inkl. fjernelse af spindelvæv og opsamlet støv i karmene.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="section-label">Sådan gør vi</span>
+      <h2 class="section-title">Fra Aftale til Skinnende Vinduer</h2>
+      <p class="section-sub">En enkel og smidig proces – du behøver ikke engang at være hjemme.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Ring eller skriv</h4>
+        <p>Kontakt os – vi giver dig et gratis, uforpligtende tilbud inden for 1 time.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Vi aftaler dato</h4>
+        <p>Vi finder et tidspunkt der passer dig. Du behøver ikke at være hjemme ved udendørs vask.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Vi udfører opgaven</h4>
+        <p>Vores vinduspudser møder op til aftalt tid med alt udstyr og er omhyggelig med dit hjem.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Nyd det klare lys</h4>
+        <p>Du modtager faktura på mail og kan nyde krystalklare vinduer der slipper mere lys ind.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1429,7 +1463,14 @@
 
   // Hamburger
   function toggleMenu() {
-    document.getElementById('mobileNav').classList.toggle('open');
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+    if (!nav.classList.contains('open')) {
+      document.getElementById('mobServDrop').classList.remove('open');
+    }
+  }
+  function toggleMobDrop() {
+    document.getElementById('mobServDrop').classList.toggle('open');
   }
 
   // ── Abonnement interval pills ──

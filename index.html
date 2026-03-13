@@ -49,11 +49,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a4fa8;
-      --navy-dark: #0f3080;
-      --blue: #4a9eff;
-      --blue-mid: #2e7fe8;
-      --blue-light: #dbeafe;
+      --navy: #0f5464;
+      --navy-dark: #083a47;
+      --blue: #1a8fa8;
+      --blue-mid: #127d96;
+      --blue-light: #d0eef4;
       --green: #059669;
       --green-light: #d1fae5;
       --yellow: #f59e0b;
@@ -185,6 +185,42 @@
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
 
+    /* Mobile Services Accordion */
+    .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mob-drop-btn {
+      background: none; border: none; color: white;
+      width: 100%; text-align: left; padding: 12px 0;
+      font-size: 1rem; font-weight: 500; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-body);
+    }
+    .mob-arrow {
+      font-size: 0.85rem; opacity: 0.7;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+    .mob-drop.open .mob-arrow { transform: rotate(180deg); }
+    .mob-drop-menu {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mob-drop.open .mob-drop-menu { max-height: 300px; }
+    .mob-drop-menu-inner {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px; margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .mob-drop-menu a {
+      display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,0.88) !important;
+      padding: 11px 16px; font-size: 0.93rem; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }
+    .mob-drop-menu a:last-child { border-bottom: none; }
+    .mob-drop-menu a:hover { background: rgba(255,255,255,0.12); color: white !important; }
+    .mob-drop-menu .mob-icon { font-size: 1.1rem; width: 22px; text-align: center; }
+
     /* ─── FLOATING CALL BUTTON (mobile) ─── */
     .floating-call {
       display: none;
@@ -262,7 +298,7 @@
 
     /* ─── TRUST BAR ─── */
     .trust-bar {
-      background: linear-gradient(90deg, #0f3080 0%, #1a4fa8 50%, #0f3080 100%);
+      background: linear-gradient(90deg, #083a47 0%, #0f5464 50%, #083a47 100%);
       padding: 28px 20px;
     }
     .trust-bar-grid {
@@ -606,7 +642,19 @@
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="#services" onclick="toggleMenu()">Services</a>
+      <div class="mob-drop" id="mobServDrop">
+        <button class="mob-drop-btn" onclick="toggleMobDrop()">
+          Ydelser <span class="mob-arrow">▾</span>
+        </button>
+        <div class="mob-drop-menu">
+          <div class="mob-drop-menu-inner">
+            <a href="fliserens.html" onclick="toggleMenu()"><span class="mob-icon">🧱</span> Flise-rens</a>
+            <a href="terrasserens.html" onclick="toggleMenu()"><span class="mob-icon">🌿</span> Terrasse-rens</a>
+            <a href="facaderens.html" onclick="toggleMenu()"><span class="mob-icon">🏠</span> Facade-rens</a>
+            <a href="vinduespuds.html" onclick="toggleMenu()"><span class="mob-icon">🪟</span> Vinduespudsning</a>
+          </div>
+        </div>
+      </div>
       <a href="#om-os" onclick="toggleMenu()">Om os</a>
       <a href="#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
       <a href="#omraader" onclick="toggleMenu()">Områder</a>
@@ -1087,6 +1135,13 @@
     function toggleMenu() {
       const nav = document.getElementById('mobileNav');
       nav.classList.toggle('open');
+      // Close services dropdown when menu closes
+      if (!nav.classList.contains('open')) {
+        document.getElementById('mobServDrop').classList.remove('open');
+      }
+    }
+    function toggleMobDrop() {
+      document.getElementById('mobServDrop').classList.toggle('open');
     }
 
     // FAQ accordion
