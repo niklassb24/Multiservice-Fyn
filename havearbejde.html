@@ -69,7 +69,7 @@
       --section-pad: 96px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.65; overflow-x: hidden; }
     h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
     img { max-width: 100%; height: auto; display: block; }
@@ -114,18 +114,31 @@
       box-shadow: 0 4px 30px rgba(0,0,0,0.1);
       transition: transform 0.4s ease, opacity 0.4s ease, background 0.35s ease, box-shadow 0.35s ease;
     }
-    header.hide { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-    header.solid { background: rgba(0, 0, 0, 0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+    header.hide {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    header.solid {
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
     .header-top {
       background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
-      text-align: center; padding: 5px 16px;
-      font-size: 0.72rem; font-weight: 600; color: white;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      text-align: center;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .header-top a { color: white; font-weight: 700; }
     .header-main {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; max-width: 1200px; margin: 0 auto; height: 89px;
+      padding: 0 20px; max-width: 1200px; margin: 0 auto;
+      height: 89px;
     }
     .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
     nav { display: flex; align-items: center; gap: 32px; }
@@ -139,16 +152,22 @@
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
     .dropdown-menu {
       position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15);
-      border-top: none; border-radius: 0 0 14px 14px;
+      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-top: none;
+      border-radius: 0 0 14px 14px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.4);
       padding: 8px 8px 12px; min-width: 200px;
       opacity: 0; visibility: hidden; pointer-events: none;
-      transition: opacity 0.2s; padding-top: 16px;
+      transition: opacity 0.2s;
+      padding-top: 16px;
     }
-    .dropdown-menu::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 16px; }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 16px;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: all;
+    }
     .dropdown-menu a {
       display: flex; align-items: center; gap: 10px;
       color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600;
@@ -166,7 +185,9 @@
     /* ─── MOBILE NAV ─── */
     .mobile-nav {
       display: none; flex-direction: column;
-      background: #3B6D11; padding: 16px 20px;
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      padding: 16px 20px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
     .mobile-nav.open { display: flex; }
@@ -174,7 +195,10 @@
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+    .mobile-nav .mobile-cta a.btn-green { background: #059669 !important; color: white !important; }
+    .mobile-nav .mobile-cta a.btn-primary { background: #2e7fe8 !important; color: white !important; }
 
+    /* Mobile Services Accordion */
     .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
     .mob-drop-btn {
       background: none; border: none; color: white;
@@ -330,7 +354,7 @@
     }
     .process-step { text-align: center; position: relative; }
     .step-num {
-      width: 72px; height: 72px; background: #3B6D11; color: white;
+      width: 72px; height: 72px; background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); color: white;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
       margin: 0 auto 20px; position: relative; z-index: 1;
@@ -402,6 +426,7 @@
       :root { --section-pad: 64px; }
       nav, .header-contact { display: none; }
       .hamburger { display: flex; }
+      .logo img { height: 110px; }
       .hero-content { grid-template-columns: 1fr; gap: 36px; padding-top: 120px; }
       .hero-card { display: none; }
       .why-grid { grid-template-columns: 1fr; }
@@ -417,6 +442,21 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+
+    /* ─── PRISBEREGNER ─── */
+    .calc-svc input { display: none; }
+    .calc-svc-inner {
+      border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px 14px;
+      cursor: pointer; text-align: center; transition: all 0.2s;
+    }
+    .calc-svc:hover .calc-svc-inner { border-color: var(--green); }
+    .calc-svc input:checked ~ .calc-svc-inner {
+      border-color: var(--green); background: #EAF3DE;
+      box-shadow: 0 0 0 3px rgba(99,153,34,0.15);
+    }
+    @media (max-width: 640px) {
+      #calcServices, #calcSizes { grid-template-columns: 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -707,7 +747,7 @@
         </div>
 
         <!-- Resultat -->
-        <div style="background: #3B6D11; border-radius: 16px; padding: 28px 32px; text-align: center;">
+        <div style="background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 16px; padding: 28px 32px; text-align: center;">
           <div style="font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Estimeret pris</div>
           <div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:white;line-height:1;margin-bottom:8px;transition:all 0.3s;" id="haveCalcPrice">—</div>
           <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0;" id="haveCalcSub">Vælg ydelse og størrelse ovenfor</div>
@@ -719,28 +759,6 @@
   </div>
 </section>
 
-<style>
-  .calc-svc input { display: none; }
-  .calc-svc-inner {
-    border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px 14px;
-    cursor: pointer; text-align: center; transition: all 0.2s;
-  }
-  .calc-svc:hover .calc-svc-inner { border-color: var(--green); }
-  .calc-svc input:checked ~ .calc-svc-inner {
-    border-color: var(--green); background: #EAF3DE;
-    box-shadow: 0 0 0 3px rgba(99,153,34,0.15);
-  }
-  @media (max-width: 640px) {
-    #calcServices, #calcSizes { grid-template-columns: 1fr !important; }
-  }
-    .floating-social { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 12px; z-index: 1000; }
-    .social-btn { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; text-decoration: none; opacity: 0.45; }
-    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); opacity: 1; }
-    .social-fb { background: #111; }
-    .social-ig { background: #111; }
-    .social-btn svg { width: 16px; height: 16px; }
-    @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
-  </style>
 
 <!-- ─── PROCESS ─── -->
 <section class="process-section">
@@ -921,6 +939,7 @@
   // Header hide/show on scroll
   let lastY = 0;
   const header = document.getElementById('siteHeader');
+  header.classList.remove('hide');
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (y > lastY && y > 80) header.classList.add('hide');

@@ -141,7 +141,7 @@
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
     .dropdown-menu {
       position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: rgba(30,30,30,0.78);
+      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.15);
@@ -175,7 +175,7 @@
     /* ─── MOBILE NAV ─── */
     .mobile-nav {
       display: none; flex-direction: column;
-      background: var(--navy-dark);
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       padding: 16px 20px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
@@ -184,6 +184,8 @@
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+    .mobile-nav .mobile-cta a.btn-green { background: #059669 !important; color: white !important; }
+    .mobile-nav .mobile-cta a.btn-primary { background: #2e7fe8 !important; color: white !important; }
 
     /* Mobile Services Accordion */
     .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -675,10 +677,11 @@
         </button>
         <div class="mob-drop-menu">
           <div class="mob-drop-menu-inner">
-            <a href="fliserens.html" onclick="toggleMenu()">Flise-rens</a>
+            <a href="fliserens.html" onclick="toggleMenu()">Fliserens</a>
             <a href="terrasserens.html" onclick="toggleMenu()">Træterrasserens</a>
-            <a href="facaderens.html" onclick="toggleMenu()">Facade-rens</a>
+            <a href="Facaderens.html" onclick="toggleMenu()">Facaderens</a>
             <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespudsning</a>
+            <a href="havearbejde.html" onclick="toggleMenu()">Havearbejde</a>
           </div>
         </div>
       </div>

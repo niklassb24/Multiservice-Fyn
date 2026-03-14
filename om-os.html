@@ -85,7 +85,7 @@
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
     .dropdown-menu {
       position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px);
+      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.15); border-top: none;
       border-radius: 0 0 14px 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
@@ -108,7 +108,7 @@
 
     .mobile-nav {
       display: none; flex-direction: column;
-      background: var(--navy-dark); padding: 16px 20px;
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); padding: 16px 20px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
     .mobile-nav.open { display: flex; }
@@ -116,6 +116,8 @@
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+    .mobile-nav .mobile-cta a.btn-green { background: #059669 !important; color: white !important; }
+    .mobile-nav .mobile-cta a.btn-primary { background: #2e7fe8 !important; color: white !important; }
     .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
     .mob-drop-btn {
       background: none; border: none; color: white;
@@ -235,7 +237,7 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--navy-dark); color: rgba(255,255,255,0.75);
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); color: rgba(255,255,255,0.75);
       font-size: 0.88rem; padding: 56px 20px 0;
     }
     .footer-grid {
