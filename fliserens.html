@@ -667,7 +667,8 @@
       display: flex; flex-direction: column;
     }
     .price-card-basis,
-    .price-card-premium {
+    .price-card-premium,
+    .price-card:not(.featured) {
       border: 2px solid var(--blue-mid);
     }
     .price-card:hover {
@@ -1146,7 +1147,7 @@
       .promo-rabat-banner span { font-size: 0.8rem !important; }
       .featured-badge { font-size: 0.6rem; padding: 5px 12px; }
       .promo-rabat-banner div[style*="width:1px"] { display: none; }
-      .price-card { padding: 36px 8px 16px; border-radius: 14px; }
+      .price-card { padding: 36px 8px 20px; border-radius: 14px; }
       .price-card h3 { font-size: 0.82rem; margin-bottom: 4px; }
       .price-card .price-old { font-size: 0.78rem; }
       .price-card .price-tag-new { font-size: 1.6rem; }
@@ -1318,8 +1319,7 @@
           </ul>
           <button onclick="vælgPakke(35)" class="btn btn-primary" style="width:100%;margin-top:auto;">Beregn pris →</button>
         </div>
-        <div class="price-card featured">
-          <div class="featured-badge">Mest valgt</div>
+        <div class="price-card">
           <h3>Standard pakke</h3>
           <div class="price-old">50 kr.</div>
           <div class="price-tag-new">45 kr.</div>
@@ -1332,7 +1332,9 @@
           </ul>
           <button onclick="vælgPakke(50)" class="btn btn-primary" style="width:100%;margin-top:auto;">Beregn pris →</button>
         </div>
-        <div class="price-card price-card-premium">
+        <div class="price-card price-card-premium featured">
+          <div class="featured-badge">Mest valgt</div>
+          <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--yellow);background:rgba(255,255,255,0.15);border-radius:6px;padding:3px 10px;display:inline-block;margin-bottom:6px;">15 års garanti</div>
           <h3>Premium pakke</h3>
           <div class="price-old">60 kr.</div>
           <div class="price-tag-new">54 kr.</div>
