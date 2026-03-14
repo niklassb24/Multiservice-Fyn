@@ -46,8 +46,8 @@
       --blue: #6a9fc0;
       --blue-mid: #5588b0;
       --blue-light: #daeaf6;
-      --green: #059669;
-      --green-light: #d1fae5;
+      --green: #639922;
+      --green-light: #EAF3DE;
       --yellow: #f59e0b;
       --red: #dc2626;
       --gray-50: #f2f0ec;
@@ -100,7 +100,7 @@
     .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.7); }
     .btn-outline:hover { border-color: white; box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
     .btn-green { background: var(--green); color: white; }
-    .btn-green:hover { box-shadow: 0 8px 28px rgba(5,150,105,0.35); }
+    .btn-green:hover { box-shadow: 0 8px 28px rgba(99,153,34,0.35); }
     .btn-lg { padding: 18px 38px; font-size: 1.05rem; }
     .btn-sm { padding: 10px 22px; font-size: 0.88rem; }
 
@@ -117,7 +117,7 @@
     header.hide { transform: translateY(-100%); opacity: 0; pointer-events: none; }
     header.solid { background: rgba(0, 0, 0, 0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
     .header-top {
-      background: linear-gradient(90deg, #3d6f95 0%, #6a9fc0 50%, #3d6f95 100%);
+      background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
       text-align: center; padding: 5px 16px;
       font-size: 0.72rem; font-weight: 600; color: white;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -166,7 +166,7 @@
     /* ─── MOBILE NAV ─── */
     .mobile-nav {
       display: none; flex-direction: column;
-      background: #2e5f84; padding: 16px 20px;
+      background: #3B6D11; padding: 16px 20px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
     .mobile-nav.open { display: flex; }
@@ -204,13 +204,13 @@
       display: none; position: fixed; bottom: 20px; right: 20px; z-index: 900;
       background: var(--green); color: white; border-radius: 100px;
       padding: 14px 22px; font-weight: 700; font-size: 0.95rem;
-      box-shadow: 0 6px 24px rgba(5,150,105,0.45); align-items: center; gap: 8px;
+      box-shadow: 0 6px 24px rgba(99,153,34,0.45); align-items: center; gap: 8px;
     }
 
     /* ─── HERO ─── */
     .hero {
       position: relative; min-height: 100vh; display: flex; align-items: center;
-      background: linear-gradient(135deg, #1e4d2b 0%, #2d7a3e 50%, #4a9e5c 100%);
+      background: linear-gradient(135deg, #3B6D11 0%, #3B6D11 50%, #639922 100%);
       overflow: hidden;
     }
     .hero-bg {
@@ -220,7 +220,7 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(30,77,43,0.92) 0%, rgba(45,122,62,0.82) 60%, rgba(74,158,92,0.7) 100%);
+      background: linear-gradient(135deg, rgba(59,109,17,0.92) 0%, rgba(59,109,17,0.82) 60%, rgba(99,153,34,0.7) 100%);
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -288,7 +288,7 @@
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 56px; }
     .why-visual {
       position: relative; border-radius: var(--radius-lg); overflow: hidden;
-      aspect-ratio: 4/3; background: linear-gradient(135deg, #1e4d2b, #4a9e5c);
+      aspect-ratio: 4/3; background: linear-gradient(135deg, #3B6D11, #639922);
     }
     .why-visual-inner {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -326,15 +326,15 @@
     .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 56px; position: relative; }
     .process-steps::before {
       content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 2px;
-      background: linear-gradient(90deg, #d1fae5, var(--green), #d1fae5);
+      background: linear-gradient(90deg, #EAF3DE, var(--green), #EAF3DE);
     }
     .process-step { text-align: center; position: relative; }
     .step-num {
-      width: 72px; height: 72px; background: #2d7a3e; color: white;
+      width: 72px; height: 72px; background: #3B6D11; color: white;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
       margin: 0 auto 20px; position: relative; z-index: 1;
-      border: 4px solid white; box-shadow: 0 4px 16px rgba(45,122,62,0.25);
+      border: 4px solid white; box-shadow: 0 4px 16px rgba(59,109,17,0.25);
     }
     .process-step h4 { font-weight: 700; color: var(--gray-900); margin-bottom: 8px; font-size: 0.95rem; }
     .process-step p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
@@ -369,7 +369,7 @@
     /* ─── CTA BAND ─── */
     .cta-band {
       padding: 80px 0;
-      background: linear-gradient(135deg, #1e4d2b 0%, #2d7a3e 50%, #4a9e5c 100%);
+      background: linear-gradient(135deg, #3B6D11 0%, #3B6D11 50%, #639922 100%);
       text-align: center;
     }
     .cta-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: white; text-transform: uppercase; margin-bottom: 16px; }
@@ -417,7 +417,7 @@
 <!-- ─── HEADER ─── -->
 <header id="siteHeader">
   <div class="header-top">
-    ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a>
+    ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 24 timer &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <a href="tel:+4557202351">+45 57 20 23 51</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
   </div>
   <div class="header-main">
     <a href="index.html" class="logo">
@@ -428,14 +428,14 @@
       <div class="nav-dropdown">
         <a href="index.html#services" class="active">Ydelser</a>
         <div class="dropdown-menu">
-          <a href="fliserens.html"><span class="d-icon">🧱</span> Flise-rens</a>
-          <a href="terrasserens.html"><span class="d-icon">🌿</span> Terrasse-rens</a>
-          <a href="Facaderens.html"><span class="d-icon">🏠</span> Facade-rens</a>
-          <a href="vinduespuds.html"><span class="d-icon">🪟</span> Vinduespudsning</a>
-          <a href="havearbejde.html" class="active"><span class="d-icon">🌱</span> Havearbejde</a>
+          <a href="fliserens.html">Flise-rens</a>
+          <a href="terrasserens.html">Træterrasserens</a>
+          <a href="Facaderens.html">Facade-rens</a>
+          <a href="vinduespuds.html">Vinduespudsning</a>
+          <a href="havearbejde.html" class="active">Havearbejde</a>
         </div>
       </div>
-      <a href="index.html#om-os">Om os</a>
+      <a href="om-os.html">Om os</a>
       <a href="index.html#anmeldelser">Anmeldelser</a>
       <a href="index.html#omraader">Områder</a>
       <a href="index.html#faq">FAQ</a>
@@ -458,15 +458,15 @@
       </button>
       <div class="mob-drop-menu">
         <div class="mob-drop-menu-inner">
-          <a href="fliserens.html" onclick="toggleMenu()"><span class="mob-icon">🧱</span> Fliserens</a>
-          <a href="terrasserens.html" onclick="toggleMenu()"><span class="mob-icon">🌿</span> Terrasserens</a>
-          <a href="Facaderens.html" onclick="toggleMenu()"><span class="mob-icon">🏠</span> Facaderens</a>
-          <a href="vinduespuds.html" onclick="toggleMenu()"><span class="mob-icon">🪟</span> Vinduespudsning</a>
-          <a href="havearbejde.html" onclick="toggleMenu()" style="color:white!important;font-weight:700;"><span class="mob-icon">🌱</span> Havearbejde</a>
+          <a href="fliserens.html" onclick="toggleMenu()">Fliserens</a>
+          <a href="terrasserens.html" onclick="toggleMenu()">Træterrasserens</a>
+          <a href="Facaderens.html" onclick="toggleMenu()">Facaderens</a>
+          <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespudsning</a>
+          <a href="havearbejde.html" onclick="toggleMenu()" style="color:white!important;font-weight:700;">Havearbejde</a>
         </div>
       </div>
     </div>
-    <a href="index.html#om-os" onclick="toggleMenu()">Om os</a>
+    <a href="om-os.html" onclick="toggleMenu()">Om os</a>
     <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
     <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
     <div class="mobile-cta">
@@ -492,7 +492,7 @@
       </p>
       <div class="hero-btns">
         <a href="tel:+4557209141" class="btn btn-white btn-lg">📞 Få gratis tilbud</a>
-        <a href="#ydelser" class="btn btn-outline btn-lg">Se ydelser</a>
+        <a href="#prisberegner" class="btn btn-outline btn-lg">🧮 Beregn pris</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-item">
@@ -622,6 +622,111 @@
     </div>
   </div>
 </section>
+
+<!-- ─── PRICE CALCULATOR ─── -->
+<section style="background: var(--gray-50); padding: 80px 0;" id="prisberegner">
+  <div class="container">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="section-label">Prisberegner</span>
+        <h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--gray-900); margin-bottom: 10px;">Beregn din pris</h2>
+        <p style="color: var(--gray-600); font-size: 1rem;">Vælg ydelse og havens størrelse – få et estimat med det samme.</p>
+      </div>
+      <div style="background: white; border-radius: 24px; padding: 44px 48px; box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 56px rgba(0,0,0,0.08); border: 1.5px solid rgba(0,0,0,0.06);">
+
+        <!-- Step 1: Ydelse -->
+        <div style="margin-bottom: 36px;">
+          <label style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1rem; color: var(--gray-900); margin-bottom: 14px;">
+            <span style="width:28px;height:28px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0;">1</span>
+            Vælg ydelse
+          </label>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;" id="calcServices">
+            <label class="calc-svc" data-base="299">
+              <input type="radio" name="calcSvc" value="299">
+              <div class="calc-svc-inner">
+                <div style="font-size:1.5rem;margin-bottom:6px;">🌿</div>
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Græsslåning</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">fra 299 kr</div>
+              </div>
+            </label>
+            <label class="calc-svc" data-base="499">
+              <input type="radio" name="calcSvc" value="499">
+              <div class="calc-svc-inner">
+                <div style="font-size:1.5rem;margin-bottom:6px;">✂️</div>
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Hækkeklipning</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">fra 499 kr</div>
+              </div>
+            </label>
+            <label class="calc-svc" data-base="399">
+              <input type="radio" name="calcSvc" value="399">
+              <div class="calc-svc-inner">
+                <div style="font-size:1.5rem;margin-bottom:6px;">🍂</div>
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Bladsugning</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">fra 399 kr</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Størrelse -->
+        <div style="margin-bottom: 36px;">
+          <label style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1rem; color: var(--gray-900); margin-bottom: 14px;">
+            <span style="width:28px;height:28px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0;">2</span>
+            Havens størrelse
+          </label>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;" id="calcSizes">
+            <label class="calc-svc" data-mult="1">
+              <input type="radio" name="calcSize" value="1">
+              <div class="calc-svc-inner">
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Lille</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">op til 200 m²</div>
+              </div>
+            </label>
+            <label class="calc-svc" data-mult="1.6">
+              <input type="radio" name="calcSize" value="1.6">
+              <div class="calc-svc-inner">
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Mellem</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">200 – 500 m²</div>
+              </div>
+            </label>
+            <label class="calc-svc" data-mult="2.4">
+              <input type="radio" name="calcSize" value="2.4">
+              <div class="calc-svc-inner">
+                <div style="font-weight:800;font-size:0.95rem;color:var(--gray-900);">Stor</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">500 m² +</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Resultat -->
+        <div style="background: #3B6D11; border-radius: 16px; padding: 28px 32px; text-align: center;">
+          <div style="font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Estimeret pris</div>
+          <div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:white;line-height:1;margin-bottom:8px;transition:all 0.3s;" id="haveCalcPrice">—</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0;" id="haveCalcSub">Vælg ydelse og størrelse ovenfor</div>
+          <a href="tel:+4557209141" class="btn" id="haveCalcBtn" style="display:none;margin-top:20px;background:var(--yellow);color:var(--gray-900);">📞 Ring og bestil</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calc-svc input { display: none; }
+  .calc-svc-inner {
+    border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px 14px;
+    cursor: pointer; text-align: center; transition: all 0.2s;
+  }
+  .calc-svc:hover .calc-svc-inner { border-color: var(--green); }
+  .calc-svc input:checked ~ .calc-svc-inner {
+    border-color: var(--green); background: #EAF3DE;
+    box-shadow: 0 0 0 3px rgba(99,153,34,0.15);
+  }
+  @media (max-width: 640px) {
+    #calcServices, #calcSizes { grid-template-columns: 1fr !important; }
+  }
+</style>
 
 <!-- ─── PROCESS ─── -->
 <section class="process-section">
@@ -766,7 +871,7 @@
         <h4>Ydelser</h4>
         <ul>
           <li><a href="fliserens.html">Fliserens</a></li>
-          <li><a href="terrasserens.html">Terrasserens</a></li>
+          <li><a href="terrasserens.html">Træterrasserens</a></li>
           <li><a href="Facaderens.html">Facaderens</a></li>
           <li><a href="vinduespuds.html">Vinduespudsning</a></li>
           <li><a href="havearbejde.html">Havearbejde</a></li>
@@ -775,7 +880,7 @@
       <div class="footer-col">
         <h4>Information</h4>
         <ul>
-          <li><a href="index.html#om-os">Om os</a></li>
+          <li><a href="om-os.html">Om os</a></li>
           <li><a href="index.html#kontakt">Kontakt</a></li>
           <li><a href="index.html#anmeldelser">Anmeldelser</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
@@ -821,6 +926,22 @@
   function toggleMobDrop() {
     document.getElementById('mobServDrop').classList.toggle('open');
   }
+
+  // Prisberegner
+  function updateHaveCalc() {
+    const svc = document.querySelector('input[name="calcSvc"]:checked');
+    const size = document.querySelector('input[name="calcSize"]:checked');
+    if (!svc || !size) return;
+    const base = parseFloat(svc.value);
+    const mult = parseFloat(size.value);
+    const price = Math.round(base * mult / 10) * 10;
+    document.getElementById('haveCalcPrice').textContent = price.toLocaleString('da-DK') + ' kr';
+    document.getElementById('haveCalcSub').textContent = 'Inkl. moms · Endeligt tilbud gives på stedet';
+    document.getElementById('haveCalcBtn').style.display = 'inline-flex';
+  }
+  document.querySelectorAll('input[name="calcSvc"], input[name="calcSize"]').forEach(r => {
+    r.addEventListener('change', updateHaveCalc);
+  });
 
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
