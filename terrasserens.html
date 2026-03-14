@@ -70,7 +70,7 @@
       --section-pad: 96px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.65; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -538,7 +538,7 @@
     .pricing-cards {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 28px; max-width: 980px; margin: 0 auto 32px;
-      align-items: start;
+      align-items: stretch;
     }
 
     /* ── Base card ── */
@@ -555,13 +555,6 @@
       position: relative;
       display: flex; flex-direction: column;
     }
-    .price-card-basis,
-    .price-card-premium {
-      height: 520px;
-    }
-    .price-card.featured {
-      min-height: 600px;
-    }
     .price-card:hover {
       transform: translateY(-10px);
       box-shadow:
@@ -571,13 +564,7 @@
         0 48px 80px rgba(0,0,0,0.06);
     }
 
-    /* Top accent stripe */
-    .price-card::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      border-radius: 24px 24px 0 0;
-    }
-    .price-card-basis::after  { background: linear-gradient(90deg, #f59e0b, #d97706); }
-    .price-card-premium::after { background: linear-gradient(90deg, #f59e0b, #d97706); }
+    .price-card-basis::after, .price-card-premium::after { content: none; }
 
     /* Divider between price and features */
     .price-card .price-unit {
@@ -590,7 +577,7 @@
 
     /* ── Featured card ── */
     .price-card.featured {
-      /* Noise texture overlay on navy gradient */
+      /* Noise texture overlay on warm wood gradient */
       background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
         linear-gradient(155deg, #3d1a02 0%, #78350f 55%, #d97706 100%);
@@ -609,9 +596,6 @@
         0 16px 36px rgba(120,53,15,0.30),
         0 40px 72px rgba(120,53,15,0.26),
         0 72px 108px rgba(120,53,15,0.14);
-    }
-    .price-card.featured::after {
-      background: linear-gradient(90deg, #fbbf24, var(--yellow), #f59e0b);
     }
     /* Divider for featured card */
     .price-card.featured .price-unit::after {
@@ -666,6 +650,11 @@
     .price-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); letter-spacing: -0.02em; }
     .price-card .price-tag { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--blue); margin-bottom: 2px; line-height: 1; letter-spacing: -0.04em; }
     .price-card .price-unit { font-size: 0.78rem; color: var(--gray-400); margin-bottom: 0; }
+    .price-old { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--gray-400); text-decoration: line-through; margin-bottom: 2px; }
+    .price-tag-new { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--blue); margin-bottom: 2px; line-height: 1; letter-spacing: -0.04em; }
+    .price-card.featured .price-tag-new { color: var(--yellow); }
+    .price-card.featured .price-old { color: rgba(255,255,255,0.45); }
+    .price-card:not(.featured) { border: 2px solid var(--blue-mid); }
     .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; text-align: left; flex: 1; }
     .price-card-premium .price-features { gap: 11px; margin-bottom: 28px; }
     .price-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--gray-600); }
@@ -1052,8 +1041,25 @@
       footer { padding: 40px 16px 0; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .contact-cards { grid-template-columns: 1fr; }
-      .pricing-cards { grid-template-columns: 1fr; }
+      .pricing { padding-left: 0 !important; padding-right: 0 !important; }
+      .pricing .container { padding-left: 10px; padding-right: 10px; }
+      .pricing-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 100%; align-items: stretch; }
+      .promo-rabat-banner { max-width: 100% !important; padding: 10px 12px !important; gap: 10px !important; border-radius: 10px !important; }
+      .promo-rabat-banner span { font-size: 0.8rem !important; }
+      .featured-badge { font-size: 0.6rem; padding: 5px 12px; }
+      .promo-rabat-banner div[style*="width:1px"] { display: none; }
+      .price-card { padding: 36px 8px 20px; border-radius: 14px; height: 100%; box-sizing: border-box; }
+      .price-card h3 { font-size: 0.82rem; margin-bottom: 4px; }
+      .price-card .price-old { font-size: 0.78rem; }
+      .price-card .price-tag-new { font-size: 1.5rem; }
+      .price-card .price-unit { font-size: 0.58rem; }
+      .price-card .price-features { font-size: 0.68rem; gap: 4px; margin-bottom: 10px !important; }
+      .price-card .price-features li { line-height: 1.3; display: block; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+      .price-card .price-features li::before { display: none; }
+      .price-card .btn { font-size: 0.68rem; padding: 8px 4px; }
       .price-card.featured { transform: translateY(0); }
+      .pricing-trust { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .pricing-trust-item { justify-content: flex-start; font-size: 0.7rem; padding: 7px 10px; white-space: nowrap; overflow: hidden; }
       .help-form { padding: 28px 22px; }
       .faq-item.open { border-left-width: 3px; }
       .steps-grid { grid-template-columns: 1fr; }
@@ -1264,88 +1270,72 @@
       <div class="pricing-header">
         <span class="section-label">Pakker &amp; priser</span>
         <h2>Vælg den pakke der <span class="highlight">passer din terrasse</span></h2>
-        <p class="lead" style="margin:0 auto 24px;">Alle priser er inkl. opstartspris på 525 kr. og ekskl. moms. Eksempel beregnet på 40 m².</p>
-        <div class="pricing-offer-banner">
-          <div class="offer-discount">
-            <span class="pct">10%</span>
-            <span class="off">Rabat</span>
-          </div>
-          <div class="offer-text-block">
-            <div class="offer-title">Bestil inden 1. april og spar 10 %</div>
-            <div class="offer-sub">Gælder alle pakker · Begrænset antal pladser tilbage</div>
-          </div>
+        <p class="lead" style="margin:0 auto 8px;">Alle priser er inkl. opstartspris på 525 kr. og ekskl. moms. Eksempel beregnet på 40 m².</p>
+      </div>
+      <div class="promo-rabat-banner" style="max-width:980px; margin:0 auto 16px; background:linear-gradient(90deg,#3d1a02 0%,#92400e 50%,#3d1a02 100%); border-radius:14px; padding:14px 28px; display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:10px;color:white;">
+          <span style="background:var(--yellow);color:#111;font-family:var(--font-display);font-weight:900;font-size:1.1rem;padding:4px 12px;border-radius:8px;white-space:nowrap;">10% RABAT</span>
+          <span style="font-size:0.9rem;font-weight:600;opacity:0.95;">Bestil inden 1. april – gælder alle pakker</span>
         </div>
-        <div class="pricing-trust">
-          <div class="pricing-trust-item"><span class="pt-check">✓</span> Miljøgodkendte produkter</div>
-          <div class="pricing-trust-item"><span class="pt-check">✓</span> Fradragsberettiget</div>
-          <div class="pricing-trust-item"><span class="pt-check">✓</span> Gratis og uforpligtende tilbud</div>
-          <div class="pricing-trust-item"><span class="pt-check">✓</span> Ensartet kvalitet – hver gang</div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.25);flex-shrink:0;"></div>
+        <div style="color:white;font-size:0.9rem;font-weight:600;opacity:0.95;">
+          + <span style="color:var(--yellow);font-weight:800;">10% ekstra</span> ved 75 m² eller derover
         </div>
       </div>
       <div class="pricing-cards">
 
         <!-- Basis -->
         <div class="price-card price-card-basis">
-          <div class="p-icon p-icon-basis">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Basis</h3>
-          <div class="price-tag">45 kr.</div>
-          <div class="price-unit">pr. m²</div>
-          <ul class="price-features">
+          <h3>Basis pakke</h3>
+          <div class="price-old">45 kr.</div>
+          <div class="price-tag-new">40,50 kr.</div>
+          <div class="price-unit">pr. m² · april rabat</div>
+          <ul class="price-features" style="margin-bottom:20px;">
             <li>Algebehandling</li>
             <li>Skånsom rensning</li>
-            <li>Miljøgodkendte produkter</li>
+            <li>Miljøgodkendte</li>
             <li>Gratis tilbud</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary" style="width:100%">Anmod om tilbud</a>
+          <button onclick="vælgPakke(45)" class="btn btn-primary" style="width:100%;margin-top:auto;">Beregn pris →</button>
         </div>
 
         <!-- Standard (featured) -->
         <div class="price-card featured">
           <div class="featured-badge">Mest valgt</div>
-          <div class="p-icon p-icon-standard">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
-              <polyline points="9 12 11 14 15 10" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Standard</h3>
-          <div class="price-tag">75 kr.</div>
-          <div class="price-unit">pr. m²</div>
-          <ul class="price-features">
+          <h3>Standard pakke</h3>
+          <div class="price-old">75 kr.</div>
+          <div class="price-tag-new">67,50 kr.</div>
+          <div class="price-unit">pr. m² · april rabat</div>
+          <ul class="price-features" style="margin-bottom:20px;">
             <li>Alt i Basis</li>
-            <li>Slibning af overfladen</li>
-            <li>Oliering med kvalitetsolie</li>
-            <li>Beskyttelse mod UV og fugt</li>
-            <li>Gratis tilbud</li>
+            <li>Slibning</li>
+            <li>Oliering</li>
+            <li>UV & fugt­beskyttelse</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary" style="width:100%">Anmod om tilbud</a>
+          <button onclick="vælgPakke(75)" class="btn btn-primary" style="width:100%;margin-top:auto;">Beregn pris →</button>
         </div>
 
         <!-- Premium -->
         <div class="price-card price-card-premium">
-          <div class="p-icon p-icon-premium">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Premium</h3>
-          <div class="price-tag">175 kr.</div>
-          <div class="price-unit">pr. m²</div>
-          <ul class="price-features">
+          <h3>Premium pakke</h3>
+          <div class="price-old">175 kr.</div>
+          <div class="price-tag-new">157,50 kr.</div>
+          <div class="price-unit">pr. m² · april rabat</div>
+          <ul class="price-features" style="margin-bottom:20px;">
             <li>Alt i Standard</li>
-            <li>Dybdeslibning og poreåbning</li>
-            <li>Premium imprægnering (2 lag)</li>
-            <li>Fugepåfyldning efter behov</li>
-            <li>2-årig vedligeholdelsesaftale</li>
-            <li>Gratis tilbud</li>
+            <li>Dybdeslibning</li>
+            <li>2-lags imprægnering</li>
+            <li>Fugepåfyldning</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary" style="width:100%">Anmod om tilbud</a>
+          <button onclick="vælgPakke(175)" class="btn btn-primary" style="width:100%;margin-top:auto;">Beregn pris →</button>
         </div>
 
+      </div>
+      <div class="pricing-trust" style="margin-bottom:40px;">
+        <div class="pricing-trust-item"><span class="pt-check">✓</span> Miljøgodkendte produkter</div>
+        <div class="pricing-trust-item"><span class="pt-check">✓</span> Fradragsberettiget</div>
+        <div class="pricing-trust-item"><span class="pt-check">✓</span> Gratis og uforpligtende tilbud</div>
+        <div class="pricing-trust-item"><span class="pt-check">✓</span> Ensartet kvalitet – hver gang</div>
       </div>
 
       <div class="pricing-extras">
@@ -1408,7 +1398,7 @@
   </section>
 
   <!-- ─── PRICE CALCULATOR ─── -->
-  <section class="calc-section">
+  <section class="calc-section" id="prisberegner">
     <div class="container">
       <div class="calc-wrapper">
         <div class="calc-header">
@@ -1437,7 +1427,7 @@
             </label>
             <div class="calc-packages">
               <label class="calc-pkg" data-price="45">
-                <input type="radio" name="calcPkg" value="45">
+                <input type="radio" name="calcPkg" value="45" id="pkg45">
                 <div class="calc-pkg-inner">
                   <div class="calc-pkg-name">Basis</div>
                   <div class="calc-pkg-price">45 kr/m²</div>
@@ -1445,7 +1435,7 @@
                 </div>
               </label>
               <label class="calc-pkg calc-pkg-featured" data-price="75">
-                <input type="radio" name="calcPkg" value="75">
+                <input type="radio" name="calcPkg" value="75" id="pkg75">
                 <div class="calc-pkg-inner">
                   <div class="calc-pkg-badge">Mest valgt</div>
                   <div class="calc-pkg-name">Standard</div>
@@ -1454,7 +1444,7 @@
                 </div>
               </label>
               <label class="calc-pkg" data-price="175">
-                <input type="radio" name="calcPkg" value="175">
+                <input type="radio" name="calcPkg" value="175" id="pkg175">
                 <div class="calc-pkg-inner">
                   <div class="calc-pkg-name">Premium</div>
                   <div class="calc-pkg-price">175 kr/m²</div>
@@ -1955,6 +1945,15 @@
   </footer>
 
   <script>
+    function vælgPakke(pris) {
+      const radio = document.getElementById('pkg' + pris);
+      if (radio) {
+        radio.checked = true;
+        radio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      document.getElementById('prisberegner').scrollIntoView({ behavior: 'smooth' });
+    }
+
     // Hamburger menu
     function toggleMenu() {
       const nav = document.getElementById('mobileNav');

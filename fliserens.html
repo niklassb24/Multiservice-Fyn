@@ -151,7 +151,7 @@
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
     .dropdown-menu {
       position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: rgba(30,30,30,0.78);
+      background: rgba(20,20,28,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.15);
@@ -186,7 +186,7 @@
     /* ─── MOBILE NAV ─── */
     .mobile-nav {
       display: none; flex-direction: column;
-      background: #2e5f84;
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       padding: 16px 20px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
@@ -195,6 +195,8 @@
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav .mobile-cta { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
     .mobile-nav .mobile-cta a { border-bottom: none; padding: 0; }
+    .mobile-nav .mobile-cta a.btn-green { background: #059669 !important; color: white !important; }
+    .mobile-nav .mobile-cta a.btn-primary { background: #2e7fe8 !important; color: white !important; }
 
     /* Mobile Services Accordion */
     .mob-drop { border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -680,12 +682,8 @@
         0 72px 108px rgba(15,48,128,0.14);
     }
 
-    /* Top accent stripe — kun på featured (basis/premium bruger kant i stedet) */
     .price-card::after { content: none; }
-    .price-card.featured::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      border-radius: 24px 24px 0 0;
-    }
+    .price-card.featured::after { content: none; }
 
     /* Divider between price and features */
     .price-card .price-unit {
@@ -717,9 +715,6 @@
         0 16px 36px rgba(15,48,128,0.28),
         0 40px 72px rgba(15,48,128,0.26),
         0 72px 108px rgba(15,48,128,0.14);
-    }
-    .price-card.featured::after {
-      background: linear-gradient(90deg, #fbbf24, var(--yellow), #f59e0b);
     }
     /* Divider for featured card */
     .price-card.featured .price-unit::after {
@@ -1163,7 +1158,8 @@
       .price-card .btn { font-size: 0.72rem; padding: 9px 6px; }
       .price-card.featured { transform: translateY(0); }
       .pricing-offer-banner { order: 1; margin-top: 20px; margin-bottom: 0; }
-      .pricing-trust { order: 0; }
+      .pricing-trust { order: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .pricing-trust-item { justify-content: flex-start; font-size: 0.7rem; padding: 7px 10px; white-space: nowrap; overflow: hidden; }
       .help-form { padding: 28px 22px; }
       .faq-item.open { border-left-width: 3px; }
     }
