@@ -226,13 +226,45 @@
     /* ─── FLOATING CALL BUTTON (mobile) ─── */
     .floating-call {
       display: none;
-      position: fixed; bottom: 80px; right: 12px; z-index: 999;
-      background: var(--green); color: white;
-      width: 42px; height: 42px; border-radius: 50%;
-      align-items: center; justify-content: center;
-      font-size: 1.1rem; box-shadow: 0 4px 20px rgba(5,150,105,0.5);
       animation: pulse 2s infinite;
     }
+    .floating-call-wrap {
+      display: none;
+      position: fixed; bottom: 80px; right: 12px; z-index: 999;
+      flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    .floating-call {
+      display: flex;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--green); color: white; border: none; cursor: pointer;
+      align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 20px rgba(5,150,105,0.5);
+      animation: pulse 2s infinite; flex-shrink: 0;
+      position: static;
+    }
+    .floating-popup {
+      background: white; border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      overflow: hidden;
+      transform: scale(0.8) translateY(10px);
+      transform-origin: bottom right;
+      opacity: 0; pointer-events: none;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+    .floating-popup.open {
+      transform: scale(1) translateY(0);
+      opacity: 1; pointer-events: all;
+    }
+    .floating-popup-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px; text-decoration: none;
+      color: var(--gray-800); font-size: 0.85rem; font-weight: 600;
+      border-bottom: 1px solid var(--gray-100);
+      transition: background 0.15s;
+    }
+    .floating-popup-row:last-child { border-bottom: none; }
+    .floating-popup-row:hover { background: var(--gray-50); }
+    .fp-icon { font-size: 1rem; flex-shrink: 0; }
     @keyframes pulse {
       0%, 100% { box-shadow: 0 4px 20px rgba(5,150,105,0.5); }
       50% { box-shadow: 0 4px 32px rgba(5,150,105,0.8); }
@@ -617,7 +649,7 @@
       nav { display: none; }
       .header-contact { display: none; }
       .hamburger { display: flex; }
-      .floating-call { display: flex; }
+      .floating-call-wrap { display: flex; }
       .header-top { font-size: 0.7rem; }
       .logo img { height: 90px; }
       .hero { height: 100svh; min-height: 0; align-items: flex-start; overflow: hidden; }
@@ -733,7 +765,19 @@
 <body>
 
   <!-- ─── FLOATING CALL (mobile only) ─── -->
-  <a href="tel:+4557209141" class="floating-call" title="Ring til os">📞</a>
+  <div class="floating-call-wrap">
+    <div class="floating-popup" id="floatingPopup">
+      <a href="tel:+4557209141" class="floating-popup-row">
+        <span class="fp-icon">📞</span>
+        <span>+45 57 20 91 41</span>
+      </a>
+      <a href="mailto:Kontakt@Multiservice.dk" class="floating-popup-row">
+        <span class="fp-icon">✉</span>
+        <span>Kontakt@Multiservice.dk</span>
+      </a>
+    </div>
+    <button class="floating-call" id="floatingBtn" aria-label="Kontakt os">📞</button>
+  </div>
 
   <!-- ─── HEADER ─── -->
   <header>
@@ -1335,7 +1379,20 @@
         reveal.classList.remove('dragging');
       });
     });
-  </script>
+  
+  // Floating contact popup
+  const floatingBtn = document.getElementById('floatingBtn');
+  const floatingPopup = document.getElementById('floatingPopup');
+  if (floatingBtn && floatingPopup) {
+    floatingBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      floatingPopup.classList.toggle('open');
+    });
+    document.addEventListener('click', function() {
+      floatingPopup.classList.remove('open');
+    });
+  }
+</script>
   <!-- ─── FLOATING SOCIAL ─── -->
   <div class="floating-social">
     <a href="https://www.facebook.com/people/Multiservice-Fyn/61575929800558/" class="social-btn social-fb" title="Følg os på Facebook" target="_blank" rel="noopener">
