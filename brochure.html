@@ -462,6 +462,29 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+
+    /* ─── UNIVERSELLE MOBILREGLER ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Små telefoner under 375px */
+    @media (max-width: 374px) {
+      html { font-size: 14px; }
+      .hero-content, .page-hero-content { padding: 95px 12px 80px !important; }
+      .hero h1, .page-hero h1 { font-size: 1.8rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
+      .hero-slogan, .page-hero .hero-sub { font-size: 0.88rem !important; margin-bottom: 8px !important; }
+      .hero p, .page-hero p { font-size: 0.8rem !important; margin-bottom: 10px !important; line-height: 1.45 !important; }
+      .hero-cta { gap: 6px !important; margin-bottom: 10px !important; }
+      .hero-cta .btn, .btn-lg { padding: 9px 14px !important; font-size: 0.8rem !important; }
+      .hero-badge { font-size: 0.7rem !important; padding: 5px 10px !important; margin-bottom: 10px !important; }
+      .hero-trust { gap: 6px !important; }
+      .trust-item { font-size: 0.7rem !important; }
+    }
+
+    /* Store telefoner 431–768px: centrer hero-indhold */
+    @media (min-width: 431px) and (max-width: 768px) {
+      .hero-content, .page-hero-content { max-width: 430px; margin-left: auto; margin-right: auto; }
+    }
   </style>
 </head>
 <body>
@@ -531,10 +554,6 @@
         <div class="b-con-card">
           <div class="b-icon">📱</div>
           <div><div class="b-con-lbl">Mobil — Niklas</div><div class="b-con-val">57 20 91 41</div></div>
-        </div>
-        <div class="b-con-card">
-          <div class="b-icon">📱</div>
-          <div><div class="b-con-lbl">Mobil — Daniel</div><div class="b-con-val">57 20 23 51</div></div>
         </div>
         <div class="b-con-card">
           <div class="b-icon">✉️</div>

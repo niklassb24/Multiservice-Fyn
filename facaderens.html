@@ -69,7 +69,7 @@
       --section-pad: 96px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-body); color: var(--gray-800); background: #faf6ef; line-height: 1.65; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -241,76 +241,61 @@
     /* ─── PAGE HERO ─── */
     .page-hero {
       position: relative;
-      min-height: 70svh;
+      height: 100svh;
+      min-height: 100svh;
       background: #2a1a0a;
       display: flex; align-items: center; overflow: hidden;
     }
     .page-hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
     }
     .page-hero-content {
       position: relative; z-index: 1;
-      max-width: 760px;
-      padding: 160px 20px 88px;
+      max-width: 700px;
+      padding: 130px 20px 100px;
       margin: 0 auto;
       text-align: center;
     }
-    .breadcrumb {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 500;
-      margin-bottom: 20px; font-family: var(--font-body);
-    }
-    .breadcrumb a { color: rgba(255,255,255,0.65); }
-    .breadcrumb a:hover { color: white; }
-    .breadcrumb span { color: rgba(255,255,255,0.35); }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.12); backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: white; padding: 8px 20px; border-radius: 100px;
-      font-size: 0.82rem; font-weight: 600; margin-bottom: 22px;
-      letter-spacing: 0.04em; text-transform: uppercase;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white; padding: 8px 18px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
     }
     .page-hero h1 {
       font-family: var(--font-display);
       font-size: clamp(2.6rem, 7.5vw, 4.6rem); font-weight: 800;
-      color: white; line-height: 1.0; margin-bottom: 16px;
-      letter-spacing: -0.03em;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 8px 32px rgba(0,0,0,0.3);
+      color: white; line-height: 1.05; margin-bottom: 14px;
+      letter-spacing: -1px;
     }
     .page-hero .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 500;
-      color: rgba(255,255,255,0.88); margin-bottom: 16px;
+      font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 600;
+      color: rgba(255,255,255,0.95); margin-bottom: 16px;
       font-style: italic; letter-spacing: 0.01em;
     }
-    .page-hero p { color: rgba(255,255,255,0.72); font-size: clamp(0.9rem, 2vw, 1rem); margin-bottom: 34px; line-height: 1.7; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 38px; }
+    .page-hero p { color: rgba(255,255,255,0.75); font-size: clamp(0.95rem, 2vw, 1.05rem); margin-bottom: 36px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 40px; }
     .hero-trust {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
     }
     .trust-item {
       display: flex; align-items: center; gap: 8px;
-      color: rgba(255,255,255,0.88); font-size: 0.83rem; font-weight: 600;
+      color: rgba(255,255,255,0.9); font-size: 0.88rem; font-weight: 600;
     }
 
     /* ─── TRUST BAR ─── */
     .trust-bar {
-      background: linear-gradient(90deg, #2a1a0a 0%, #5c3d1e 45%, #7a5832 55%, #2a1a0a 100%);
-      padding: 28px 20px;
-      position: relative; overflow: hidden;
-    }
-    .trust-bar::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
-      animation: trustShimmer 4s ease-in-out infinite;
-    }
-    @keyframes trustShimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 22px 20px;
     }
     .trust-bar-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      display: grid; grid-template-columns: repeat(5, 1fr);
       gap: 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 1;
     }
     .trust-stat { text-align: center; color: white; }
@@ -730,8 +715,17 @@
       .floating-call { display: flex; }
       :root { --section-pad: 64px; }
       section { padding: var(--section-pad) 16px; }
-      .page-hero { min-height: 100svh; }
-      .page-hero-content { padding: 140px 16px 60px; }
+      .page-hero { height: 100svh; min-height: 100svh; }
+      .page-hero { height: 100svh; min-height: 100svh; align-items: flex-start; }
+      .page-hero-content { padding: 110px 16px 72px; }
+      .page-hero h1 { font-size: 2rem; line-height: 1.1; margin-bottom: 10px; }
+      .page-hero .hero-sub { font-size: 0.95rem; margin-bottom: 10px; }
+      .page-hero p { font-size: 0.85rem; margin-bottom: 14px; line-height: 1.5; }
+      .hero-cta { gap: 8px; margin-bottom: 14px; }
+      .hero-cta .btn { padding: 11px 20px; font-size: 0.85rem; }
+      .hero-badge { padding: 6px 14px; font-size: 0.78rem; margin-bottom: 14px; }
+      .hero-trust { gap: 8px; }
+      .trust-item { font-size: 0.75rem; }
       .result-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .result-stat .num { font-size: 1.6rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -977,6 +971,80 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+
+    /* ─── UNIVERSELLE MOBILREGLER ─── */
+    @media (max-width: 640px) {
+      .hero-trust {
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+        justify-content: space-between !important;
+      }
+      .trust-item {
+        flex: 1 !important;
+        min-width: 0 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        font-size: 0.62rem !important;
+        gap: 3px !important;
+        white-space: normal !important;
+      }
+      .trust-item .icon, .trust-item span { font-size: 1rem !important; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; display: block; }
+    section, footer, main { width: 100%; }
+
+    /* Små telefoner under 375px */
+    @media (max-width: 480px) {
+      /* Pris-kort: 1 kolonne på alle telefoner */
+      .pricing-cards { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 380px !important; margin-left: auto !important; margin-right: auto !important; }
+      /* Ekstra tillæg: 1 kolonne */
+      .pricing-extras { grid-template-columns: 1fr !important; }
+      /* Kalkulator pakker: 1 kolonne */
+      .calc-packages, .calc-inline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+      /* Features og anmeldelser: 1 kolonne */
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr !important; }
+      /* Processrin: max 2 kolonner */
+      .process-steps { grid-template-columns: 1fr 1fr !important; }
+      /* Formular rækker: 1 kolonne */
+      .form-row { grid-template-columns: 1fr !important; }
+      /* Kontakt cards: 1 kolonne */
+      .contact-cards { grid-template-columns: 1fr !important; }
+      /* Result stats: skalerbart */
+      .result-stats { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+      /* Trust bar: altid 5 kolonner med lille gap */
+      .trust-bar-grid { grid-template-columns: repeat(5, 1fr) !important; gap: 3px !important; }
+      .trust-stat .num { font-size: 0.85rem !important; }
+      .trust-stat .label { font-size: 0.48rem !important; }
+      .trust-bar { padding: 12px 10px !important; }
+      /* Generel overflow-forhindring */
+      * { word-break: break-word; }
+    }
+
+    @media (max-width: 374px) {
+      html { font-size: 14px; }
+      .hero-content, .page-hero-content { padding: 95px 12px 70px !important; }
+      .hero h1, .page-hero h1 { font-size: 1.8rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
+      .hero-slogan, .page-hero .hero-sub { font-size: 0.88rem !important; margin-bottom: 8px !important; }
+      .hero p, .page-hero p { font-size: 0.8rem !important; margin-bottom: 10px !important; line-height: 1.45 !important; }
+      .hero-cta { gap: 6px !important; margin-bottom: 10px !important; }
+      .hero-cta .btn, .btn-lg { padding: 9px 14px !important; font-size: 0.8rem !important; }
+      .hero-badge { font-size: 0.7rem !important; padding: 5px 10px !important; margin-bottom: 10px !important; }
+      .hero-trust { gap: 6px !important; }
+      .trust-item { font-size: 0.7rem !important; }
+      .trust-bar { padding: 10px 8px !important; }
+      .trust-bar-grid { grid-template-columns: repeat(5, 1fr) !important; gap: 2px !important; }
+      .trust-stat .num { font-size: 0.8rem !important; }
+      .trust-stat .label { font-size: 0.44rem !important; }
+    }
+
+    /* Store telefoner 431–768px: centrer hero-indhold */
+    @media (min-width: 431px) and (max-width: 768px) {
+      .hero-content, .page-hero-content { max-width: 430px; margin-left: auto; margin-right: auto; }
+    }
   </style>
 </head>
 <body>
@@ -987,7 +1055,7 @@
   <!-- ─── HEADER ─── -->
   <header id="siteHeader">
     <div class="header-top">
-      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <a href="tel:+4557202351">+45 57 20 23 51</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
@@ -1013,7 +1081,6 @@
       </nav>
       <div class="header-contact">
         <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
-        <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
         <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
       </div>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -1040,8 +1107,7 @@
       <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
       <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
-        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
-        <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
+        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til os</a>
       </div>
     </div>
   </header>
@@ -1050,11 +1116,6 @@
   <section class="page-hero" id="top">
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Forside</a>
-        <span>›</span>
-        <span style="color:rgba(255,255,255,0.9);">Facaderens</span>
-      </div>
       <div class="hero-badge">Professionel facaderens på hele Fyn</div>
       <h1>Professionel Facaderens</h1>
       <p class="hero-sub">Vi giver din facade nyt liv – hurtigt og skånsomt</p>
@@ -1070,33 +1131,31 @@
         <div class="trust-item"><span>⭐</span> 5 stjerner</div>
       </div>
     </div>
-  </section>
-
-  <!-- ─── TRUST BAR ─── -->
-  <div class="trust-bar">
-    <div class="trust-bar-grid">
-      <div class="trust-stat">
-        <div class="num">150+</div>
-        <div class="label">Tilfredse kunder</div>
-      </div>
-      <div class="trust-stat">
-        <div class="num">5★</div>
-        <div class="label">Google anmeldelse</div>
-      </div>
-      <div class="trust-stat">
-        <div class="num">100%</div>
-        <div class="label">Tilfredshedsgaranti</div>
-      </div>
-      <div class="trust-stat">
-        <div class="num">&lt;1t</div>
-        <div class="label">Svartid på tilbud</div>
-      </div>
-      <div class="trust-stat">
-        <div class="num">Fyn</div>
-        <div class="label">Vi dækker hele øen</div>
+    <div class="trust-bar">
+      <div class="trust-bar-grid">
+        <div class="trust-stat">
+          <div class="num">150+</div>
+          <div class="label">Tilfredse kunder</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">5★</div>
+          <div class="label">Google anmeldelse</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">100%</div>
+          <div class="label">Tilfredshedsgaranti</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">&lt;1t</div>
+          <div class="label">Svartid på tilbud</div>
+        </div>
+        <div class="trust-stat">
+          <div class="num">Fyn</div>
+          <div class="label">Vi dækker hele øen</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ─── PRICING ─── -->
   <section class="pricing" id="pris">
@@ -1505,7 +1564,6 @@
           <p>Kontakt os direkte pr. telefon, eller udfyld formularen – vi vender tilbage inden for 1 time på hverdage. Ingen forpligtelse, ingen skjulte gebyrer.</p>
           <div class="form-phones">
             <a href="tel:+4557209141" class="form-phone-link">📞 57 20 91 41 – Niklas</a>
-            <a href="tel:+4557202351" class="form-phone-link">📞 57 20 23 51 – Daniel</a>
           </div>
           <p class="form-note">Foretrækker du at blive ringet op? Udfyld formularen, så kontakter vi dig.</p>
           <div style="margin-top:20px;background:var(--green-light);border:1px solid #6ee7b7;border-radius:10px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;">
@@ -1526,7 +1584,7 @@
         </div>
         <div class="help-form">
           <h3>Brug for hjælp?</h3>
-          <p class="form-subtitle">Ring på <a href="tel:+4557209141" style="color:var(--navy);font-weight:600;">57 20 91 41</a> / <a href="tel:+4557202351" style="color:var(--navy);font-weight:600;">57 20 23 51</a> – eller udfyld formularen og bliv kontaktet</p>
+          <p class="form-subtitle">Ring på <a href="tel:+4557209141" style="color:var(--navy);font-weight:600;">57 20 91 41</a> – eller udfyld formularen og bliv kontaktet</p>
           <form id="contactForm" action="https://formsubmit.co/Kontakt@Multiservice.dk" method="POST">
             <input type="hidden" name="_subject" value="Ny henvendelse fra facaderens siden – Multiservice Fyn" />
             <input type="hidden" name="_captcha" value="false" />
@@ -1754,8 +1812,7 @@
       <h2>Klar til et <span style="color:var(--yellow);">professionelt resultat?</span></h2>
       <p>Kontakt os i dag og modtag et gratis, uforpligtende tilbud. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
       <div class="final-cta-btns">
-        <a href="tel:+4557209141" class="btn btn-green btn-lg">📞 Ring til Niklas</a>
-        <a href="tel:+4557202351" class="btn btn-white btn-lg">📞 Ring til Daniel</a>
+        <a href="tel:+4557209141" class="btn btn-green btn-lg">📞 Ring til os</a>
         <a href="mailto:Kontakt@Multiservice.dk" class="btn btn-outline btn-lg">✉ Send email</a>
       </div>
       <p class="urgency-note">⏰ Ledige tider denne uge – book din plads nu</p>
@@ -1766,13 +1823,6 @@
           <p class="role">Multiservice Fyn</p>
           <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
           <a href="mailto:niklas@multiservice.dk">✉ niklas@multiservice.dk</a>
-        </div>
-        <div class="contact-card">
-          <div class="person-icon">👨‍💼</div>
-          <h4>Daniel</h4>
-          <p class="role">Multiservice Fyn</p>
-          <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
-          <a href="mailto:daniel@multiservice.dk">✉ daniel@multiservice.dk</a>
         </div>
         <div class="contact-card">
           <div class="person-icon">✉</div>
@@ -1820,7 +1870,6 @@
         <h4>Kontakt os</h4>
         <ul>
           <li><a href="tel:+4557209141">+45 57 20 91 41</a></li>
-          <li><a href="tel:+4557202351">+45 57 20 23 51</a></li>
           <li><a href="mailto:Kontakt@Multiservice.dk">Kontakt@Multiservice.dk</a></li>
           <li style="margin-top:12px;">
             <a href="#hjaelp" class="btn btn-primary btn-sm">Få gratis tilbud</a>

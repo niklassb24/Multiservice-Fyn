@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Os | Multiservice Fyn</title>
-  <meta name="description" content="Lær Multiservice Fyn at kende. Vi er Niklas og Daniel – erfarne fagfolk inden for udendørs rengøring og overfladebehandling på hele Fyn." />
+  <meta name="description" content="Lær Multiservice Fyn at kende. Vi er Niklas – erfarne fagfolk inden for udendørs rengøring og overfladebehandling på hele Fyn." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.multiservice-fyn.dk/om-os.html" />
 
@@ -16,11 +16,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #0f5464;
-      --navy-dark: #083a47;
-      --blue: #1a8fa8;
-      --blue-mid: #127d96;
-      --blue-light: #d0eef4;
+      --navy: #0f3080;
+      --navy-dark: #081e45;
+      --blue: #2e7fe8;
+      --blue-mid: #1a6fd4;
+      --blue-light: #dbeafe;
       --green: #059669;
       --gray-50: #f2f0ec;
       --gray-100: #e8e5df;
@@ -36,7 +36,7 @@
       --radius-lg: 20px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.65; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -269,7 +269,9 @@
       nav, .header-contact { display: none; }
       .hamburger { display: flex; }
       .floating-call { display: flex; }
-      .page-hero { padding-top: 110px; }
+      .page-hero { padding-top: 110px; padding-bottom: 48px; }
+      .page-hero h1 { font-size: 2.2rem; }
+      .page-hero p { font-size: 0.9rem; }
     }
     @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -289,6 +291,57 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+
+    /* ─── UNIVERSELLE MOBILREGLER ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; display: block; }
+    section, footer, main { width: 100%; }
+
+    /* Små telefoner under 375px */
+    @media (max-width: 480px) {
+      /* Pris-kort: 1 kolonne på alle telefoner */
+      .pricing-cards { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 380px !important; margin-left: auto !important; margin-right: auto !important; }
+      /* Ekstra tillæg: 1 kolonne */
+      .pricing-extras { grid-template-columns: 1fr !important; }
+      /* Kalkulator pakker: 1 kolonne */
+      .calc-packages, .calc-inline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+      /* Features og anmeldelser: 1 kolonne */
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr !important; }
+      /* Processrin: max 2 kolonner */
+      .process-steps { grid-template-columns: 1fr 1fr !important; }
+      /* Formular rækker: 1 kolonne */
+      .form-row { grid-template-columns: 1fr !important; }
+      /* Kontakt cards: 1 kolonne */
+      .contact-cards { grid-template-columns: 1fr !important; }
+      /* Result stats: skalerbart */
+      .result-stats { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+      /* Trust bar: altid 5 kolonner med lille gap */
+      .trust-bar-grid { grid-template-columns: repeat(5, 1fr) !important; gap: 3px !important; }
+      .trust-stat .num { font-size: 0.85rem !important; }
+      .trust-stat .label { font-size: 0.48rem !important; }
+      .trust-bar { padding: 12px 10px !important; }
+      /* Generel overflow-forhindring */
+      * { word-break: break-word; }
+    }
+
+    @media (max-width: 374px) {
+      html { font-size: 14px; }
+      .hero-content, .page-hero-content { padding: 95px 12px 80px !important; }
+      .hero h1, .page-hero h1 { font-size: 1.8rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
+      .hero-slogan, .page-hero .hero-sub { font-size: 0.88rem !important; margin-bottom: 8px !important; }
+      .hero p, .page-hero p { font-size: 0.8rem !important; margin-bottom: 10px !important; line-height: 1.45 !important; }
+      .hero-cta { gap: 6px !important; margin-bottom: 10px !important; }
+      .hero-cta .btn, .btn-lg { padding: 9px 14px !important; font-size: 0.8rem !important; }
+      .hero-badge { font-size: 0.7rem !important; padding: 5px 10px !important; margin-bottom: 10px !important; }
+      .hero-trust { gap: 6px !important; }
+      .trust-item { font-size: 0.7rem !important; }
+    }
+
+    /* Store telefoner 431–768px: centrer hero-indhold */
+    @media (min-width: 431px) and (max-width: 768px) {
+      .hero-content, .page-hero-content { max-width: 430px; margin-left: auto; margin-right: auto; }
+    }
   </style>
 </head>
 <body>
@@ -298,7 +351,7 @@
   <!-- ─── HEADER ─── -->
   <header>
     <div class="header-top">
-      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <a href="tel:+4557202351">+45 57 20 23 51</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
@@ -323,7 +376,6 @@
       </nav>
       <div class="header-contact">
         <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
-        <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
         <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
       </div>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -351,8 +403,7 @@
       <a href="index.html#faq" onclick="toggleMenu()">FAQ</a>
       <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
-        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
-        <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
+        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til os</a>
       </div>
     </div>
   </header>
@@ -392,13 +443,13 @@
         <div class="team-text">
           <span class="section-label">Mød teamet</span>
           <h2>Erfarne fagfolk inden for <span class="highlight">udendørs rengøring på Fyn</span></h2>
-          <p>Multiservice Fyn er drevet af Niklas og Daniel — to erfarne fagfolk med mange års praktisk erfaring inden for udendørs rengøring, overfladebehandling og vedligeholdelse. De har opbygget en solid faglig forståelse for materialer og metoder, der giver holdbare og flotte resultater.</p>
+          <p>Multiservice Fyn er drevet af Niklas — en erfaren fagmand med mange års praktisk erfaring inden for udendørs rengøring, overfladebehandling og vedligeholdelse. Han har opbygget en solid faglig forståelse for materialer og metoder, der giver holdbare og flotte resultater.</p>
           <p>Passionen bag virksomheden er ønsket om at bevare og vedligeholde eksisterende overflader — hvad enten det drejer sig om flisebelægning, facader, terrasser eller andre udendørsarealer. Vi tror på, at skånsom rengøring og regelmæssig vedligeholdelse er den bedste investering i dit ejendoms udtryk og levetid.</p>
           <p>Med moderne udstyr og et stærkt håndværksmæssigt fundament leverer Multiservice Fyn resultater, der ser naturlige og tidløse ud — uanset om vi arbejder med private boliger eller erhvervsejendomme på Fyn.</p>
           <a href="index.html#kontakt" class="btn btn-primary">Kontakt os i dag →</a>
         </div>
         <div class="team-img">
-          <img src="images/OmMultiServiceFynBillede.PNG" alt="Niklas og Daniel – Multiservice Fyn" loading="lazy" />
+          <img src="images/OmMultiServiceFynBillede.PNG" alt="Niklas – Multiservice Fyn" loading="lazy" />
         </div>
       </div>
     </div>
@@ -411,7 +462,6 @@
       <p>Ring til os eller send en besked – vi svarer inden for 1 time og giver dig et gratis tilbud.</p>
       <div class="cta-buttons">
         <a href="tel:+4557209141" class="btn btn-white">📞 +45 57 20 91 41</a>
-        <a href="tel:+4557202351" class="btn btn-white">📞 +45 57 20 23 51</a>
         <a href="index.html#kontakt" class="btn btn-primary">Skriv til os →</a>
       </div>
     </div>
@@ -448,7 +498,6 @@
         <h4>Kontakt os</h4>
         <ul>
           <li><a href="tel:+4557209141">+45 57 20 91 41</a></li>
-          <li><a href="tel:+4557202351">+45 57 20 23 51</a></li>
           <li><a href="mailto:Kontakt@Multiservice.dk">Kontakt@Multiservice.dk</a></li>
           <li style="margin-top:12px;">
             <a href="index.html#kontakt" class="btn btn-primary btn-sm">Ring til os</a>

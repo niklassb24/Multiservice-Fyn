@@ -69,7 +69,7 @@
       --section-pad: 96px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.65; overflow-x: hidden; }
     h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
     img { max-width: 100%; height: auto; display: block; }
@@ -228,7 +228,7 @@
     .hero-content {
       position: relative; z-index: 2;
       max-width: 1200px; margin: 0 auto; padding: 0 20px;
-      padding-top: 140px; padding-bottom: 80px;
+      padding-top: 140px; padding-bottom: 60px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
     }
     .hero-badge {
@@ -694,7 +694,11 @@
       :root { --section-pad: 64px; }
       nav, .header-contact { display: none; }
       .hamburger { display: flex; }
-      .hero-content { grid-template-columns: 1fr; gap: 36px; padding-top: 120px; }
+      .hero { align-items: flex-start; }
+      .hero-content { grid-template-columns: 1fr; gap: 16px; padding-top: 110px; padding-bottom: 72px; }
+      .hero h1 { font-size: 2rem; line-height: 1.1; }
+      .hero p { font-size: 0.85rem; line-height: 1.5; margin-bottom: 14px; }
+      .hero-cta .btn { padding: 11px 20px; font-size: 0.85rem; }
       .hero-card { display: none; }
       .why-grid { grid-template-columns: 1fr; }
       .features-grid, .pricing-cards, .testimonials-grid { grid-template-columns: 1fr; }
@@ -711,6 +715,75 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+
+    /* ─── UNIVERSELLE MOBILREGLER ─── */
+    @media (max-width: 640px) {
+      .hero-trust {
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        justify-content: space-between !important;
+      }
+      .hero-trust-item {
+        flex: 1 !important;
+        min-width: 0 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        font-size: 0.62rem !important;
+        gap: 3px !important;
+      }
+      .hero-trust-item svg { width: 14px !important; height: 14px !important; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; display: block; }
+    section, footer, main { width: 100%; }
+
+    /* Små telefoner under 375px */
+    @media (max-width: 480px) {
+      /* Pris-kort: 1 kolonne på alle telefoner */
+      .pricing-cards { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 380px !important; margin-left: auto !important; margin-right: auto !important; }
+      /* Ekstra tillæg: 1 kolonne */
+      .pricing-extras { grid-template-columns: 1fr !important; }
+      /* Kalkulator pakker: 1 kolonne */
+      .calc-packages, .calc-inline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+      /* Features og anmeldelser: 1 kolonne */
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr !important; }
+      /* Processrin: max 2 kolonner */
+      .process-steps { grid-template-columns: 1fr 1fr !important; }
+      /* Formular rækker: 1 kolonne */
+      .form-row { grid-template-columns: 1fr !important; }
+      /* Kontakt cards: 1 kolonne */
+      .contact-cards { grid-template-columns: 1fr !important; }
+      /* Result stats: skalerbart */
+      .result-stats { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+      /* Trust bar: altid 5 kolonner med lille gap */
+      .trust-bar-grid { grid-template-columns: repeat(5, 1fr) !important; gap: 3px !important; }
+      .trust-stat .num { font-size: 0.85rem !important; }
+      .trust-stat .label { font-size: 0.48rem !important; }
+      .trust-bar { padding: 12px 10px !important; }
+      /* Generel overflow-forhindring */
+      * { word-break: break-word; }
+    }
+
+    @media (max-width: 374px) {
+      html { font-size: 14px; }
+      .hero-content, .page-hero-content { padding: 95px 12px 70px !important; }
+      .hero h1, .page-hero h1 { font-size: 1.8rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
+      .hero-slogan, .page-hero .hero-sub { font-size: 0.88rem !important; margin-bottom: 8px !important; }
+      .hero p, .page-hero p { font-size: 0.8rem !important; margin-bottom: 10px !important; line-height: 1.45 !important; }
+      .hero-cta { gap: 6px !important; margin-bottom: 10px !important; }
+      .hero-cta .btn, .btn-lg { padding: 9px 14px !important; font-size: 0.8rem !important; }
+      .hero-badge { font-size: 0.7rem !important; padding: 5px 10px !important; margin-bottom: 10px !important; }
+      .hero-trust { gap: 6px !important; }
+      .trust-item { font-size: 0.7rem !important; }
+    }
+
+    /* Store telefoner 431–768px: centrer hero-indhold */
+    @media (min-width: 431px) and (max-width: 768px) {
+      .hero-content, .page-hero-content { max-width: 430px; margin-left: auto; margin-right: auto; }
+    }
   </style>
 </head>
 <body>
@@ -718,7 +791,7 @@
 <!-- ─── HEADER ─── -->
   <header id="siteHeader">
     <div class="header-top">
-      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <a href="tel:+4557202351">+45 57 20 23 51</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
@@ -744,7 +817,6 @@
       </nav>
       <div class="header-contact">
         <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
-        <a href="tel:+4557202351">📞 +45 57 20 23 51</a>
         <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
       </div>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -771,8 +843,7 @@
       <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
       <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
-        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til Niklas</a>
-        <a href="tel:+4557202351" class="btn btn-primary" style="width:100%">📞 Ring til Daniel</a>
+        <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til os</a>
       </div>
     </div>
   </header>
