@@ -343,8 +343,20 @@
       .services-grid .service-card:nth-child(4) { grid-column: auto; }
       .services-grid .service-card:nth-child(5) { grid-column: auto; }
     }
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(6, 1fr) !important;
+        gap: 8px !important;
+      }
+      .services-grid .service-card { grid-column: span 2 !important; }
+      .services-grid .service-card:nth-child(4) { grid-column: 2 / 4 !important; }
+      .services-grid .service-card:nth-child(5) { grid-column: 4 / 6 !important; }
+      .service-card { aspect-ratio: 3 / 4 !important; }
+      .service-header-band { flex: 1 !important; height: auto !important; }
+      .service-body { padding: 6px 8px 8px !important; flex: 0 0 auto !important; }
+      .service-body h3 { font-size: 0.75rem !important; margin: 0 !important; text-align: center !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+      .service-body p { display: none !important; }
+      .service-link { display: none !important; }
     }
     .service-card {
       border-radius: var(--radius-lg); overflow: hidden;
@@ -912,7 +924,7 @@
         <ul class="quality-list">
           <li><span class="check">✔</span> Professionelt udstyr til alle opgavetyper</li>
           <li><span class="check">✔</span> Mere end 150 tilfredse kunder på Fyn</li>
-          <li><span class="check">✔</span> Miljøvenlige rengøringsmidler</li>
+          <li><span class="check">✔</span> Miljøvenlige produkter</li>
           <li><span class="check">✔</span> Fuld ansvarsforsikring – vi er dækkede</li>
           <li><span class="check">✔</span> Gratis og uforpligtende besigtigelse</li>
           <li><span class="check">✔</span> Svar på tilbud inden for 1 time</li>
