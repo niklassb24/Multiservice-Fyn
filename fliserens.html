@@ -262,7 +262,7 @@
     .page-hero-content {
       position: relative; z-index: 1;
       max-width: 760px;
-      padding: 130px 20px 100px;
+      padding: 80px 20px 100px;
       margin: 0 auto;
       text-align: center;
     }
@@ -1322,9 +1322,7 @@
       <p class="hero-sub">Vi genopretter dine flisers oprindelige udseende</p>
       <p>Med professionelt udstyr og godkendte rengøringsmidler fjerner vi alger, mos og indgroet snavs fra alle typer belægninger. Effektivt, skånsomt og med synligt resultat – garanteret.</p>
       <div class="hero-cta">
-        <a href="#prisberegner" class="btn btn-primary btn-lg">Beregn pris</a>
-        <a href="#hjaelp" class="btn btn-primary btn-lg">Få gratis tilbud</a>
-        <a href="tel:+4557209141" class="btn btn-outline btn-lg">📞 Ring nu</a>
+        <a href="#pris" class="btn btn-outline btn-lg">Se priser →</a>
       </div>
       <div class="hero-trust">
         <div class="trust-item"><span>✅</span> Gratis tilbud</div>
@@ -1536,7 +1534,7 @@
                   <div class="calc-pkg-badge">Mest valgt</div>
                   <div class="calc-pkg-name">Standard</div>
                   <div class="calc-pkg-price">50 kr/m²</div>
-                  <div class="calc-pkg-desc">+ fugesand & fejning</div>
+                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²)</div>
                 </div>
               </label>
               <label class="calc-pkg" data-price="60">
@@ -1544,7 +1542,7 @@
                 <div class="calc-pkg-inner">
                   <div class="calc-pkg-name">Premium</div>
                   <div class="calc-pkg-price">60 kr/m²</div>
-                  <div class="calc-pkg-desc">+ imprægnering</div>
+                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²) + imprægnering</div>
                 </div>
               </label>
             </div>
@@ -2161,7 +2159,9 @@
       const pkgName = selected ? selected.closest('.calc-pkg').querySelector('.calc-pkg-name').textContent : null;
 
       if (area > 0 && pkg) {
-        const baseTotal = area * pkg;
+        const hasFugesand = pkg >= 50;
+        const fugesandTotal = hasFugesand ? area * 3.2 : 0;
+        const workTotal = area * pkg;
 
         const springDiscount = new Date() < SPRING_DEADLINE;
         const volumeDiscount = area >= 100;
@@ -2170,8 +2170,8 @@
         if (springDiscount) discountPct += 10;
         if (volumeDiscount) discountPct += 10;
 
-        const discountAmount = baseTotal * (discountPct / 100);
-        const finalTotal = baseTotal - discountAmount;
+        const discountAmount = workTotal * (discountPct / 100);
+        const finalTotal = workTotal - discountAmount + fugesandTotal;
 
         priceEl.textContent = Math.round(finalTotal).toLocaleString('da-DK') + ' kr.';
 

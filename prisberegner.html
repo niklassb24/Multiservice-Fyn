@@ -240,6 +240,13 @@
               <option value="0.9">Asfalt / beton</option>
             </select>
           </div>
+          <div class="form-group">
+            <label>Tilvalg</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="checkbox" id="fl-fugesand" onchange="calcFliserens()" /><span>Fugesand (ca. 3,20 kr./m²)</span></label>
+            </div>
+            <p class="hint">Fugesand fyldes i fugerne efter rensning for at styrke belægningen</p>
+          </div>
         </div>
         <div class="calc-result" id="fl-result">
           <h3>Estimeret pris</h3>
@@ -248,6 +255,7 @@
           <div class="price-breakdown">
             <div class="price-breakdown-row"><span>Areal</span><span id="fl-b-areal">50 m²</span></div>
             <div class="price-breakdown-row"><span>Pris pr. m²</span><span id="fl-b-m2">35–50 kr.</span></div>
+            <div class="price-breakdown-row" id="fl-b-fugesand-row" style="display:none;"><span>Fugesand</span><span id="fl-b-fugesand">0 kr.</span></div>
             <div class="price-breakdown-row"><span>Estimeret total</span><span id="fl-b-total">1.750–2.500 kr.</span></div>
           </div>
           <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
@@ -454,13 +462,17 @@
       const areal = parseFloat(document.getElementById('fl-areal').value) || 0;
       const tilstand = parseFloat(document.querySelector('input[name="fl-tilstand"]:checked').value);
       const type = parseFloat(document.getElementById('fl-type').value);
+      const fugesand = document.getElementById('fl-fugesand').checked;
       const low = 35 * tilstand * type;
       const high = 50 * tilstand * type;
-      const totalLow = Math.round(areal * low / 50) * 50;
-      const totalHigh = Math.round(areal * high / 50) * 50;
+      const fugesandPris = fugesand ? Math.round(areal * 3.2 / 10) * 10 : 0;
+      const totalLow = Math.round(areal * low / 50) * 50 + fugesandPris;
+      const totalHigh = Math.round(areal * high / 50) * 50 + fugesandPris;
       document.getElementById('fl-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
       document.getElementById('fl-b-areal').textContent = areal + ' m²';
       document.getElementById('fl-b-m2').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
+      document.getElementById('fl-b-fugesand-row').style.display = fugesand ? 'flex' : 'none';
+      document.getElementById('fl-b-fugesand').textContent = fmt(fugesandPris) + ' kr.';
       document.getElementById('fl-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
     }
 
