@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prisberegner | Multiservice Fyn</title>
+  <meta name="description" content="Beregn prisen på fliserens, facaderens, terrasserens, vinduespudsning og havearbejde på Fyn. Få et hurtigt prisoverslag fra Multiservice Fyn." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.multiservice-fyn.dk/prisberegner.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f3080;
+      --navy-dark: #081e45;
+      --blue: #2e7fe8;
+      --blue-mid: #1a6fd4;
+      --blue-light: #dbeafe;
+      --green: #059669;
+      --yellow: #f59e0b;
+      --gray-50: #f2f0ec;
+      --gray-100: #e8e5df;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --font-display: 'Oswald', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+    }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+    body { font-family: var(--font-body); color: var(--gray-800); background: #faf9f7; line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; text-decoration: none; font-family: var(--font-body); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary { background: var(--blue); color: white; }
+    .btn-green { background: var(--green); color: white; }
+    .btn-lg { padding: 18px 36px; font-size: 1.1rem; }
+
+    /* HEADER */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,48,128,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+    .header-top { background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%); padding: 5px 0; font-size: 0.72rem; font-weight: 600; color: white; overflow: hidden; white-space: nowrap; }
+    .header-top-track { display: inline-flex; animation: marquee 20s linear infinite; }
+    .header-top-inner { display: inline-flex; align-items: center; gap: 32px; padding-right: 32px; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .header-main { display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 20px 0 140px; width: 100%; height: 89px; }
+    .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
+    nav { display: flex; align-items: center; gap: 32px; position: absolute; left: 50%; transform: translateX(-50%); }
+    nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: white; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-top: none; border-radius: 0 0 14px 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); padding: 16px 8px 12px; min-width: 200px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s; }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu a { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600; padding: 10px 14px; border-radius: 8px; transition: background 0.15s; }
+    .dropdown-menu a:hover { background: rgba(255,255,255,0.15); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: white; display: block; border-radius: 2px; }
+    .mobile-nav { display: none; flex-direction: column; background: rgba(15,48,128,0.97); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: white; padding: 12px 0; font-size: 1rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-nav a:last-child { border-bottom: none; }
+
+    /* PAGE HERO */
+    .page-hero { background: linear-gradient(135deg, #0f3080 0%, #2e7fe8 100%); padding: 140px 20px 60px; text-align: center; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: white; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 560px; margin: 0 auto; }
+
+    /* TABS */
+    .tabs-wrap { background: white; border-bottom: 2px solid var(--gray-200); position: sticky; top: 114px; z-index: 100; }
+    .tabs { display: flex; max-width: 900px; margin: 0 auto; overflow-x: auto; }
+    .tab-btn { flex: 1; padding: 16px 12px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--gray-600); background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap; transition: color 0.2s, border-color 0.2s; min-width: 120px; }
+    .tab-btn:hover { color: var(--navy); }
+    .tab-btn.active { color: var(--navy); border-bottom-color: var(--blue); }
+
+    /* CALCULATOR SECTIONS */
+    .calc-section { display: none; padding: 60px 20px; }
+    .calc-section.active { display: block; }
+    .calc-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+    /* FORM */
+    .calc-form { background: white; border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow); border: 1px solid var(--gray-200); }
+    .calc-form h2 { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; }
+    .calc-form .subtitle { color: var(--gray-600); font-size: 0.9rem; margin-bottom: 28px; }
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.88rem; color: var(--gray-800); margin-bottom: 8px; }
+    .form-group input[type="number"],
+    .form-group select { width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; color: var(--gray-800); transition: border-color 0.2s; outline: none; appearance: none; background: white; }
+    .form-group input[type="number"]:focus,
+    .form-group select:focus { border-color: var(--blue); }
+    .form-group .hint { font-size: 0.78rem; color: var(--gray-400); margin-top: 4px; }
+    .radio-group { display: flex; flex-direction: column; gap: 10px; }
+    .radio-option { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid var(--gray-200); border-radius: var(--radius); cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .radio-option:hover { border-color: var(--blue); background: var(--blue-light); }
+    .radio-option input { accent-color: var(--blue); width: 16px; height: 16px; }
+    .radio-option span { font-size: 0.9rem; font-weight: 500; }
+
+    /* RESULT */
+    .calc-result { background: linear-gradient(135deg, #0f3080 0%, #2e7fe8 100%); border-radius: var(--radius-lg); padding: 36px; color: white; position: sticky; top: 180px; }
+    .calc-result h3 { font-size: 1rem; font-weight: 600; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-range { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 6px; }
+    .price-note { font-size: 0.82rem; opacity: 0.7; margin-bottom: 24px; }
+    .price-breakdown { background: rgba(255,255,255,0.1); border-radius: var(--radius); padding: 16px; margin-bottom: 24px; }
+    .price-breakdown-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .price-breakdown-row:last-child { border-bottom: none; font-weight: 700; font-size: 0.95rem; padding-top: 10px; margin-top: 4px; }
+    .disclaimer { font-size: 0.75rem; opacity: 0.6; margin-bottom: 20px; line-height: 1.5; }
+    .calc-result .btn-green { width: 100%; justify-content: center; }
+
+    /* FOOTER */
+    footer { background: linear-gradient(180deg, #0f3080 0%, #081e45 100%); color: white; padding: 40px 20px 20px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: 1200px; margin: 0 auto; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .footer-bottom a { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .calc-wrap { grid-template-columns: 1fr; }
+      .calc-result { position: static; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .header-main { padding: 0 20px; }
+      .tabs { gap: 0; }
+      .tab-btn { min-width: 100px; font-size: 0.78rem; padding: 14px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="header-top-track">
+        <div class="header-top-inner">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+        <div class="header-top-inner" aria-hidden="true">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+      </div>
+    </div>
+    <div class="header-main">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Multiservice Fyn logo" />
+      </a>
+      <nav>
+        <div class="nav-dropdown">
+          <a href="index.html#services">Vi Tilbyder</a>
+          <div class="dropdown-menu">
+            <a href="fliserens.html">Fliserens</a>
+            <a href="terrasserens.html">Træterrasserens</a>
+            <a href="facaderens.html">Facaderens</a>
+            <a href="vinduespuds.html">Vinduespudsning</a>
+            <a href="havearbejde.html">Havearbejde</a>
+          </div>
+        </div>
+        <a href="om-os.html">Om os</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="prisberegner.html" style="color:#fde68a;font-weight:700;">Prisberegner</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html" onclick="toggleMenu()">Forside</a>
+      <a href="fliserens.html" onclick="toggleMenu()">Fliserens</a>
+      <a href="facaderens.html" onclick="toggleMenu()">Facaderens</a>
+      <a href="terrasserens.html" onclick="toggleMenu()">Træterrasserens</a>
+      <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespudsning</a>
+      <a href="havearbejde.html" onclick="toggleMenu()">Havearbejde</a>
+      <a href="om-os.html" onclick="toggleMenu()">Om os</a>
+      <a href="prisberegner.html" onclick="toggleMenu()" style="color:#fde68a;font-weight:700;">Prisberegner</a>
+      <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Prisberegner</h1>
+    <p>Få et hurtigt prisoverslag på vores services. Udfyld felterne og se hvad det cirka koster.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('fliserens')">🧱 Fliserens</button>
+      <button class="tab-btn" onclick="switchTab('facaderens')">🏠 Facaderens</button>
+      <button class="tab-btn" onclick="switchTab('terrasse')">🪵 Terrasserens</button>
+      <button class="tab-btn" onclick="switchTab('vinduer')">🪟 Vinduespuds</button>
+      <button class="tab-btn" onclick="switchTab('have')">🌿 Havearbejde</button>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ─── FLISERENS ─── -->
+    <section class="calc-section active" id="calc-fliserens">
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <h2>Fliserens</h2>
+          <p class="subtitle">Højtryksrens af indkørsler, gangstier og flisebelægninger.</p>
+          <div class="form-group">
+            <label>Areal (m²)</label>
+            <input type="number" id="fl-areal" value="50" min="1" max="1000" oninput="calcFliserens()" />
+            <p class="hint">F.eks. en standard indkørsel er ca. 30–60 m²</p>
+          </div>
+          <div class="form-group">
+            <label>Tilstand</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="fl-tilstand" value="1" checked onchange="calcFliserens()" /><span>Normal – lidt alger og snavs</span></label>
+              <label class="radio-option"><input type="radio" name="fl-tilstand" value="1.3" onchange="calcFliserens()" /><span>Kraftigt tilgroet – meget mos og alger</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Belægningstype</label>
+            <select id="fl-type" onchange="calcFliserens()">
+              <option value="1">Betonfliser</option>
+              <option value="1.1">Natursten / granit</option>
+              <option value="0.9">Asfalt / beton</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="fl-result">
+          <h3>Estimeret pris</h3>
+          <div class="price-range" id="fl-price">1.750 – 2.500 kr.</div>
+          <p class="price-note">Inkl. arbejdsløn og udstyr</p>
+          <div class="price-breakdown">
+            <div class="price-breakdown-row"><span>Areal</span><span id="fl-b-areal">50 m²</span></div>
+            <div class="price-breakdown-row"><span>Pris pr. m²</span><span id="fl-b-m2">35–50 kr.</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="fl-b-total">1.750–2.500 kr.</span></div>
+          </div>
+          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
+          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FACADERENS ─── -->
+    <section class="calc-section" id="calc-facaderens">
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <h2>Facaderens</h2>
+          <p class="subtitle">Professionel rensning af mursten, puds og beton.</p>
+          <div class="form-group">
+            <label>Facadeareal (m²)</label>
+            <input type="number" id="fa-areal" value="80" min="1" max="2000" oninput="calcFacaderens()" />
+            <p class="hint">Mål højde × bredde på de flader der skal renses</p>
+          </div>
+          <div class="form-group">
+            <label>Facadetype</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="fa-type" value="1" checked onchange="calcFacaderens()" /><span>Mursten</span></label>
+              <label class="radio-option"><input type="radio" name="fa-type" value="1.15" onchange="calcFacaderens()" /><span>Puds / ferociement</span></label>
+              <label class="radio-option"><input type="radio" name="fa-type" value="0.9" onchange="calcFacaderens()" /><span>Beton</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tilstand</label>
+            <select id="fa-tilstand" onchange="calcFacaderens()">
+              <option value="1">Normal tilsmudsning</option>
+              <option value="1.35">Kraftig alge- og mosbelægning</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="fa-result">
+          <h3>Estimeret pris</h3>
+          <div class="price-range" id="fa-price">4.800 – 7.200 kr.</div>
+          <p class="price-note">Inkl. arbejdsløn og udstyr</p>
+          <div class="price-breakdown">
+            <div class="price-breakdown-row"><span>Areal</span><span id="fa-b-areal">80 m²</span></div>
+            <div class="price-breakdown-row"><span>Pris pr. m²</span><span id="fa-b-m2">60–90 kr.</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="fa-b-total">4.800–7.200 kr.</span></div>
+          </div>
+          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
+          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TERRASSERENS ─── -->
+    <section class="calc-section" id="calc-terrasse">
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <h2>Terrasserens</h2>
+          <p class="subtitle">Grundig rengøring af træterrasser, betonterrasser og fliseterrasser.</p>
+          <div class="form-group">
+            <label>Terrasseareal (m²)</label>
+            <input type="number" id="tr-areal" value="30" min="1" max="500" oninput="calcTerrasse()" />
+            <p class="hint">En typisk terrasse er 15–40 m²</p>
+          </div>
+          <div class="form-group">
+            <label>Terrassetype</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="tr-type" value="1.2" checked onchange="calcTerrasse()" /><span>Trætterrasse</span></label>
+              <label class="radio-option"><input type="radio" name="tr-type" value="1" onchange="calcTerrasse()" /><span>Betonterrasse</span></label>
+              <label class="radio-option"><input type="radio" name="tr-type" value="1" onchange="calcTerrasse()" /><span>Fliseterrasse</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tilstand</label>
+            <select id="tr-tilstand" onchange="calcTerrasse()">
+              <option value="1">Normal</option>
+              <option value="1.3">Kraftigt tilgroet</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="tr-result">
+          <h3>Estimeret pris</h3>
+          <div class="price-range" id="tr-price">1.800 – 2.700 kr.</div>
+          <p class="price-note">Inkl. arbejdsløn og udstyr</p>
+          <div class="price-breakdown">
+            <div class="price-breakdown-row"><span>Areal</span><span id="tr-b-areal">30 m²</span></div>
+            <div class="price-breakdown-row"><span>Pris pr. m²</span><span id="tr-b-m2">60–90 kr.</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="tr-b-total">1.800–2.700 kr.</span></div>
+          </div>
+          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
+          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── VINDUESPUDSNING ─── -->
+    <section class="calc-section" id="calc-vinduer">
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <h2>Vinduespudsning</h2>
+          <p class="subtitle">Streakfri vinduespudsning indvendigt og udvendigt.</p>
+          <div class="form-group">
+            <label>Antal vinduer</label>
+            <input type="number" id="vi-antal" value="10" min="1" max="200" oninput="calcVinduer()" />
+            <p class="hint">Tæl alle vinduesrammer – et stort vindue med 2 rammer tæller som 2</p>
+          </div>
+          <div class="form-group">
+            <label>Rensning</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="vi-side" value="1" checked onchange="calcVinduer()" /><span>Kun udvendigt</span></label>
+              <label class="radio-option"><input type="radio" name="vi-side" value="1.7" onchange="calcVinduer()" /><span>Indvendigt og udvendigt</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ejendomstype</label>
+            <select id="vi-type" onchange="calcVinduer()">
+              <option value="1">Privat bolig</option>
+              <option value="1.2">Erhvervsejendom</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="vi-result">
+          <h3>Estimeret pris</h3>
+          <div class="price-range" id="vi-price">600 – 900 kr.</div>
+          <p class="price-note">Inkl. arbejdsløn og udstyr</p>
+          <div class="price-breakdown">
+            <div class="price-breakdown-row"><span>Antal vinduer</span><span id="vi-b-antal">10 stk.</span></div>
+            <div class="price-breakdown-row"><span>Pris pr. vindue</span><span id="vi-b-stk">60–90 kr.</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="vi-b-total">600–900 kr.</span></div>
+          </div>
+          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
+          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── HAVEARBEJDE ─── -->
+    <section class="calc-section" id="calc-have">
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <h2>Havearbejde</h2>
+          <p class="subtitle">Klipning af hæk og græs, lugning, rydning og generel havepleje.</p>
+          <div class="form-group">
+            <label>Estimeret antal timer</label>
+            <input type="number" id="ha-timer" value="3" min="1" max="40" oninput="calcHave()" />
+            <p class="hint">En standard haveopgave tager typisk 2–5 timer</p>
+          </div>
+          <div class="form-group">
+            <label>Type arbejde</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="ha-type" value="1" checked onchange="calcHave()" /><span>Græsklipning og lugning</span></label>
+              <label class="radio-option"><input type="radio" name="ha-type" value="1.1" onchange="calcHave()" /><span>Hækklipning</span></label>
+              <label class="radio-option"><input type="radio" name="ha-type" value="1.2" onchange="calcHave()" /><span>Større rydningsopgave</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tilstand af have</label>
+            <select id="ha-tilstand" onchange="calcHave()">
+              <option value="1">Velholdt – løbende vedligehold</option>
+              <option value="1.3">Forsømt – kræver ekstra arbejde</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result" id="ha-result">
+          <h3>Estimeret pris</h3>
+          <div class="price-range" id="ha-price">1.050 – 1.350 kr.</div>
+          <p class="price-note">Inkl. arbejdsløn</p>
+          <div class="price-breakdown">
+            <div class="price-breakdown-row"><span>Antal timer</span><span id="ha-b-timer">3 timer</span></div>
+            <div class="price-breakdown-row"><span>Timepris</span><span id="ha-b-pris">350–450 kr./t</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="ha-b-total">1.050–1.350 kr.</span></div>
+          </div>
+          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
+          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2026 Multiservice Fyn. Alle rettigheder forbeholdes.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#">Privatlivspolitik</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    function switchTab(name) {
+      document.querySelectorAll('.calc-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('calc-' + name).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function fmt(n) { return n.toLocaleString('da-DK'); }
+
+    function calcFliserens() {
+      const areal = parseFloat(document.getElementById('fl-areal').value) || 0;
+      const tilstand = parseFloat(document.querySelector('input[name="fl-tilstand"]:checked').value);
+      const type = parseFloat(document.getElementById('fl-type').value);
+      const low = 35 * tilstand * type;
+      const high = 50 * tilstand * type;
+      const totalLow = Math.round(areal * low / 50) * 50;
+      const totalHigh = Math.round(areal * high / 50) * 50;
+      document.getElementById('fl-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      document.getElementById('fl-b-areal').textContent = areal + ' m²';
+      document.getElementById('fl-b-m2').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
+      document.getElementById('fl-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+    }
+
+    function calcFacaderens() {
+      const areal = parseFloat(document.getElementById('fa-areal').value) || 0;
+      const type = parseFloat(document.querySelector('input[name="fa-type"]:checked').value);
+      const tilstand = parseFloat(document.getElementById('fa-tilstand').value);
+      const low = 60 * type * tilstand;
+      const high = 90 * type * tilstand;
+      const totalLow = Math.round(areal * low / 100) * 100;
+      const totalHigh = Math.round(areal * high / 100) * 100;
+      document.getElementById('fa-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      document.getElementById('fa-b-areal').textContent = areal + ' m²';
+      document.getElementById('fa-b-m2').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
+      document.getElementById('fa-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+    }
+
+    function calcTerrasse() {
+      const areal = parseFloat(document.getElementById('tr-areal').value) || 0;
+      const type = parseFloat(document.querySelector('input[name="tr-type"]:checked').value);
+      const tilstand = parseFloat(document.getElementById('tr-tilstand').value);
+      const low = 60 * type * tilstand;
+      const high = 90 * type * tilstand;
+      const totalLow = Math.round(areal * low / 50) * 50;
+      const totalHigh = Math.round(areal * high / 50) * 50;
+      document.getElementById('tr-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      document.getElementById('tr-b-areal').textContent = areal + ' m²';
+      document.getElementById('tr-b-m2').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
+      document.getElementById('tr-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+    }
+
+    function calcVinduer() {
+      const antal = parseFloat(document.getElementById('vi-antal').value) || 0;
+      const side = parseFloat(document.querySelector('input[name="vi-side"]:checked').value);
+      const type = parseFloat(document.getElementById('vi-type').value);
+      const low = 60 * side * type;
+      const high = 90 * side * type;
+      const totalLow = Math.round(antal * low / 50) * 50;
+      const totalHigh = Math.round(antal * high / 50) * 50;
+      document.getElementById('vi-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      document.getElementById('vi-b-antal').textContent = antal + ' stk.';
+      document.getElementById('vi-b-stk').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
+      document.getElementById('vi-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+    }
+
+    function calcHave() {
+      const timer = parseFloat(document.getElementById('ha-timer').value) || 0;
+      const type = parseFloat(document.querySelector('input[name="ha-type"]:checked').value);
+      const tilstand = parseFloat(document.getElementById('ha-tilstand').value);
+      const low = 350 * type * tilstand;
+      const high = 450 * type * tilstand;
+      const totalLow = Math.round(timer * low / 50) * 50;
+      const totalHigh = Math.round(timer * high / 50) * 50;
+      document.getElementById('ha-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      document.getElementById('ha-b-timer').textContent = timer + ' timer';
+      document.getElementById('ha-b-pris').textContent = Math.round(low) + '–' + Math.round(high) + ' kr./t';
+      document.getElementById('ha-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+    }
+  </script>
+</body>
+</html>

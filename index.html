@@ -176,23 +176,37 @@
     }
     .header-top {
       background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
-      text-align: center;
-      padding: 5px 16px;
+      padding: 5px 0;
       font-size: 0.72rem;
       font-weight: 600;
       color: white;
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .header-top-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 20s linear infinite;
+    }
+    .header-top-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      padding-right: 32px;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .header-top a { color: white; font-weight: 700; }
     .header-main {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; max-width: 1200px; margin: 0 auto;
+      position: relative;
+      padding: 0 20px 0 140px; width: 100%;
       height: 89px;
     }
     .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
-    nav { display: flex; align-items: center; gap: 32px; }
+    nav { display: flex; align-items: center; gap: 32px; position: absolute; left: 50%; transform: translateX(-50%); }
     nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav a:hover { color: white; }
 
@@ -227,7 +241,7 @@
     }
     .dropdown-menu a:hover { background: rgba(255,255,255,0.15); color: white !important; }
     .dropdown-menu .d-icon { font-size: 1.1rem; width: 24px; text-align: center; }
-    .header-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .header-contact { display: none; }
     .header-contact a { color: white; font-size: 0.82rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
     .header-contact a:hover { color: var(--yellow); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
@@ -349,9 +363,9 @@
     .hero-content {
       position: relative; z-index: 1;
       max-width: 700px;
-      padding: 100px 20px 100px;
-      margin: 0 auto;
-      text-align: center;
+      padding: 30px 20px 100px;
+      margin: 0 auto 0 140px;
+      text-align: left;
     }
     .hero-services-link { display: none; }
     @media (max-width: 640px) { .hero-services-link { display: inline-block; margin-top: 24px; margin-bottom: 10px; align-self: center; width: auto; } }
@@ -849,7 +863,44 @@
   <!-- ─── HEADER ─── -->
   <header>
     <div class="header-top">
-      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+      <div class="header-top-track">
+        <div class="header-top-inner">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+        <div class="header-top-inner" aria-hidden="true">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+      </div>
     </div>
     <div class="header-main">
       <a href="#top" class="logo">
@@ -857,7 +908,7 @@
       </a>
       <nav>
         <div class="nav-dropdown">
-          <a href="#services">Services</a>
+          <a href="#services">Vi Tilbyder</a>
           <div class="dropdown-menu">
             <a href="fliserens.html">Flise-rens</a>
             <a href="terrasserens.html">Træterrasserens</a>
@@ -867,8 +918,6 @@
           </div>
         </div>
         <a href="om-os.html">Om os</a>
-        <a href="#anmeldelser">Anmeldelser</a>
-        <a href="#omraader">Områder</a>
         <a href="#faq">FAQ</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -876,6 +925,7 @@
         <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
         <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
       </div>
+      <a href="prisberegner.html" class="btn btn-primary btn-sm" style="white-space:nowrap;margin-right:90px;">Prisberegner</a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </div>
@@ -913,10 +963,22 @@
     <div class="hero-content">
       <h1>Multiservice Fyn <span style="display:block;font-size:0.4em;font-weight:500;opacity:0.85;letter-spacing:0;">Fliserens & Udvendig Rengøring</span></h1>
       <p class="hero-slogan">Vi gør det rent — du nyder resultatet</p>
-      <div class="hero-cta">
-        <a href="#kontakt" class="btn btn-primary btn-lg">Få gratis tilbud</a>
-        <a href="tel:+4557209141" class="btn btn-outline btn-lg">📞 Ring nu</a>
-      </div>
+      <a href="#anmeldelser" style="display:inline-flex;align-items:center;gap:12px;margin-top:20px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:8px 16px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+        <span style="display:flex;flex-direction:column;gap:2px;">
+          <span style="color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;">Trustpilot</span>
+          <span style="display:flex;gap:2px;">
+            <span style="background:#00b67a;color:white;font-size:0.75rem;padding:2px 4px;">★</span>
+            <span style="background:#00b67a;color:white;font-size:0.75rem;padding:2px 4px;">★</span>
+            <span style="background:#00b67a;color:white;font-size:0.75rem;padding:2px 4px;">★</span>
+            <span style="background:#00b67a;color:white;font-size:0.75rem;padding:2px 4px;">★</span>
+            <span style="background:#00b67a;color:white;font-size:0.75rem;padding:2px 4px;">★</span>
+          </span>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px;">
+          <span style="color:white;font-size:0.8rem;font-weight:700;">Fremragende</span>
+          <span style="color:rgba(255,255,255,0.75);font-size:0.72rem;">Over 150 anmeldelser</span>
+        </span>
+      </a>
     </div>
 
     <!-- ─── SERVICES BAR ─── -->
