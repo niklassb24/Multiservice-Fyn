@@ -13,6 +13,9 @@
   <meta property="og:title" content="Multiservice Fyn | Professionel Udvendig Rengøring" />
   <meta property="og:description" content="Fliserens, terrasserens, facaderens og vinduespudsning på Fyn. Over 150 tilfredse kunder. Gratis tilbud på 1 time." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.multiservice-fyn.dk/" />
+  <meta property="og:image" content="https://www.multiservice-fyn.dk/images/forsidebilledebaggrund.jpg" />
+  <meta property="og:site_name" content="Multiservice Fyn" />
   <meta property="og:locale" content="da_DK" />
 
   <!-- Schema.org LocalBusiness -->
@@ -21,7 +24,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Multiservice Fyn",
-    "image": "logo.png",
+    "image": "https://www.multiservice-fyn.dk/logo.png",
     "telephone": "+4557209141",
     "email": "Kontakt@Multiservice.dk",
     "address": {
@@ -38,6 +41,64 @@
     "priceRange": "$$",
     "openingHours": "Mo-Fr 07:00-18:00",
     "sameAs": ["https://www.facebook.com/multiservicefyn"]
+  }
+  </script>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad koster fliserens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prisen afhænger af arealet og tilstanden. Vi tilbyder altid et gratis og uforpligtende tilbud inden vi starter. Ring til os på +45 57 20 91 41 eller send en mail."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvor lang tid tager en terrasserens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Det afhænger af terrassens størrelse og tilstand. En gennemsnitlig opgave tager typisk 1 arbejdsdag. Vi giver dig et præcist estimat ved besigtigelsen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Behøver jeg at være hjemme under arbejdet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nej, du behøver ikke at være hjemme. Vi aftaler det hele på forhånd og sender billeder af det færdige resultat. Du skal blot sikre adgang til vand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er I forsikrede?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, Multiservice Fyn har fuld erhvervs- og ansvarsforsikring. Du er altid dækket, når vi arbejder på din ejendom."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvornår kan I komme?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vi bestræber os på at komme ud inden for få dage. I spidsperioder (forår og sommer) kan der være lidt ventetid. Kontakt os for at høre om aktuel tilgængelighed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad skal jeg gøre for at forberede mig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flyt møbler og løse genstande væk fra det område, der skal renses. Sørg for adgang til en vandkran. Det er det hele – vi klarer resten!"
+        }
+      }
+    ]
   }
   </script>
 
@@ -288,10 +349,12 @@
     .hero-content {
       position: relative; z-index: 1;
       max-width: 700px;
-      padding: 160px 20px 100px;
+      padding: 100px 20px 100px;
       margin: 0 auto;
       text-align: center;
     }
+    .hero-services-link { display: none; }
+    @media (max-width: 640px) { .hero-services-link { display: inline-block; margin-top: 24px; margin-bottom: 10px; align-self: center; width: auto; } }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
@@ -376,7 +439,14 @@
       .services-grid .service-card:nth-child(5) { grid-column: auto; }
     }
     @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .services-grid .service-card { grid-column: auto; }
+      .services-grid .service-card:nth-child(4) { grid-column: auto; }
+      .services-grid .service-card:nth-child(5) { grid-column: auto; }
+      .service-header-band { height: 120px; }
+      .service-body { position: static; background: none; padding: 8px 6px 10px; }
+      .service-body .service-desc, .service-link { display: none; }
+      .service-body h3 { font-size: 0.75rem; color: #000; margin: 0; line-height: 1.3; white-space: nowrap; display: block; transform: scaleX(0.82); transform-origin: left center; }
     }
 
     .service-card {
@@ -630,6 +700,7 @@
       .quality .container,
       .why-us .container { grid-template-columns: 1fr; gap: 36px; }
       .quality-img, .why-img { order: -1; max-width: 500px; margin: 0 auto; width: 100%; }
+      .quality-text, .why-us .container > div:not(.why-img) { text-align: center; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
@@ -638,16 +709,16 @@
       nav { display: none; }
       .header-contact { display: none; }
       .hamburger { display: flex; }
-      .floating-call-wrap { display: flex; }
+      .floating-call-wrap { display: none; }
       .header-top { font-size: 0.7rem; }
-      .logo img { height: 90px; }
+      .logo img { height: 110px; }
       .hero { height: 100svh; min-height: 0; align-items: flex-start; overflow: hidden; }
       .hero-content { padding: 100px 20px 110px; box-sizing: border-box; height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
       .hero-badge { padding: 7px 16px; font-size: 0.82rem; margin-bottom: 14px; display: flex; width: 100%; justify-content: center; box-sizing: border-box; }
       .hero h1 { font-size: 2.6rem; line-height: 1.1; margin-bottom: 8px; }
       .hero-slogan { font-size: 1.15rem; margin-bottom: 8px; }
       .hero p { font-size: 1rem; margin-bottom: 0; line-height: 1.6; }
-      .hero-cta { gap: 10px; margin-top: auto; margin-bottom: 12px; flex-direction: column; align-items: stretch; }
+      .hero-cta { display: none !important; }
       .hero-cta .btn { padding: 13px 20px; font-size: 0.9rem; text-align: center; }
       .hero-trust { gap: 8px; }
       .trust-item { font-size: 0.75rem; }
@@ -668,13 +739,20 @@
       .trust-stat .num { font-size: 1rem; }
       .trust-stat .label { font-size: 0.55rem; }
     }
-      .floating-social { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 12px; z-index: 1000; }
+      .floating-social { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 12px; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+      .floating-social.visible { opacity: 1; pointer-events: all; }
     .social-btn { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; text-decoration: none; opacity: 0.45; }
     .social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); opacity: 1; }
     .social-fb { background: #111; }
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+    @media (max-width: 640px) {
+      .trust-bar { padding-bottom: 72px !important; }
+      .trust-bar a { font-size: 0.72rem !important; padding: 10px 2px !important; }
+      .svc-full { display: none !important; }
+      .svc-short { display: inline !important; }
+    }
 
     /* ─── UNIVERSELLE MOBILREGLER ─── */
     @media (max-width: 640px) {
@@ -803,6 +881,7 @@
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
+      <a href="index.html" onclick="toggleMenu()">Forside</a>
       <div class="mob-drop" id="mobServDrop">
         <button class="mob-drop-btn" onclick="toggleMobDrop()">
           Ydelser <span class="mob-arrow">▾</span>
@@ -819,8 +898,6 @@
       </div>
       <a href="om-os.html" onclick="toggleMenu()">Om os</a>
       <a href="#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
-      <a href="#omraader" onclick="toggleMenu()">Områder</a>
-      <a href="#faq" onclick="toggleMenu()">FAQ</a>
       <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
         <a href="tel:+4557209141" class="btn btn-green" style="width:100%">📞 Ring til os</a>
@@ -828,50 +905,38 @@
     </div>
   </header>
 
+  <main>
   <!-- ─── HERO ─── -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">✓ Mere end 150 tilfredse kunder på Fyn</div>
-      <h1>Multiservice Fyn</h1>
+      <h1>Multiservice Fyn <span style="display:block;font-size:0.4em;font-weight:500;opacity:0.85;letter-spacing:0;">Fliserens & Udvendig Rengøring</span></h1>
       <p class="hero-slogan">Vi gør det rent — du nyder resultatet</p>
-      <p>Professionel udvendig rengøring af fliser, terrasser, facader, vinduer og havearbejde. Lokalt og pålideligt på hele Fyn.</p>
       <div class="hero-cta">
-        <a href="#kontakt" class="hero-services-btn" style="position:static;transform:none;">Få gratis tilbud</a>
-        <a href="tel:+4557209141" class="hero-services-btn" style="position:static;transform:none;">📞 Ring nu</a>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-item"><span class="icon">✅</span> Gratis tilbud</div>
-        <div class="trust-item"><span class="icon">⚡</span> Svar inden 1 time</div>
-        <div class="trust-item"><span class="icon">🔒</span> Ingen binding</div>
-        <div class="trust-item"><span class="icon">⭐</span> 5 stjerner</div>
+        <a href="#kontakt" class="btn btn-primary btn-lg">Få gratis tilbud</a>
+        <a href="tel:+4557209141" class="btn btn-outline btn-lg">📞 Ring nu</a>
       </div>
     </div>
 
-    <!-- ─── TRUST BAR (overlay på hero-billedet) ─── -->
+    <!-- ─── SERVICES BAR ─── -->
     <div class="trust-bar" id="stats">
-      <div class="trust-bar-grid">
-        <div class="trust-stat">
-          <div class="num">150+</div>
-          <div class="label">Tilfredse kunder</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">5★</div>
-          <div class="label">Google anmeldelse</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">100%</div>
-          <div class="label">Tilfredshedsgaranti</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">&lt;1t</div>
-          <div class="label">Svartid på tilbud</div>
-        </div>
-        <div class="trust-stat">
-          <div class="num">Fyn</div>
-          <div class="label">Vi dækker hele øen</div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);width:100%;">
+        <a href="fliserens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+          Fliserens
+        </a>
+        <a href="facaderens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+          Facaderens
+        </a>
+        <a href="terrasserens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+          Træterrasse
+        </a>
+        <a href="vinduespuds.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+          Vinduer
+        </a>
+        <a href="havearbejde.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+          <span class="svc-full">Havearbejde</span><span class="svc-short" style="display:none;">Have</span>
+        </a>
       </div>
     </div>
   </section>
@@ -887,51 +952,51 @@
       <div class="services-grid">
         <a class="service-card" href="fliserens.html">
           <div class="service-header-band">
-            <img src="images/FliserensBillede.jpg" alt="Fliserens" loading="lazy" />
+            <img src="images/FliserensBillede.jpg" alt="Professionel fliserens af indkørsel og fliser på Fyn" loading="lazy" width="800" height="534" />
           </div>
           <div class="service-body">
-            <h3>Flise-rens</h3>
-            <p>Højtryksrens af indkørsel, gangstier og flisebelægninger. Vi fjerner alger, mos og snavs effektivt.</p>
-            <span class="service-link">Læs mere →</span>
-          </div>
-        </a>
-        <a class="service-card" href="terrasserens.html">
-          <div class="service-header-band">
-            <img src="images/BilledetTræTerrasserens.jpg" alt="Træterrasserens" loading="lazy" style="object-position: center bottom;" />
-          </div>
-          <div class="service-body">
-            <h3>Terrasserens</h3>
-            <p>Grundig rengøring af træterrasser, betonterrasser og fliseterrasser. Terrassens skønhed genskabes.</p>
+            <h3>Fliserens</h3>
+            <p class="service-desc">Højtryksrens af indkørsel, gangstier og flisebelægninger. Vi fjerner alger, mos og snavs effektivt.</p>
             <span class="service-link">Læs mere →</span>
           </div>
         </a>
         <a class="service-card" href="facaderens.html">
           <div class="service-header-band">
-            <img src="images/facaderensbillede.jpg" alt="Facaderens" loading="lazy" />
+            <img src="images/facaderensbillede.jpg" alt="Facaderens af mursten og facade i Odense på Fyn" loading="lazy" width="800" height="534" />
           </div>
           <div class="service-body">
-            <h3>Facade-rens</h3>
-            <p>Professionel rensning af mursten, puds og beton. Vi genopretter facadens originale udtryk.</p>
+            <h3>Facaderens</h3>
+            <p class="service-desc">Professionel rensning af mursten, puds og beton. Vi genopretter facadens originale udtryk.</p>
             <span class="service-link">Læs mere →</span>
           </div>
         </a>
-        <a class="service-card" href="vinduespuds.html">
+        <a class="service-card" href="terrasserens.html">
           <div class="service-header-band">
-            <img src="images/VinduespudsBillede.PNG" alt="Vinduespudsning" loading="lazy" />
+            <img src="images/BilledetTræTerrasserens.jpg" alt="Professionel træterrasserens og rengøring af terrasse på Fyn" loading="lazy" width="800" height="534" style="object-position: center bottom;" />
           </div>
           <div class="service-body">
-            <h3>Vinduespuds</h3>
-            <p>Streakfri vinduespudsning indvendigt og udvendigt. Til private boliger og erhvervsejendomme.</p>
+            <h3>Træterrasserens</h3>
+            <p class="service-desc">Grundig rengøring af træterrasser, betonterrasser og fliseterrasser. Terrassens skønhed genskabes.</p>
             <span class="service-link">Læs mere →</span>
           </div>
         </a>
         <a class="service-card" href="havearbejde.html">
           <div class="service-header-band">
-            <img src="images/havearbejdeBillede.PNG" alt="Havearbejde" loading="lazy" />
+            <img src="images/havearbejdeBillede.PNG" alt="Havearbejde og haveservice med klipning og lugning på Fyn" loading="lazy" width="800" height="534" />
           </div>
           <div class="service-body">
             <h3>Havearbejde</h3>
-            <p>Klipning af hæk og græs, lugning, rydning og generel havepleje. Vi holder din have pæn og velholdt.</p>
+            <p class="service-desc">Klipning af hæk og græs, lugning, rydning og generel havepleje. Vi holder din have pæn og velholdt.</p>
+            <span class="service-link">Læs mere →</span>
+          </div>
+        </a>
+        <a class="service-card" href="vinduespuds.html">
+          <div class="service-header-band">
+            <img src="images/VinduespudsBillede.PNG" alt="Professionel vinduespudsning indvendigt og udvendigt på Fyn" loading="lazy" width="800" height="534" />
+          </div>
+          <div class="service-body">
+            <h3>Vinduespuds</h3>
+            <p class="service-desc">Streakfri vinduespudsning indvendigt og udvendigt. Til private boliger og erhvervsejendomme.</p>
             <span class="service-link">Læs mere →</span>
           </div>
         </a>
@@ -946,7 +1011,7 @@
   <section class="quality" id="om-os">
     <div class="container">
       <div class="quality-img">
-        <img src="images/OmMultiServiceFynBillede.PNG" alt="Om Multiservice Fyn" loading="lazy" />
+        <img src="images/OmMultiServiceFynBillede.PNG" alt="Om Multiservice Fyn" loading="lazy" width="800" height="600" />
       </div>
       <div class="quality-text">
         <span class="section-label">Om Multiservice Fyn</span>
@@ -1234,6 +1299,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ─── FOOTER ─── -->
   <footer>
     <div class="footer-grid">
@@ -1309,6 +1376,20 @@
     }
 
     // Transparent header → solid on scroll, hide on scroll down
+    // Vis floating social efter hero
+    const floatingSocial = document.querySelector('.floating-social');
+    function checkSocialVisibility() {
+      if (!floatingSocial) return;
+      const scrolled = window.scrollY || document.documentElement.scrollTop;
+      if (scrolled > 100) {
+        floatingSocial.classList.add('visible');
+      } else {
+        floatingSocial.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkSocialVisibility, { passive: true });
+    document.addEventListener('touchmove', checkSocialVisibility, { passive: true });
+
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
