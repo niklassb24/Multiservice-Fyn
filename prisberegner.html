@@ -52,22 +52,62 @@
 
     /* HEADER */
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,48,128,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
-    .header-top { background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%); padding: 5px 0; font-size: 0.72rem; font-weight: 600; color: white; overflow: hidden; white-space: nowrap; }
-    .header-top-track { display: inline-flex; animation: marquee 20s linear infinite; }
-    .header-top-inner { display: inline-flex; align-items: center; gap: 32px; padding-right: 32px; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .header-top {
+      background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
+      padding: 5px 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      max-height: 40px; transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .header-top.hide-bar { max-height: 0; padding: 0; }
+    .header-top-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 40s linear infinite;
+    }
+    .header-top-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      padding-right: 32px;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .header-top a { color: white; font-weight: 700; }
     .header-main { display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 20px 0 140px; width: 100%; height: 89px; }
     .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
     nav { display: flex; align-items: center; gap: 32px; position: absolute; left: 50%; transform: translateX(-50%); }
     nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav a:hover { color: white; }
-    .nav-dropdown { position: relative; }
+    /* ─── DROPDOWN MEGA MENU ─── */
     .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
-    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-top: none; border-radius: 0 0 14px 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); padding: 16px 8px 12px; min-width: 200px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s; }
-    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
-    .dropdown-menu a { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600; padding: 10px 14px; border-radius: 8px; transition: background 0.15s; }
-    .dropdown-menu a:hover { background: rgba(255,255,255,0.15); }
+    .dropdown-menu {
+      position: absolute; top: 100%; left: 0; right: 0;
+      display: flex; opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .dropdown-menu.open { opacity: 1; visibility: visible; pointer-events: all; }
+    .mega-services { flex: 2; display: flex; background: #fff; padding: 36px 40px; gap: 24px; }
+    .mega-col { flex: 1; display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; align-self: flex-start; }
+    .mega-col a { display: flex !important; align-items: center !important; gap: 18px !important; color: #1f2937 !important; font-size: 1.1rem !important; font-weight: 700 !important; padding: 20px 20px !important; transition: background 0.15s !important; border-bottom: 1px solid #e5e7eb !important; }
+    .mega-col a:last-child { border-bottom: none !important; }
+    .mega-col a:hover { background: #f2f0ec !important; color: #0f3080 !important; }
+    .mega-col a small { display: block; font-weight: 400; font-size: 0.88rem; color: #4b5563; margin-top: 3px; }
+    .mega-icon { width: 52px; height: 52px; background: #eff6ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-contact { flex: 1; background: #2e7fe8; color: white; padding: 36px 40px; display: flex; flex-direction: column; gap: 16px; }
+    .mega-contact-status { font-size: 0.85rem; font-weight: 700; background: rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; width: fit-content; }
+    .mega-contact h3 { font-size: 1.8rem; font-weight: 700; line-height: 1.3; }
+    .mega-contact p { font-size: 1rem; opacity: 0.9; line-height: 1.6; }
+    .mega-contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .mega-contact-links a { color: white !important; font-size: 1rem !important; font-weight: 700 !important; display: flex !important; align-items: center !important; gap: 10px !important; padding: 0 !important; background: none !important; border-radius: 0 !important; }
+    .mega-contact-links a:hover { opacity: 0.8 !important; background: none !important; }
+    .nav-dropdown { position: relative; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 26px; height: 2px; background: white; display: block; border-radius: 2px; }
     .mobile-nav { display: none; flex-direction: column; background: rgba(15,48,128,0.97); padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
@@ -132,9 +172,12 @@
       .calc-result { position: static; }
       nav { display: none; }
       .hamburger { display: flex; }
-      .header-main { padding: 0 20px; }
+      .header-main { padding: 0 16px; }
       .tabs { gap: 0; }
       .tab-btn { min-width: 100px; font-size: 0.78rem; padding: 14px 8px; }
+    }
+    @media (max-width: 640px) {
+      .header-main { padding: 0 12px; }
     }
   </style>
 </head>
@@ -145,16 +188,32 @@
     <div class="header-top">
       <div class="header-top-track">
         <div class="header-top-inner">
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
         </div>
         <div class="header-top-inner" aria-hidden="true">
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
-          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong><span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
         </div>
       </div>
     </div>
@@ -165,21 +224,52 @@
       <nav>
         <div class="nav-dropdown">
           <a href="index.html#services">Vi Tilbyder</a>
-          <div class="dropdown-menu">
-            <a href="fliserens.html">Fliserens</a>
-            <a href="terrasserens.html">Træterrasserens</a>
-            <a href="facaderens.html">Facaderens</a>
-            <a href="vinduespuds.html">Vinduespudsning</a>
-            <a href="havearbejde.html">Havearbejde</a>
-          </div>
         </div>
         <a href="om-os.html">Om os</a>
+        <a href="blog.html">Blog</a>
         <a href="index.html#faq">FAQ</a>
-        <a href="prisberegner.html" style="color:#fde68a;font-weight:700;">Prisberegner</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
+      </div>
+    </div>
+    <!-- MEGA DROPDOWN -->
+    <div class="dropdown-menu" id="megaMenu">
+      <div class="mega-services">
+        <div class="mega-col">
+          <a href="vinduespuds.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
+            <div><strong>Vinduespudsning</strong><small>Klare og strålende vinduer</small></div>
+          </a>
+          <a href="havearbejde.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c3 0 5.5 1.5 7 4z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5.5 1.5-7 4z"/><path d="M12 16C12 16 8 15 6 12c2.5-.5 4.5 1 6 4z"/><path d="M12 16C12 16 16 15 18 12c-2.5-.5-4.5 1-6 4z"/></svg></span>
+            <div><strong>Havearbejde</strong><small>Professionelt havearbejde</small></div>
+          </a>
+        </div>
+        <div class="mega-col">
+          <a href="fliserens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+            <div><strong>Fliserens</strong><small>Rens og genopfrisk dine fliser</small></div>
+          </a>
+          <a href="terrasserens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="3" rx="1"/><line x1="4" y1="16" x2="4" y2="21"/><line x1="20" y1="16" x2="20" y2="21"/><line x1="6" y1="13" x2="6" y2="10"/><line x1="10" y1="13" x2="10" y2="10"/><line x1="14" y1="13" x2="14" y2="10"/><line x1="18" y1="13" x2="18" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/></svg></span>
+            <div><strong>Træterrasserens</strong><small>Få en smuk terrasse igen</small></div>
+          </a>
+          <a href="facaderens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,10 12,3 21,10"/><rect x="5" y="10" width="14" height="11" rx="1"/><rect x="9" y="15" width="3" height="6"/><rect x="13" y="12" width="3" height="3"/></svg></span>
+            <div><strong>Facaderens</strong><small>Flot og ren facade</small></div>
+          </a>
+        </div>
+      </div>
+      <div class="mega-contact">
+        <div class="mega-contact-status">● Vi er online</div>
+        <h3>Har du spørgsmål?</h3>
+        <p>Vores medarbejdere sidder klar mandag til fredag kl. 07 – 18</p>
+        <div class="mega-contact-links">
+          <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
+          <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
+        </div>
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
@@ -190,6 +280,7 @@
       <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespudsning</a>
       <a href="havearbejde.html" onclick="toggleMenu()">Havearbejde</a>
       <a href="om-os.html" onclick="toggleMenu()">Om os</a>
+      <a href="blog.html" onclick="toggleMenu()">Blog</a>
       <a href="prisberegner.html" onclick="toggleMenu()" style="color:#fde68a;font-weight:700;">Prisberegner</a>
       <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
     </div>
@@ -222,41 +313,33 @@
           <p class="subtitle">Højtryksrens af indkørsler, gangstier og flisebelægninger.</p>
           <div class="form-group">
             <label>Areal (m²)</label>
-            <input type="number" id="fl-areal" value="50" min="1" max="1000" oninput="calcFliserens()" />
-            <p class="hint">F.eks. en standard indkørsel er ca. 30–60 m²</p>
+            <input type="number" id="fl-areal" placeholder="F.eks. 50" min="1" max="9999" oninput="calcFliserens()" />
+            <p class="hint">Kender du ikke dit areal? Vi kommer gratis ud og måler op.</p>
           </div>
           <div class="form-group">
-            <label>Tilstand</label>
+            <label>Vælg pakke</label>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="fl-tilstand" value="1" checked onchange="calcFliserens()" /><span>Normal – lidt alger og snavs</span></label>
-              <label class="radio-option"><input type="radio" name="fl-tilstand" value="1.3" onchange="calcFliserens()" /><span>Kraftigt tilgroet – meget mos og alger</span></label>
+              <label class="radio-option"><input type="radio" name="fl-pkg" value="35" onchange="calcFliserens()" /><span><strong>Basis</strong> — 35 kr/m² &nbsp;·&nbsp; Fliserens + algebehandling</span></label>
+              <label class="radio-option"><input type="radio" name="fl-pkg" value="50" checked onchange="calcFliserens()" /><span><strong>Standard</strong> — 50 kr/m² &nbsp;·&nbsp; Fugesand inkl. (ca. 3,20 kr./m²) ⭐ Mest valgt</span></label>
+              <label class="radio-option"><input type="radio" name="fl-pkg" value="60" onchange="calcFliserens()" /><span><strong>Premium</strong> — 60 kr/m² &nbsp;·&nbsp; Fugesand inkl. (ca. 3,20 kr./m²) + imprægnering</span></label>
             </div>
           </div>
-          <div class="form-group">
-            <label>Belægningstype</label>
-            <select id="fl-type" onchange="calcFliserens()">
-              <option value="1">Betonfliser</option>
-              <option value="1.1">Natursten / granit</option>
-              <option value="0.9">Asfalt / beton</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Tilvalg</label>
-            <div class="radio-group">
-              <label class="radio-option"><input type="checkbox" id="fl-fugesand" onchange="calcFliserens()" /><span>Fugesand (ca. 3,20 kr./m²)</span></label>
-            </div>
-            <p class="hint">Fugesand fyldes i fugerne efter rensning for at styrke belægningen</p>
+          <div class="form-group" style="background:var(--blue-light);border-radius:var(--radius);padding:14px 16px;font-size:0.85rem;color:var(--navy);">
+            <strong>10% forårsrabat</strong> — gælder til d. 1. april<br>
+            <strong>10% mængderabat</strong> — ved 100 m² eller derover<br>
+            <small style="opacity:0.7;">Rabat gælder kun arbejdsprisen – ikke fugesand</small>
           </div>
         </div>
         <div class="calc-result" id="fl-result">
           <h3>Estimeret pris</h3>
-          <div class="price-range" id="fl-price">1.750 – 2.500 kr.</div>
-          <p class="price-note">Inkl. arbejdsløn og udstyr</p>
-          <div class="price-breakdown">
-            <div class="price-breakdown-row"><span>Areal</span><span id="fl-b-areal">50 m²</span></div>
-            <div class="price-breakdown-row"><span>Pris pr. m²</span><span id="fl-b-m2">35–50 kr.</span></div>
-            <div class="price-breakdown-row" id="fl-b-fugesand-row" style="display:none;"><span>Fugesand</span><span id="fl-b-fugesand">0 kr.</span></div>
-            <div class="price-breakdown-row"><span>Estimeret total</span><span id="fl-b-total">1.750–2.500 kr.</span></div>
+          <div class="price-range" id="fl-price">—</div>
+          <p class="price-note" id="fl-note">Indtast areal og vælg pakke</p>
+          <div class="price-breakdown" id="fl-breakdown" style="display:none;">
+            <div class="price-breakdown-row"><span>Areal</span><span id="fl-b-areal">—</span></div>
+            <div class="price-breakdown-row"><span>Pakke</span><span id="fl-b-pkg">—</span></div>
+            <div class="price-breakdown-row" id="fl-b-fugesand-row" style="display:none;"><span>Fugesand</span><span id="fl-b-fugesand">—</span></div>
+            <div class="price-breakdown-row" id="fl-b-rabat-row" style="display:none;"><span id="fl-b-rabat-label">Rabat</span><span id="fl-b-rabat">—</span></div>
+            <div class="price-breakdown-row"><span>Estimeret total</span><span id="fl-b-total">—</span></div>
           </div>
           <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
           <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
@@ -445,9 +528,29 @@
   </footer>
 
   <script>
+    // Mega menu hover
+    const navDrop = document.querySelector('.nav-dropdown');
+    const megaMenu = document.getElementById('megaMenu');
+    let hideTimer;
+    function showMega() { clearTimeout(hideTimer); megaMenu.classList.add('open'); }
+    function hideMega() { hideTimer = setTimeout(() => megaMenu.classList.remove('open'), 80); }
+    navDrop.addEventListener('mouseenter', showMega);
+    navDrop.addEventListener('mouseleave', hideMega);
+    megaMenu.addEventListener('mouseenter', showMega);
+    megaMenu.addEventListener('mouseleave', hideMega);
+
     function toggleMenu() {
       document.getElementById('mobileNav').classList.toggle('open');
     }
+
+    const headerTopBar = document.querySelector('.header-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        headerTopBar.classList.add('hide-bar');
+      } else {
+        headerTopBar.classList.remove('hide-bar');
+      }
+    }, { passive: true });
 
     function switchTab(name) {
       document.querySelectorAll('.calc-section').forEach(s => s.classList.remove('active'));
@@ -460,20 +563,33 @@
 
     function calcFliserens() {
       const areal = parseFloat(document.getElementById('fl-areal').value) || 0;
-      const tilstand = parseFloat(document.querySelector('input[name="fl-tilstand"]:checked').value);
-      const type = parseFloat(document.getElementById('fl-type').value);
-      const fugesand = document.getElementById('fl-fugesand').checked;
-      const low = 35 * tilstand * type;
-      const high = 50 * tilstand * type;
-      const fugesandPris = fugesand ? Math.round(areal * 3.2 / 10) * 10 : 0;
-      const totalLow = Math.round(areal * low / 50) * 50 + fugesandPris;
-      const totalHigh = Math.round(areal * high / 50) * 50 + fugesandPris;
-      document.getElementById('fl-price').textContent = fmt(totalLow) + ' – ' + fmt(totalHigh) + ' kr.';
+      const pkgEl = document.querySelector('input[name="fl-pkg"]:checked');
+      const pkg = pkgEl ? parseFloat(pkgEl.value) : 50;
+      const pkgName = pkg === 35 ? 'Basis' : pkg === 50 ? 'Standard' : 'Premium';
+      if (!areal) { document.getElementById('fl-price').textContent = '—'; document.getElementById('fl-note').textContent = 'Indtast areal og vælg pakke'; document.getElementById('fl-breakdown').style.display = 'none'; return; }
+      const hasFugesand = pkg >= 50;
+      const fugesandPris = hasFugesand ? areal * 3.2 : 0;
+      const workTotal = areal * pkg;
+      const SPRING_DEADLINE = new Date('2026-04-01');
+      const springDiscount = new Date() < SPRING_DEADLINE;
+      const volumeDiscount = areal >= 100;
+      let discountPct = 0;
+      if (springDiscount) discountPct += 10;
+      if (volumeDiscount) discountPct += 10;
+      const discountAmount = workTotal * (discountPct / 100);
+      const finalTotal = Math.round(workTotal - discountAmount + fugesandPris);
+      document.getElementById('fl-price').textContent = fmt(finalTotal) + ' kr.';
+      document.getElementById('fl-note').textContent = areal + ' m² · ' + pkgName + (discountPct > 0 ? ' · ' + discountPct + '% rabat' : '');
+      document.getElementById('fl-breakdown').style.display = 'flex';
+      document.getElementById('fl-breakdown').style.flexDirection = 'column';
       document.getElementById('fl-b-areal').textContent = areal + ' m²';
-      document.getElementById('fl-b-m2').textContent = Math.round(low) + '–' + Math.round(high) + ' kr.';
-      document.getElementById('fl-b-fugesand-row').style.display = fugesand ? 'flex' : 'none';
-      document.getElementById('fl-b-fugesand').textContent = fmt(fugesandPris) + ' kr.';
-      document.getElementById('fl-b-total').textContent = fmt(totalLow) + '–' + fmt(totalHigh) + ' kr.';
+      document.getElementById('fl-b-pkg').textContent = pkgName + ' (' + pkg + ' kr/m²)';
+      document.getElementById('fl-b-fugesand-row').style.display = hasFugesand ? 'flex' : 'none';
+      document.getElementById('fl-b-fugesand').textContent = fmt(Math.round(fugesandPris)) + ' kr.';
+      document.getElementById('fl-b-rabat-row').style.display = discountPct > 0 ? 'flex' : 'none';
+      document.getElementById('fl-b-rabat-label').textContent = 'Rabat (' + discountPct + '%)';
+      document.getElementById('fl-b-rabat').textContent = '−' + fmt(Math.round(discountAmount)) + ' kr.';
+      document.getElementById('fl-b-total').textContent = fmt(finalTotal) + ' kr.';
     }
 
     function calcFacaderens() {

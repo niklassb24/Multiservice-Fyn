@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Om Os | Multiservice Fyn</title>
-  <meta name="description" content="Lær Multiservice Fyn at kende. Vi er Niklas – erfarne fagfolk inden for udendørs rengøring og overfladebehandling på hele Fyn." />
+  <title>Blog | Multiservice Fyn – Tips og råd om udendørs rengøring</title>
+  <meta name="description" content="Læs vores blog med praktiske tips og råd om fliserens, terrasserens, facaderens, vinduespudsning og havearbejde på Fyn." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.multiservice-fyn.dk/om-os.html" />
+  <link rel="canonical" href="https://www.multiservice-fyn.dk/blog.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,6 +54,8 @@
     .btn-white { background: white; color: var(--navy); }
     .btn-green { background: var(--green); color: white; }
     .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
+    .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue); color: white; }
 
     /* ─── HEADER ─── */
     header {
@@ -203,51 +205,128 @@
       padding: 5px 14px; border-radius: 50px; margin-bottom: 14px;
     }
 
-    /* ─── ABOUT SECTION 1 ─── */
-    .about-section {
-      padding: 88px 0;
+    /* ─── BLOG SECTION ─── */
+    .blog-section {
+      padding: 80px 0 96px;
       background: #faf9f7;
     }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
-    }
-    .about-img {
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.14);
-    }
-    .about-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
-    .about-text h2 {
-      font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 20px;
-    }
-    .about-text h2 .highlight { color: var(--navy); }
-    .about-text p {
-      color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-bottom: 16px;
-    }
-    .about-text p:last-of-type { margin-bottom: 28px; }
 
-    /* ─── TEAM SECTION ─── */
-    .team-section {
-      padding: 88px 0;
-      background: #f2f0ec;
+    /* ─── CATEGORY FILTER ─── */
+    .blog-filter {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 48px;
     }
-    .team-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    .filter-btn {
+      padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; border: 2px solid var(--gray-200); background: white;
+      color: var(--gray-600); transition: all 0.2s; font-family: var(--font-body);
     }
-    .team-text h2 {
-      font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 700; color: var(--gray-800); line-height: 1.2; margin-bottom: 20px;
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy); color: white; border-color: var(--navy);
     }
-    .team-text h2 .highlight { color: var(--navy); }
-    .team-text p {
-      color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-bottom: 16px;
+
+    /* ─── BLOG GRID ─── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
     }
-    .team-text p:last-of-type { margin-bottom: 28px; }
-    .team-img {
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+
+    /* ─── BLOG CARD ─── */
+    .blog-card {
+      background: white; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
     }
-    .team-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+    }
+    .blog-card-img {
+      width: 100%; height: 220px; overflow: hidden; position: relative;
+    }
+    .blog-card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+
+    .blog-card-body {
+      padding: 24px 24px 28px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .blog-meta {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .blog-cat {
+      display: inline-block; padding: 3px 12px; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cat-fliserens   { background: #dbeafe; color: #1d4ed8; }
+    .cat-terrasse    { background: #d1fae5; color: #065f46; }
+    .cat-facade      { background: #fef3c7; color: #92400e; }
+    .cat-vinduer     { background: #ede9fe; color: #5b21b6; }
+    .cat-have        { background: #dcfce7; color: #15803d; }
+    .cat-guide       { background: #fee2e2; color: #991b1b; }
+
+    .blog-date {
+      font-size: 0.78rem; color: var(--gray-400); display: flex; align-items: center; gap: 4px;
+    }
+
+    .blog-card-body h2 {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--gray-800); line-height: 1.3; margin-bottom: 10px;
+    }
+    .blog-card-body h2 a { color: inherit; transition: color 0.2s; }
+    .blog-card-body h2 a:hover { color: var(--blue); }
+
+    .blog-card-body p {
+      font-size: 0.92rem; color: var(--gray-600); line-height: 1.7;
+      flex: 1; margin-bottom: 20px;
+    }
+
+    .blog-read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--blue); font-size: 0.88rem; font-weight: 700;
+      transition: gap 0.2s;
+    }
+    .blog-read-more:hover { gap: 10px; color: var(--navy); }
+
+    /* ─── FEATURED POST ─── */
+    .blog-featured {
+      margin-bottom: 56px;
+    }
+    .blog-featured-card {
+      background: white; border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+      display: grid; grid-template-columns: 1fr 1fr;
+      transition: box-shadow 0.25s;
+    }
+    .blog-featured-card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.16); }
+    .blog-featured-img { height: 360px; overflow: hidden; }
+    .blog-featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .blog-featured-card:hover .blog-featured-img img { transform: scale(1.04); }
+    .blog-featured-body {
+      padding: 48px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .featured-badge {
+      display: inline-block; background: var(--navy); color: white;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 50px;
+      margin-bottom: 12px; align-self: flex-start;
+    }
+    .blog-featured-body h2 {
+      font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700; color: var(--gray-800); line-height: 1.25; margin-bottom: 14px;
+    }
+    .blog-featured-body h2 a { color: inherit; transition: color 0.2s; }
+    .blog-featured-body h2 a:hover { color: var(--blue); }
+    .blog-featured-body p {
+      color: var(--gray-600); font-size: 1rem; line-height: 1.75; margin-bottom: 28px;
+    }
 
     /* ─── CTA ─── */
     .cta-section {
@@ -264,8 +343,9 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); color: rgba(255,255,255,0.75);
-      font-size: 0.88rem; padding: 56px 20px 0;
+      background: linear-gradient(160deg, rgba(55,58,68,0.97) 0%, rgba(80,84,98,0.97) 100%);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      color: rgba(255,255,255,0.75); font-size: 0.88rem; padding: 56px 20px 0;
     }
     .footer-grid {
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -287,9 +367,13 @@
     .footer-bottom a:hover { color: white; }
 
     /* ─── RESPONSIVE ─── */
+    @media (max-width: 1000px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
-      .about-grid, .team-grid { grid-template-columns: 1fr; gap: 36px; }
-      .team-img { order: -1; }
+      .blog-featured-card { grid-template-columns: 1fr; }
+      .blog-featured-img { height: 260px; }
+      .blog-featured-body { padding: 32px 28px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
@@ -299,84 +383,25 @@
       .logo img { height: 110px; }
       .floating-call { display: flex; }
       .page-hero { padding-top: 175px; padding-bottom: 48px; }
-      .page-hero h1 { font-size: 2.2rem; margin-bottom: 12px; }
-      .page-hero p { font-size: 0.9rem; margin-bottom: 22px; line-height: 1.6; }
-      .hero-cta { gap: 10px; margin-bottom: 22px; flex-direction: column; align-items: stretch; }
-      .hero-cta .btn { padding: 14px 20px; font-size: 0.9rem; text-align: center; }
-      .hero-badge { padding: 7px 16px; font-size: 0.78rem; margin-bottom: 18px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-section { padding: 56px 0 72px; }
     }
     @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
       .footer-brand { grid-column: 1 / -1; text-align: center; display: flex; flex-direction: column; align-items: center; }
-      .footer-brand p { max-width: 360px; margin: 0 auto 16px; }
-      .footer-brand .social-links { justify-content: center; }
-      .footer-col { text-align: center; }
-      .footer-col ul { align-items: center; }
-      footer { padding: 40px 16px 0; }
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
-      .floating-social { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 12px; z-index: 1000; }
+
+    .floating-social { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row; gap: 12px; z-index: 1000; }
     .social-btn { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; text-decoration: none; opacity: 0.45; }
     .social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); opacity: 1; }
     .social-fb { background: #111; }
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
-    @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
-
-    /* ─── UNIVERSELLE MOBILREGLER ─── */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { overflow-x: hidden; max-width: 100%; }
-    img { max-width: 100%; height: auto; display: block; }
-    section, footer, main { width: 100%; }
-
+    @media (max-width: 768px) { .floating-social { bottom: 16px; gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
     @media (max-width: 640px) {
       .header-main { padding: 0 12px; }
-    }
-
-    /* Små telefoner under 375px */
-    @media (max-width: 480px) {
-      /* Pris-kort: 1 kolonne på alle telefoner */
-      .pricing-cards { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 380px !important; margin-left: auto !important; margin-right: auto !important; }
-      /* Ekstra tillæg: 1 kolonne */
-      .pricing-extras { grid-template-columns: 1fr !important; }
-      /* Kalkulator pakker: 1 kolonne */
-      .calc-packages, .calc-inline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-      /* Features og anmeldelser: 1 kolonne */
-      .features-grid, .testimonials-grid { grid-template-columns: 1fr !important; }
-      /* Processrin: max 2 kolonner */
-      .process-steps { grid-template-columns: 1fr 1fr !important; }
-      /* Formular rækker: 1 kolonne */
-      .form-row { grid-template-columns: 1fr !important; }
-      /* Kontakt cards: 1 kolonne */
-      .contact-cards { grid-template-columns: 1fr !important; }
-      /* Result stats: skalerbart */
-      .result-stats { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
-      /* Trust bar: altid 5 kolonner med lille gap */
-      .trust-bar-grid { grid-template-columns: repeat(5, 1fr) !important; gap: 3px !important; }
-      .trust-stat .num { font-size: 0.85rem !important; }
-      .trust-stat .label { font-size: 0.48rem !important; }
-      .trust-bar { padding: 12px 10px !important; }
-      /* Generel overflow-forhindring */
-      * { word-break: break-word; }
-    }
-
-    @media (max-width: 374px) {
-      html { font-size: 14px; }
-      .hero-content, .page-hero-content { padding: 95px 12px 80px !important; }
-      .hero h1, .page-hero h1 { font-size: 1.8rem !important; line-height: 1.1 !important; margin-bottom: 8px !important; }
-      .hero-slogan, .page-hero .hero-sub { font-size: 0.88rem !important; margin-bottom: 8px !important; }
-      .hero p, .page-hero p { font-size: 0.8rem !important; margin-bottom: 10px !important; line-height: 1.45 !important; }
-      .hero-cta { gap: 6px !important; margin-bottom: 10px !important; }
-      .hero-cta .btn, .btn-lg { padding: 9px 14px !important; font-size: 0.8rem !important; }
-      .hero-badge { font-size: 0.7rem !important; padding: 5px 10px !important; margin-bottom: 10px !important; }
-      .hero-trust { gap: 6px !important; }
-      .trust-item { font-size: 0.7rem !important; }
-    }
-
-    /* Store telefoner 431–768px: centrer hero-indhold */
-    @media (min-width: 431px) and (max-width: 768px) {
-      .hero-content, .page-hero-content { max-width: 430px; margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
@@ -506,46 +531,145 @@
   <!-- ─── PAGE HERO ─── -->
   <section class="page-hero">
     <div class="container">
-      <span class="section-label">Om Multiservice Fyn</span>
-      <h1>Professionel rengøring og<br /><span class="highlight">vedligeholdelse på Fyn</span></h1>
-      <p>Vi er dit lokale multiservicefirma med speciale i udendørs rengøring og vedligeholdelse til private og erhvervskunder på hele Fyn.</p>
+      <span class="section-label">Viden og inspiration</span>
+      <h1>Blog – Tips og råd om<br /><span class="highlight">udendørs rengøring på Fyn</span></h1>
+      <p>Få praktiske råd om fliserens, terrasserens, facaderens og meget mere – skrevet af fagfolk der ved hvad de taler om.</p>
     </div>
   </section>
 
-  <!-- ─── SECTION 1: OM VIRKSOMHEDEN ─── -->
-  <section class="about-section">
+  <!-- ─── BLOG ─── -->
+  <section class="blog-section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-img">
-          <img src="images/OmMultiServiceFynBillede.PNG" alt="Multiservice Fyn – professionel rengøring" loading="lazy" />
-        </div>
-        <div class="about-text">
-          <span class="section-label">Hvem er vi</span>
-          <h2>Professionel rengøring og <span class="highlight">vedligeholdelse på Fyn</span></h2>
-          <p>Multiservice Fyn er dit lokale multiservicefirma med speciale i professionel udendørs rengøring og vedligeholdelse til både private og erhvervskunder på Fyn. Vi leverer høj kvalitet, pålidelig service og synlige resultater — hver gang.</p>
-          <p>Vi tilbyder fliserens, terrasserens, facaderens, vinduespudsning og vedligeholdelse af udendørsarealer. Med professionelt højtryksudstyr og moderne rengøringsmetoder sikrer vi en effektiv og skånsom behandling, der fjerner snavs, mos og alger — og forlænger levetiden på dine overflader markant.</p>
-          <p>Leder du efter en pålidelig rengøringsservice på Fyn? Hos Multiservice Fyn er kundetilfredshed altid i centrum. Vi arbejder struktureret og professionelt med stor respekt for dit hjem eller din virksomhed — og leverer resultater, du kan se.</p>
-          <a href="index.html#kontakt" class="btn btn-primary">Få et gratis tilbud →</a>
+
+      <!-- Fremhævet indlæg -->
+      <div class="blog-featured">
+        <div class="blog-featured-card">
+          <div class="blog-featured-img">
+            <img src="images/EfterbilledeResultater.jpg" alt="Fliserens Fyn – før og efter" loading="lazy" />
+          </div>
+          <div class="blog-featured-body">
+            <span class="featured-badge">★ Fremhævet indlæg</span>
+            <div class="blog-meta" style="margin-bottom:14px;">
+              <span class="blog-cat cat-fliserens">Fliserens</span>
+              <span class="blog-date">📅 10. marts 2026</span>
+            </div>
+            <h2><a href="#">Fliserens: Sådan fjerner du mos, alger og snavs fra dine fliser</a></h2>
+            <p>Mos og alger er ikke bare grimme – de gør dine fliser glatte og farlige at gå på, og over tid nedbrydes overfladen. Vi gennemgår trin for trin, hvad der virker, hvad du bør undgå, og hvornår det kan betale sig at tilkalde en professionel.</p>
+            <a href="#" class="btn btn-primary btn-sm">Læs artiklen →</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ─── SECTION 2: TEAMET ─── -->
-  <section class="team-section">
-    <div class="container">
-      <div class="team-grid">
-        <div class="team-text">
-          <span class="section-label">Mød teamet</span>
-          <h2>Erfarne fagfolk inden for <span class="highlight">udendørs rengøring på Fyn</span></h2>
-          <p>Multiservice Fyn er drevet af Niklas — en erfaren fagmand med mange års praktisk erfaring inden for udendørs rengøring, overfladebehandling og vedligeholdelse. Han har opbygget en solid faglig forståelse for materialer og metoder, der giver holdbare og flotte resultater.</p>
-          <p>Passionen bag virksomheden er ønsket om at bevare og vedligeholde eksisterende overflader — hvad enten det drejer sig om flisebelægning, facader, terrasser eller andre udendørsarealer. Vi tror på, at skånsom rengøring og regelmæssig vedligeholdelse er den bedste investering i dit ejendoms udtryk og levetid.</p>
-          <p>Med moderne udstyr og et stærkt håndværksmæssigt fundament leverer Multiservice Fyn resultater, der ser naturlige og tidløse ud — uanset om vi arbejder med private boliger eller erhvervsejendomme på Fyn.</p>
-          <a href="index.html#kontakt" class="btn btn-primary">Kontakt os i dag →</a>
-        </div>
-        <div class="team-img">
-          <img src="images/OmMultiServiceFynBillede.PNG" alt="Niklas – Multiservice Fyn" loading="lazy" />
-        </div>
+      <!-- Kategorifilter -->
+      <div class="blog-filter">
+        <button class="filter-btn active" onclick="filterPosts('alle', this)">Alle indlæg</button>
+        <button class="filter-btn" onclick="filterPosts('fliserens', this)">Fliserens</button>
+        <button class="filter-btn" onclick="filterPosts('terrasse', this)">Terrasserens</button>
+        <button class="filter-btn" onclick="filterPosts('facade', this)">Facaderens</button>
+        <button class="filter-btn" onclick="filterPosts('vinduer', this)">Vinduespudsning</button>
+        <button class="filter-btn" onclick="filterPosts('have', this)">Havearbejde</button>
+        <button class="filter-btn" onclick="filterPosts('guide', this)">Guides</button>
+      </div>
+
+      <!-- Blogkort-grid -->
+      <div class="blog-grid" id="blogGrid">
+
+        <!-- Kort 1 -->
+        <article class="blog-card" data-cat="terrasse">
+          <div class="blog-card-img">
+            <img src="images/BilledetTræTerrasserens.jpg" alt="Træterrasserens – hvornår og hvordan" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-terrasse">Terrasserens</span>
+              <span class="blog-date">📅 4. marts 2026</span>
+            </div>
+            <h2><a href="#">Hvornår bør du rense din træterrasse – og hvad sker der hvis du venter?</a></h2>
+            <p>En træterrasse kan hurtigt miste sin naturlige farve og blive dækket af mos og fugt, hvis den ikke vedligeholdes. Vi forklarer hvornår på året du bør rense, og hvilke skader der opstår ved forsømmelse.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
+        <!-- Kort 2 -->
+        <article class="blog-card" data-cat="facade">
+          <div class="blog-card-img">
+            <img src="images/facaderensbillede.jpg" alt="Facaderens – vedligehold din facade" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-facade">Facaderens</span>
+              <span class="blog-date">📅 24. februar 2026</span>
+            </div>
+            <h2><a href="#">Facaderens: Vedligehold din facade og undgå dyre reparationer</a></h2>
+            <p>Snavs, alger og fugtskader på facaden er mere end et æstetisk problem. Ubehandlet kan det føre til kostbare murværksskader. Lær hvordan regelmæssig rensning forlænger facadens levetid markant.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
+        <!-- Kort 3 -->
+        <article class="blog-card" data-cat="vinduer">
+          <div class="blog-card-img">
+            <img src="images/VinduespudsBillede.PNG" alt="Vinduespudsning uden striber" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-vinduer">Vinduespudsning</span>
+              <span class="blog-date">📅 14. februar 2026</span>
+            </div>
+            <h2><a href="#">Vinduespudsning uden striber – vores professionelle metode forklaret</a></h2>
+            <p>Stribede vinduer er et klassisk problem, når man rengør selv. Vi fortæller om den professionelle metode, det rette udstyr og produkter – og hvornår det er lettest og billigst at få hjælp.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
+        <!-- Kort 4 -->
+        <article class="blog-card" data-cat="have">
+          <div class="blog-card-img">
+            <img src="images/havearbejdeBillede.PNG" alt="Havevedligeholdelse forår" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-have">Havearbejde</span>
+              <span class="blog-date">📅 5. februar 2026</span>
+            </div>
+            <h2><a href="#">Havevedligeholdelse om foråret: Kom godt i gang med en tjekliste</a></h2>
+            <p>Forår er den bedste tid til at give haven et serviceeftersyn. Fra beskæring og ukrudtsbekæmpelse til rensning af belægning og kanter – vi guider dig igennem de vigtigste opgaver fra marts til maj.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
+        <!-- Kort 5 -->
+        <article class="blog-card" data-cat="guide">
+          <div class="blog-card-img">
+            <img src="images/FørBilledeResultater.jpg" alt="Højtryk vs lavtryk rengøring" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-guide">Guide</span>
+              <span class="blog-date">📅 27. januar 2026</span>
+            </div>
+            <h2><a href="#">Højtryk eller lavtryk? Den rigtige rengøringsmetode til din overflade</a></h2>
+            <p>Det er ikke altid højtryk der er det rigtige valg. Forkert tryk kan skade beton, mursten og træoverflader. Vi gennemgår de forskellige metoder og forklarer, hvilken type overflade der kræver hvad.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
+        <!-- Kort 6 -->
+        <article class="blog-card" data-cat="fliserens">
+          <div class="blog-card-img">
+            <img src="images/FliserensBillede.jpg" alt="Imprægnering af fliser efter rens" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat cat-fliserens">Fliserens</span>
+              <span class="blog-date">📅 15. januar 2026</span>
+            </div>
+            <h2><a href="#">Imprægnering af fliser: Beskyt din belægning efter rensning</a></h2>
+            <p>En god imprægnering efter fliserens forlænger effekten markant og gør det sværere for mos og alger at fæstne sig igen. Her er hvad du skal vide om typer, produkter og behandlingsfrekvens.</p>
+            <a href="#" class="blog-read-more">Læs mere →</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -611,6 +735,16 @@
     </div>
   </footer>
 
+  <!-- ─── FLOATING SOCIAL ─── -->
+  <div class="floating-social">
+    <a href="https://www.facebook.com/people/Multiservice-Fyn/61575929800558/" class="social-btn social-fb" title="Følg os på Facebook" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/multiservicefyn/" class="social-btn social-ig" title="Følg os på Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+  </div>
+
   <script>
     // Mega menu hover
     const navDrop = document.querySelector('.nav-dropdown');
@@ -638,15 +772,22 @@
         headerTopBar.classList.remove('hide-bar');
       }
     }, { passive: true });
+
+    function filterPosts(cat, btn) {
+      // Opdater aktiv knap
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Vis/skjul kort
+      document.querySelectorAll('#blogGrid .blog-card').forEach(card => {
+        if (cat === 'alle' || card.dataset.cat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
-  <!-- ─── FLOATING SOCIAL ─── -->
-  <div class="floating-social">
-    <a href="https://www.facebook.com/people/Multiservice-Fyn/61575929800558/" class="social-btn social-fb" title="Følg os på Facebook" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/multiservicefyn/" class="social-btn social-ig" title="Følg os på Instagram" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-  </div>
+
 </body>
 </html>

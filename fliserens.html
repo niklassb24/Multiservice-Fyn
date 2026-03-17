@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="da_DK" />
 
-  <!-- Schema.org Service -->
+  <!-- Schema.org Service + AggregateRating -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,10 +26,113 @@
       "name": "Multiservice Fyn",
       "telephone": "+4557209141",
       "email": "Kontakt@Multiservice.dk",
-      "areaServed": "Fyn"
+      "areaServed": "Fyn",
+      "priceRange": "35-60 kr/m²"
     },
     "description": "Professionel fliserens med højtryksrens. Vi fjerner alger, mos og snavs fra indkørsler, gangstier og flisebelægninger på hele Fyn.",
-    "areaServed": "Fyn"
+    "areaServed": "Fyn",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "35",
+      "highPrice": "60",
+      "priceCurrency": "DKK",
+      "unitText": "pr. m²"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad koster en fliserens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vores priser starter fra 35 kr. pr. m² og varierer afhængigt af valgt pakke, arealets størrelse og tilstand. Vi tilbyder altid et gratis og uforpligtende tilbud inden opstart."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvor lang tid tager en fliserens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En gennemsnitlig opgave tager typisk 1 arbejdsdag. Vi angiver et præcist tidsestimat ved besigtigelsen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er det nødvendigt, at jeg er til stede under udførelsen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Det er ikke påkrævet. Vi koordinerer alle detaljer forud for opgaven og fremsender fotodokumentation ved afslutning. Du skal alene sikre fri adgang til arealet samt en vandhane."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Risikerer mine fliser at tage skade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nej. Vi tilpasser tryk og metode til den aktuelle overfladetype og har erfaring med samtlige flise- og betontyper samt natursten. Vores tilgang er skånsom og målrettet – overfladen bevares intakt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad indebærer algebehandling og imprægnering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Efter endt rensning kan vi påføre et godkendt anti-alge- og mosforebyggende middel, der trænger ned i overflade og fuger og hindrer ny biologisk vækst i op til 15 år. Imprægnering tilføjer yderligere beskyttelse mod fugt og snavs og indgår i vores Premium pakke."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvornår på året anbefales fliserens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De optimale perioder er forår (april–juni) og efterår (august–oktober), hvor temperaturen er moderat og frostrisk er fraværende. Vi arbejder dog hele sæsonen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er Multiservice Fyn forsikret?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Multiservice Fyn er dækket af fuld erhvervs- og ansvarsforsikring. Du er til enhver tid beskyttet, når vi udfører arbejde på din ejendom."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Forside",
+        "item": "https://www.multiservice-fyn.dk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Fliserens",
+        "item": "https://www.multiservice-fyn.dk/fliserens.html"
+      }
+    ]
   }
   </script>
 
@@ -111,12 +214,6 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease, opacity 0.4s ease, background 0.35s ease, box-shadow 0.35s ease;
-    }
-    header.hide {
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
     }
     header.solid {
       background: rgba(0, 0, 0, 0.3);
@@ -124,59 +221,67 @@
     }
     .header-top {
       background: linear-gradient(90deg, #2e7fe8 0%, #5ab4ff 50%, #2e7fe8 100%);
-      text-align: center;
-      padding: 5px 16px;
+      padding: 5px 0;
       font-size: 0.72rem;
       font-weight: 600;
       color: white;
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-height: 40px; transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .header-top.hide-bar { max-height: 0; padding: 0; }
+    .header-top-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 40s linear infinite;
+    }
+    .header-top-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      padding-right: 32px;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .header-top a { color: white; font-weight: 700; }
     .header-main {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; max-width: 1200px; margin: 0 auto;
+      position: relative;
+      padding: 0 20px 0 140px; width: 100%;
       height: 89px;
     }
     .logo img { height: 130px; width: auto; filter: brightness(0) invert(1); }
-    nav { display: flex; align-items: center; gap: 32px; }
+    nav { display: flex; align-items: center; gap: 32px; position: absolute; left: 50%; transform: translateX(-50%); }
     nav a { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav a:hover { color: white; }
     nav a.active { color: white; font-weight: 700; }
 
-    /* ─── DROPDOWN ─── */
+    /* ─── DROPDOWN MEGA MENU ─── */
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
     .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; opacity: 0.7; }
     .dropdown-menu {
-      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: rgba(30,30,30,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-top: none;
-      border-radius: 0 0 14px 14px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      padding: 8px 8px 12px; min-width: 200px;
-      opacity: 0; visibility: hidden; pointer-events: none;
-      transition: opacity 0.2s;
-      padding-top: 16px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      display: flex; opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
-    .dropdown-menu::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 16px;
-    }
-    .nav-dropdown:hover .dropdown-menu {
-      opacity: 1; visibility: visible; pointer-events: all;
-    }
-    .dropdown-menu a {
-      display: flex; align-items: center; gap: 10px;
-      color: rgba(255,255,255,0.9) !important; font-size: 0.88rem; font-weight: 600;
-      padding: 10px 14px; border-radius: 8px; transition: background 0.15s;
-    }
-    .dropdown-menu a:hover { background: rgba(255,255,255,0.15); color: white !important; }
-    .dropdown-menu a.active { background: rgba(255,255,255,0.2); color: white !important; }
-    .dropdown-menu .d-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+    .dropdown-menu.open { opacity: 1; visibility: visible; pointer-events: all; }
+    .mega-services { flex: 2; display: flex; background: #fff; padding: 36px 40px; gap: 24px; }
+    .mega-col { flex: 1; display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; align-self: flex-start; }
+    .mega-col a { display: flex !important; align-items: center !important; gap: 18px !important; color: #1f2937 !important; font-size: 1.1rem !important; font-weight: 700 !important; padding: 20px 20px !important; transition: background 0.15s !important; border-bottom: 1px solid #e5e7eb !important; }
+    .mega-col a:last-child { border-bottom: none !important; }
+    .mega-col a:hover { background: #f2f0ec !important; color: #0f3080 !important; }
+    .mega-col a small { display: block; font-weight: 400; font-size: 0.88rem; color: #4b5563; margin-top: 3px; }
+    .mega-icon { width: 52px; height: 52px; background: #eff6ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-contact { flex: 1; background: #2e7fe8; color: white; padding: 36px 40px; display: flex; flex-direction: column; gap: 16px; }
+    .mega-contact-status { font-size: 0.85rem; font-weight: 700; background: rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; width: fit-content; }
+    .mega-contact h3 { font-size: 1.8rem; font-weight: 700; line-height: 1.3; }
+    .mega-contact p { font-size: 1rem; opacity: 0.9; line-height: 1.6; }
+    .mega-contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .mega-contact-links a { color: white !important; font-size: 1rem !important; font-weight: 700 !important; display: flex !important; align-items: center !important; gap: 10px !important; padding: 0 !important; background: none !important; border-radius: 0 !important; }
+    .mega-contact-links a:hover { opacity: 0.8 !important; background: none !important; }
     .header-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
     .header-contact a { color: white; font-size: 0.82rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
     .header-contact a:hover { color: var(--yellow); }
@@ -295,6 +400,27 @@
       display: flex; align-items: center; gap: 8px;
       color: rgba(255,255,255,0.88); font-size: 0.83rem; font-weight: 600;
     }
+    .ti-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80; flex-shrink: 0; display: block;
+    }
+
+    /* ─── TRUSTPILOT BADGE ─── */
+    .tp-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 20px; border-radius: 100px;
+      margin-bottom: 22px; flex-wrap: wrap; justify-content: center;
+    }
+    .tp-name {
+      font-size: 0.95rem; font-weight: 800; color: white; letter-spacing: -0.01em;
+    }
+    .tp-stars { display: flex; gap: 2px; }
+    .tp-star { color: #00b67a; font-size: 1rem; line-height: 1; }
+    .tp-text { display: flex; flex-direction: column; gap: 0; }
+    .tp-label { font-size: 0.82rem; font-weight: 700; color: white; line-height: 1.2; }
+    .tp-count { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
 
     /* ─── TRUST BAR ─── */
     .trust-bar {
@@ -312,13 +438,13 @@
     .trust-stat { text-align: center; color: white; }
     .trust-stat .num {
       font-family: var(--font-display);
-      font-size: 1.9rem; font-weight: 800; color: var(--yellow); line-height: 1;
-      text-shadow: 0 0 24px rgba(245,158,11,0.4);
+      font-size: 1.9rem; font-weight: 800; color: #00b67a; line-height: 1;
+      text-shadow: 0 0 24px rgba(0,182,122,0.4);
       animation: numGlow 3s ease-in-out infinite alternate;
     }
     @keyframes numGlow {
-      from { text-shadow: 0 0 16px rgba(245,158,11,0.3); }
-      to   { text-shadow: 0 0 32px rgba(245,158,11,0.65), 0 0 8px rgba(245,158,11,0.4); }
+      from { text-shadow: 0 0 16px rgba(0,182,122,0.3); }
+      to   { text-shadow: 0 0 32px rgba(0,182,122,0.65), 0 0 8px rgba(0,182,122,0.4); }
     }
     .trust-stat .label { font-size: 0.73rem; color: rgba(255,255,255,0.65); margin-top: 5px; letter-spacing: 0.02em; }
 
@@ -1104,13 +1230,17 @@
       .contact-form-grid { grid-template-columns: 1fr; gap: 40px; }
     }
 
-    @media (max-width: 640px) {
-      :root { --section-pad: 64px; }
-      section { padding: var(--section-pad) 16px; }
+    @media (max-width: 768px) {
       nav { display: none; }
       .header-contact { display: none; }
       .hamburger { display: flex; }
       .floating-call { display: flex; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --section-pad: 64px; }
+      .header-main { padding: 0 12px; }
+      section { padding: var(--section-pad) 16px; }
       .header-top { font-size: 0.75rem; }
       .logo img { height: 110px; }
       .page-hero { min-height: 100svh; align-items: flex-start; }
@@ -1171,6 +1301,7 @@
     .social-ig { background: #111; }
     .social-btn svg { width: 16px; height: 16px; }
     @media (max-width: 768px) { .floating-social { bottom: 16px; left: 50%; transform: translateX(-50%); gap: 8px; } .social-btn { width: 32px; height: 32px; } .social-btn svg { width: 15px; height: 15px; } }
+    @media (max-width: 768px) { .header-main { padding: 0 16px; } }
 
     /* ─── UNIVERSELLE MOBILREGLER ─── */
     @media (max-width: 640px) {
@@ -1255,27 +1386,47 @@
   <!-- ─── HEADER ─── -->
   <header id="siteHeader">
     <div class="header-top">
-      ✓ Gratis tilbud &nbsp;·&nbsp; Svar inden 1 time &nbsp;·&nbsp; <a href="tel:+4557209141">+45 57 20 91 41</a> &nbsp;·&nbsp; <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+      <div class="header-top-track">
+        <div class="header-top-inner">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+        <div class="header-top-inner" aria-hidden="true">
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+          <strong style="color:#fde68a;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <span style="color:rgba(255,255,255,0.5);">·</span>
+        </div>
+      </div>
     </div>
     <div class="header-main">
       <a href="index.html" class="logo">
         <img src="logo.png" alt="Multiservice Fyn logo" />
       </a>
       <nav>
-        <a href="index.html">Forside</a>
         <div class="nav-dropdown">
-          <a href="index.html#services" class="active">Services</a>
-          <div class="dropdown-menu">
-            <a href="fliserens.html" class="active">Flise-rens</a>
-            <a href="terrasserens.html">Træterrasserens</a>
-            <a href="facaderens.html">Facade-rens</a>
-            <a href="vinduespuds.html">Vinduespudsning</a>
-            <a href="havearbejde.html">Havearbejde</a>
-          </div>
+          <a href="index.html#services">Vi Tilbyder</a>
         </div>
         <a href="om-os.html">Om os</a>
-        <a href="index.html#anmeldelser">Anmeldelser</a>
-        <a href="index.html#omraader">Områder</a>
+        <a href="blog.html">Blog</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
@@ -1285,6 +1436,44 @@
       </div>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
+      </div>
+    </div>
+    <!-- MEGA DROPDOWN -->
+    <div class="dropdown-menu" id="megaMenu">
+      <div class="mega-services">
+        <div class="mega-col">
+          <a href="vinduespuds.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
+            <div><strong>Vinduespudsning</strong><small>Klare og strålende vinduer</small></div>
+          </a>
+          <a href="havearbejde.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c3 0 5.5 1.5 7 4z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5.5 1.5-7 4z"/><path d="M12 16C12 16 8 15 6 12c2.5-.5 4.5 1 6 4z"/><path d="M12 16C12 16 16 15 18 12c-2.5-.5-4.5 1-6 4z"/></svg></span>
+            <div><strong>Havearbejde</strong><small>Professionelt havearbejde</small></div>
+          </a>
+        </div>
+        <div class="mega-col">
+          <a href="fliserens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+            <div><strong>Fliserens</strong><small>Rens og genopfrisk dine fliser</small></div>
+          </a>
+          <a href="terrasserens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="3" rx="1"/><line x1="4" y1="16" x2="4" y2="21"/><line x1="20" y1="16" x2="20" y2="21"/><line x1="6" y1="13" x2="6" y2="10"/><line x1="10" y1="13" x2="10" y2="10"/><line x1="14" y1="13" x2="14" y2="10"/><line x1="18" y1="13" x2="18" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/></svg></span>
+            <div><strong>Træterrasserens</strong><small>Få en smuk terrasse igen</small></div>
+          </a>
+          <a href="facaderens.html">
+            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,10 12,3 21,10"/><rect x="5" y="10" width="14" height="11" rx="1"/><rect x="9" y="15" width="3" height="6"/><rect x="13" y="12" width="3" height="3"/></svg></span>
+            <div><strong>Facaderens</strong><small>Flot og ren facade</small></div>
+          </a>
+        </div>
+      </div>
+      <div class="mega-contact">
+        <div class="mega-contact-status">● Vi er online</div>
+        <h3>Har du spørgsmål?</h3>
+        <p>Vores medarbejdere sidder klar mandag til fredag kl. 07 – 18</p>
+        <div class="mega-contact-links">
+          <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
+          <a href="mailto:Kontakt@Multiservice.dk">✉ Kontakt@Multiservice.dk</a>
+        </div>
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
@@ -1304,6 +1493,7 @@
         </div>
       </div>
       <a href="om-os.html" onclick="toggleMenu()">Om os</a>
+      <a href="blog.html" onclick="toggleMenu()">Blog</a>
       <a href="index.html#anmeldelser" onclick="toggleMenu()">Anmeldelser</a>
       <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
       <div class="mobile-cta">
@@ -1317,18 +1507,28 @@
     <div class="page-hero-bg"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-      <div class="hero-badge">Professionel fliserens på hele Fyn</div>
+      <div class="tp-badge">
+        <span class="tp-name">Trustpilot</span>
+        <div class="tp-stars">
+          <span class="tp-star">★</span><span class="tp-star">★</span><span class="tp-star">★</span><span class="tp-star">★</span><span class="tp-star">★</span>
+        </div>
+        <div class="tp-text">
+          <span class="tp-label">Fremragende · 4,8/5</span>
+          <span class="tp-count">Over 150 anmeldelser</span>
+        </div>
+      </div>
       <h1>Professionel Fliserens</h1>
       <p class="hero-sub">Vi genopretter dine flisers oprindelige udseende</p>
-      <p>Med professionelt udstyr og godkendte rengøringsmidler fjerner vi alger, mos og indgroet snavs fra alle typer belægninger. Effektivt, skånsomt og med synligt resultat – garanteret.</p>
+      <p>Vi rykker ud på hele Fyn med professionelt udstyr og godkendte midler. Du behøver ikke engang være hjemme – vi klarer det hele og sender fotodokumentation bagefter.</p>
       <div class="hero-cta">
-        <a href="#pris" class="btn btn-outline btn-lg">Se priser →</a>
+        <a href="#hjaelp" class="btn btn-primary btn-lg">Få gratis tilbud →</a>
+        <a href="#pris" class="btn btn-outline btn-lg">Se priser</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><span>✅</span> Gratis tilbud</div>
-        <div class="trust-item"><span>⚡</span> Svar inden 1 time</div>
-        <div class="trust-item"><span>🔒</span> Ingen binding</div>
-        <div class="trust-item"><span>⭐</span> 5 stjerner</div>
+        <div class="trust-item"><span class="ti-dot"></span> Gratis tilbud</div>
+        <div class="trust-item"><span class="ti-dot"></span> Svar inden 1 time</div>
+        <div class="trust-item"><span class="ti-dot"></span> Ingen binding</div>
+        <div class="trust-item"><span class="ti-dot"></span> 5 stjerner på Google</div>
       </div>
     </div>
     <div class="trust-bar">
@@ -1338,8 +1538,8 @@
           <div class="label">Tilfredse kunder</div>
         </div>
         <div class="trust-stat">
-          <div class="num">5★</div>
-          <div class="label">Google anmeldelse</div>
+          <div class="num">4,8 ★</div>
+          <div class="label">Trustpilot snit</div>
         </div>
         <div class="trust-stat">
           <div class="num">100%</div>
@@ -1528,18 +1728,19 @@
                   <div class="calc-pkg-desc">Fliserens + algebehandling</div>
                 </div>
               </label>
-              <label class="calc-pkg calc-pkg-featured" data-price="50">
+              <label class="calc-pkg" data-price="50">
                 <input type="radio" name="calcPkg" value="50" id="pkg50">
                 <div class="calc-pkg-inner">
-                  <div class="calc-pkg-badge">Mest valgt</div>
+                  
                   <div class="calc-pkg-name">Standard</div>
                   <div class="calc-pkg-price">50 kr/m²</div>
                   <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²)</div>
                 </div>
               </label>
-              <label class="calc-pkg" data-price="60">
+              <label class="calc-pkg calc-pkg-featured" data-price="60">
                 <input type="radio" name="calcPkg" value="60" id="pkg60">
                 <div class="calc-pkg-inner">
+                  <div class="calc-pkg-badge">Mest valgt</div>
                   <div class="calc-pkg-name">Premium</div>
                   <div class="calc-pkg-price">60 kr/m²</div>
                   <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²) + imprægnering</div>
@@ -1610,7 +1811,7 @@
         <h2>Vi renser <span class="highlight">alle typer</span> belægninger</h2>
         <p class="lead" style="margin: 0 auto;">Uanset overfladetype og tilstand råder vi over udstyr og erfaring til at levere et optimalt resultat.</p>
       </div>
-      <div class="surfaces-grid">
+      <div class="surfaces-grid" style="grid-template-columns: repeat(3, 1fr);">
         <div class="surface-card">
           <div class="s-icon">🚗</div>
           <h3>Indkørsel</h3>
@@ -1986,13 +2187,17 @@
   <!-- ─── FINAL CTA ─── -->
   <section class="final-cta" id="kontakt">
     <div class="container">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:#111;border-radius:100px;padding:8px 22px;font-size:0.82rem;font-weight:900;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px;">
+        🔥 10% FORÅRSRABAT — SPAR OP TIL HUNDREDEVIS AF KR.
+      </div>
       <h2>Klar til et <span style="color:var(--yellow);">professionelt resultat?</span></h2>
       <p>Kontakt os i dag og modtag et gratis, uforpligtende tilbud. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
       <div class="final-cta-btns">
         <a href="tel:+4557209141" class="btn btn-green btn-lg">📞 Ring til os</a>
+        <a href="#hjaelp" class="btn btn-white btn-lg">Få gratis tilbud →</a>
         <a href="mailto:Kontakt@Multiservice.dk" class="btn btn-outline btn-lg">✉ Send email</a>
       </div>
-      <p class="urgency-note">⏰ Ledige tider denne uge – book din plads nu</p>
+      <p class="urgency-note">⏰ Rabat udløber 1. april – book din plads nu</p>
 
       <div class="contact-cards">
         <div class="contact-card">
@@ -2039,6 +2244,7 @@
         <ul>
           <li><a href="index.html">Forside</a></li>
           <li><a href="om-os.html">Om os</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#anmeldelser">Anmeldelser</a></li>
           <li><a href="index.html#omraader">Områder</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
@@ -2066,6 +2272,17 @@
   </footer>
 
   <script>
+    // Mega menu hover
+    const navDrop = document.querySelector('.nav-dropdown');
+    const megaMenu = document.getElementById('megaMenu');
+    let hideTimer;
+    function showMega() { clearTimeout(hideTimer); megaMenu.classList.add('open'); }
+    function hideMega() { hideTimer = setTimeout(() => megaMenu.classList.remove('open'), 80); }
+    navDrop.addEventListener('mouseenter', showMega);
+    navDrop.addEventListener('mouseleave', hideMega);
+    megaMenu.addEventListener('mouseenter', showMega);
+    megaMenu.addEventListener('mouseleave', hideMega);
+
     // Hamburger menu
     function vælgPakke(pris) {
       const radio = document.getElementById('pkg' + pris);
@@ -2095,23 +2312,14 @@
       if (!isOpen) item.classList.add('open');
     }
 
-    // Header: hide on scroll down, show on scroll up + solid bg when scrolled
-    let lastScroll = 0;
+    const headerTopBar = document.querySelector('.header-top');
     window.addEventListener('scroll', () => {
-      const header = document.getElementById('siteHeader');
-      const current = window.scrollY;
-      if (current > lastScroll && current > 200) {
-        header.classList.add('hide');
+      if (window.scrollY > 50) {
+        headerTopBar.classList.add('hide-bar');
       } else {
-        header.classList.remove('hide');
+        headerTopBar.classList.remove('hide-bar');
       }
-      if (current > 80) {
-        header.classList.add('solid');
-      } else {
-        header.classList.remove('solid');
-      }
-      lastScroll = current;
-    });
+    }, { passive: true });
 
     // Show success message if redirected back after form submit
     if (window.location.search.includes('sendt=1')) {
