@@ -675,6 +675,67 @@
     }
     .areas-note { text-align: center; color: var(--gray-600); font-size: 0.9rem; }
 
+    /* ─── CONTACT FORM ─── */
+    .contact-form-section {
+      background: var(--gray-50);
+      background-image: radial-gradient(circle, rgba(26,79,168,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .contact-form-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto;
+    }
+    .form-left h2 { margin-bottom: 14px; }
+    .form-left p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.75; margin-bottom: 22px; }
+    .form-phones { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .form-phone-link { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: var(--navy); }
+    .form-phone-link:hover { color: var(--blue); }
+    .form-note { font-size: 0.82rem; color: var(--gray-400); font-style: italic; }
+    .help-form {
+      background: white; border-radius: 24px; padding: 40px 36px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.07), 0 24px 48px rgba(0,0,0,0.05);
+      border: 1.5px solid rgba(0,0,0,0.05); position: relative; overflow: hidden;
+    }
+    .help-form::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #081e45, #2e4455, #2e7fe8);
+    }
+    .help-form h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; color: var(--gray-900); letter-spacing: -0.02em; }
+    .help-form .form-subtitle { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 26px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--gray-700); letter-spacing: 0.02em; }
+    .form-group label .req { color: #e53e3e; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200); border-radius: 10px;
+      font-family: var(--font-body); font-size: 0.92rem; color: var(--gray-800);
+      background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: #2e7fe8; background: white; box-shadow: 0 0 0 3px rgba(74,158,255,0.12);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 15px;
+      background: linear-gradient(135deg, #1a202c, #2d3748);
+      color: white; border: none; border-radius: 100px;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s, transform 0.22s, box-shadow 0.22s;
+    }
+    .form-submit:hover { background: linear-gradient(135deg, #081e45, #0f3080); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,79,168,0.3); }
+    .form-success { display: none; text-align: center; padding: 20px; background: #d1fae5; border-radius: 10px; color: #065f46; font-weight: 700; font-size: 0.95rem; margin-top: 16px; }
+    @media (max-width: 900px) { .contact-form-grid { grid-template-columns: 1fr; gap: 36px; } }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .help-form { padding: 18px 14px; }
+      .help-form h3 { font-size: 1.1rem; }
+      .help-form .form-subtitle { font-size: 0.78rem; margin-bottom: 16px; }
+      .form-group { margin-bottom: 10px; }
+      .form-group input, .form-group textarea, .form-group select { padding: 9px 12px; font-size: 0.85rem; }
+      .form-group textarea { min-height: 80px; }
+      .form-submit { padding: 12px; font-size: 0.92rem; }
+    }
+
     /* ─── FAQ ─── */
     .faq { background: #ffffff; }
     .faq-header { text-align: center; margin-bottom: 48px; }
@@ -806,6 +867,7 @@
       .hero-cta { display: flex !important; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
       .hero-cta .btn { width: 100%; max-width: 280px; padding: 13px 20px; font-size: 0.95rem; }
       .hero-trust { gap: 8px; }
+      .hero-tilbud-wrap { align-items: center !important; }
 
       /* Services bar i bunden af hero */
       .trust-bar { padding: 6px 8px !important; }
@@ -1028,7 +1090,8 @@
     <div class="hero-content">
       <h1>Multiservice Fyn <span style="display:block;font-size:0.4em;font-weight:500;opacity:0.85;letter-spacing:0;">Fliserens & Udvendig Rengøring</span></h1>
       <p class="hero-slogan">Vi gør det rent — du nyder resultatet</p>
-      <a href="#anmeldelser" style="display:inline-flex;align-items:center;gap:12px;margin-top:20px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:8px 16px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <div class="hero-tilbud-wrap" style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:20px;">
+      <a href="#anmeldelser" style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:8px 16px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
         <span style="display:flex;flex-direction:column;gap:2px;">
           <span style="color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.05em;">Trustpilot</span>
           <span style="display:flex;gap:2px;">
@@ -1044,6 +1107,8 @@
           <span style="color:rgba(255,255,255,0.75);font-size:0.72rem;">Over 150 anmeldelser</span>
         </span>
       </a>
+      <a href="#tilbud" class="btn btn-lg" style="margin-top:20px;background:linear-gradient(135deg,#2e7fe8 0%,#5ab4ff 50%,#2e7fe8 100%);color:white;background-size:200% auto;transition:background-position 0.4s,transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.backgroundPosition='right center';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(46,127,232,0.4)'" onmouseout="this.style.backgroundPosition='left center';this.style.transform='';this.style.boxShadow=''">Få gratis tilbud →</a>
+      </div>
     </div>
 
     <!-- ─── SERVICES BAR ─── -->
@@ -1326,6 +1391,68 @@
             <span class="arrow">▼</span>
           </div>
           <div class="faq-a">Flyt møbler og løse genstande væk fra det område, der skal renses. Sørg for adgang til en vandkran. Det er det hele – vi klarer resten! <strong>Bemærk:</strong> Tillæg kan forekomme, hvis arealet ikke er ryddet inden vores ankomst.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KOM I GANG ─── -->
+  <section class="contact-form-section" id="tilbud">
+    <div class="container">
+      <div class="contact-form-grid">
+        <div class="form-left">
+          <span class="section-label">Kom i gang</span>
+          <h2>Brug for et <span class="highlight">uforpligtende tilbud?</span></h2>
+          <p>Kontakt os direkte pr. telefon, eller udfyld formularen – så vender vi tilbage hurtigst muligt. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
+          <div class="form-phones">
+            <a href="tel:+4557209141" class="form-phone-link">📞 57 20 91 41 – Niklas</a>
+          </div>
+          <p class="form-note">Foretrækker du at blive ringet op? Udfyld formularen, så kontakter vi dig.</p>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);">
+              <span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Gratis og uforpligtende tilbud
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);">
+              <span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Svar inden for 1 time på hverdage
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);">
+              <span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Ingen binding – du træffer beslutningen
+            </div>
+          </div>
+        </div>
+        <div class="help-form">
+          <h3>Brug for hjælp?</h3>
+          <p class="form-subtitle">Ring på <a href="tel:+4557209141" style="color:#0f3080;font-weight:600;">57 20 91 41</a> – eller udfyld formularen og bliv kontaktet</p>
+          <form action="https://formsubmit.co/Kontakt@Multiservice.dk" method="POST">
+            <input type="hidden" name="_subject" value="Ny henvendelse fra forsiden – Multiservice Fyn" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://www.multiservice-fyn.dk/index.html?sendt=1" />
+            <input type="text" name="_honey" style="display:none" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="idx-fornavn">Fornavn <span class="req">*</span></label>
+                <input type="text" id="idx-fornavn" name="Fornavn" placeholder="Dit fornavn" required />
+              </div>
+              <div class="form-group">
+                <label for="idx-efternavn">Efternavn</label>
+                <input type="text" id="idx-efternavn" name="Efternavn" placeholder="Dit efternavn" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="idx-email">E-mailadresse <span class="req">*</span></label>
+              <input type="email" id="idx-email" name="Email" placeholder="din@email.dk" required />
+            </div>
+            <div class="form-group">
+              <label for="idx-telefon">Telefon</label>
+              <input type="tel" id="idx-telefon" name="Telefon" placeholder="+45 __ __ __ __" />
+            </div>
+            <div class="form-group">
+              <label for="idx-besked">Skriv en besked</label>
+              <textarea id="idx-besked" name="Besked" placeholder="Beskriv hvad du ønsker hjælp til..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Indsend</button>
+          </form>
+          <div class="form-success">✅ Tak for din besked! Vi vender tilbage inden for 1 time.</div>
         </div>
       </div>
     </div>

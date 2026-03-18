@@ -1327,10 +1327,12 @@
 
     /* Små telefoner under 375px */
     @media (max-width: 480px) {
+      /* Anvendelsesområder og Vores arbejdsproces: 2x3 på mobil */
+      .steps-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .surfaces-grid { grid-template-columns: repeat(2, 1fr) !important; }
       /* Pris-kort: 1 kolonne på alle telefoner */
       .pricing-cards { grid-template-columns: 1fr !important; gap: 16px !important; max-width: 380px !important; margin-left: auto !important; margin-right: auto !important; }
-      /* Ekstra tillæg: 1 kolonne */
-      .pricing-extras { grid-template-columns: 1fr !important; }
+      /* Ekstra tillæg: 2 kolonner på mobil */
       /* Kalkulator pakker: 1 kolonne */
       .calc-packages, .calc-inline-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
       /* Features og anmeldelser: 1 kolonne */
