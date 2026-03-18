@@ -128,28 +128,85 @@
     .tab-btn.active { color: var(--navy); border-bottom-color: var(--blue); }
 
     /* CALCULATOR SECTIONS */
-    .calc-section { display: none; padding: 60px 20px; }
+    .calc-section { display: none; padding: 60px 20px; background: var(--gray-50); }
     .calc-section.active { display: block; }
-    .calc-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 
-    /* FORM */
+    /* FLISERENS CALCULATOR — identisk med fliserens.html */
+    .fl-calc-wrapper { max-width: 760px; margin: 0 auto; }
+    .fl-calc-header { text-align: center; margin-bottom: 40px; }
+    .fl-calc-header h2 { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+    .fl-calc-header p { color: var(--gray-600); font-size: 1rem; }
+    .fl-calc-card { background: white; border-radius: 24px; padding: 44px 48px; box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 56px rgba(0,0,0,0.08); border: 1.5px solid rgba(0,0,0,0.06); }
+    .fl-calc-step { margin-bottom: 36px; }
+    .fl-calc-label { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1rem; color: var(--gray-900); margin-bottom: 14px; }
+    .fl-calc-step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; flex-shrink: 0; }
+    .fl-calc-input-wrap { position: relative; max-width: 280px; }
+    .fl-calc-input { width: 100%; padding: 14px 52px 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.1rem; font-family: var(--font-body); color: var(--gray-900); outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
+    .fl-calc-input::-webkit-outer-spin-button, .fl-calc-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .fl-calc-input:focus { border-color: var(--blue); }
+    .fl-calc-input-unit { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; font-weight: 700; color: var(--gray-400); }
+    .fl-calc-packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .fl-calc-pkg input { display: none; }
+    .fl-calc-pkg-inner { border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px 14px; cursor: pointer; text-align: center; transition: all 0.2s; position: relative; }
+    .fl-calc-pkg:hover .fl-calc-pkg-inner { border-color: var(--blue); }
+    .fl-calc-pkg input:checked ~ .fl-calc-pkg-inner { border-color: var(--blue); background: #ecf1f4; box-shadow: 0 0 0 3px rgba(95,125,144,0.15); }
+    .fl-calc-pkg-featured input:checked ~ .fl-calc-pkg-inner { border-color: var(--navy); background: #ecf1f4; box-shadow: 0 0 0 3px rgba(60,81,102,0.15); }
+    .fl-calc-pkg-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--yellow); color: var(--gray-900); font-size: 0.62rem; font-weight: 900; padding: 3px 12px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+    .fl-calc-pkg-name { font-weight: 800; font-size: 0.95rem; color: var(--gray-900); margin-bottom: 4px; }
+    .fl-calc-pkg-price { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--blue); margin-bottom: 4px; }
+    .fl-calc-pkg-desc { font-size: 0.72rem; color: var(--gray-400); line-height: 1.4; }
+    .fl-calc-discounts { display: flex; flex-direction: column; gap: 10px; background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 16px 18px; margin-bottom: 20px; }
+    .fl-calc-discount-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: #166534; }
+    .fl-calc-discount-item svg { color: #16a34a; flex-shrink: 0; }
+    .fl-calc-result { background: var(--navy); border-radius: 16px; padding: 28px 32px; text-align: center; margin-top: 8px; }
+    .fl-calc-result-label { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .fl-calc-result-price { font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: white; line-height: 1; margin-bottom: 8px; transition: all 0.3s; }
+    .fl-calc-result-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0; }
+    .fl-calc-result-btn { margin-top: 20px; background: var(--yellow); color: var(--gray-900); }
+    .fl-calc-result-btn:hover { background: #fbbf24; }
+    /* Pakkeindhold */
+    .fl-pkg-features { max-width: 760px; margin: 24px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .fl-pkg-col { background: white; border-radius: 16px; padding: 22px 20px; border: 2px solid #e2e8f0; transition: border-color 0.2s, box-shadow 0.2s; }
+    .fl-pkg-col.active { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(46,127,232,0.12); }
+    .fl-pkg-col-name { font-family: var(--font-display); font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1.5px solid #e2e8f0; }
+    .fl-pkg-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .fl-pkg-col li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--gray-700); line-height: 1.4; }
+    .fl-pkg-col li::before { content: '✔'; color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 0.78rem; margin-top: 2px; }
+    @media (max-width: 640px) {
+      .fl-calc-card { padding: 18px 16px; }
+      .fl-calc-step { margin-bottom: 16px; }
+      .fl-calc-label { font-size: 0.88rem; margin-bottom: 10px; }
+      .fl-calc-input { padding: 10px 52px 10px 14px; font-size: 1rem; }
+      .fl-calc-packages { grid-template-columns: 1fr; gap: 10px; }
+      .fl-calc-pkg-inner { padding: 10px 6px; }
+      .fl-calc-pkg-name { font-size: 0.75rem; margin-bottom: 2px; }
+      .fl-calc-pkg-price { font-size: 0.92rem; margin-bottom: 2px; }
+      .fl-calc-pkg-desc { font-size: 0.6rem; }
+      .fl-calc-pkg-badge { font-size: 0.55rem; padding: 2px 8px; }
+      .fl-calc-discounts { display: none; }
+      .fl-calc-result { padding: 14px 18px; }
+      .fl-calc-result-label { font-size: 0.7rem; margin-bottom: 4px; }
+      .fl-calc-result-price { font-size: 1.9rem; margin-bottom: 4px; }
+      .fl-calc-result-sub { font-size: 0.78rem; }
+      .fl-calc-result-btn { margin-top: 12px; padding: 10px 22px; font-size: 0.88rem; }
+      .fl-pkg-features { grid-template-columns: 1fr; }
+    }
+
+    /* OTHER CALC SECTIONS */
+    .calc-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
     .calc-form { background: white; border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow); border: 1px solid var(--gray-200); }
     .calc-form h2 { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; }
     .calc-form .subtitle { color: var(--gray-600); font-size: 0.9rem; margin-bottom: 28px; }
     .form-group { margin-bottom: 22px; }
     .form-group label { display: block; font-weight: 600; font-size: 0.88rem; color: var(--gray-800); margin-bottom: 8px; }
-    .form-group input[type="number"],
-    .form-group select { width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; color: var(--gray-800); transition: border-color 0.2s; outline: none; appearance: none; background: white; }
-    .form-group input[type="number"]:focus,
-    .form-group select:focus { border-color: var(--blue); }
+    .form-group input[type="number"], .form-group select { width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; color: var(--gray-800); transition: border-color 0.2s; outline: none; appearance: none; background: white; }
+    .form-group input[type="number"]:focus, .form-group select:focus { border-color: var(--blue); }
     .form-group .hint { font-size: 0.78rem; color: var(--gray-400); margin-top: 4px; }
     .radio-group { display: flex; flex-direction: column; gap: 10px; }
     .radio-option { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid var(--gray-200); border-radius: var(--radius); cursor: pointer; transition: border-color 0.2s, background 0.2s; }
     .radio-option:hover { border-color: var(--blue); background: var(--blue-light); }
     .radio-option input { accent-color: var(--blue); width: 16px; height: 16px; }
     .radio-option span { font-size: 0.9rem; font-weight: 500; }
-
-    /* RESULT */
     .calc-result { background: linear-gradient(135deg, #0f3080 0%, #2e7fe8 100%); border-radius: var(--radius-lg); padding: 36px; color: white; position: sticky; top: 180px; }
     .calc-result h3 { font-size: 1rem; font-weight: 600; opacity: 0.8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
     .price-range { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 6px; }
@@ -159,6 +216,30 @@
     .price-breakdown-row:last-child { border-bottom: none; font-weight: 700; font-size: 0.95rem; padding-top: 10px; margin-top: 4px; }
     .disclaimer { font-size: 0.75rem; opacity: 0.6; margin-bottom: 20px; line-height: 1.5; }
     .calc-result .btn-green { width: 100%; justify-content: center; }
+
+    /* CONTACT FORM */
+    .pb-contact-section { background: var(--gray-50); background-image: radial-gradient(circle, rgba(26,79,168,0.06) 1px, transparent 1px); background-size: 28px 28px; padding: 60px 20px; display: block; }
+    .pb-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
+    .pb-form-left h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gray-900); margin-bottom: 14px; }
+    .pb-form-left p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.75; margin-bottom: 22px; }
+    .pb-form-phones { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .pb-form-phone-link { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .pb-form-phone-link:hover { color: var(--blue); }
+    .pb-help-form { background: white; border-radius: 24px; padding: 40px 36px; box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.07), 0 24px 48px rgba(0,0,0,0.05); border: 1.5px solid rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .pb-help-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy-dark), var(--blue-mid), var(--blue)); }
+    .pb-help-form h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; color: var(--gray-900); }
+    .pb-help-form .pb-form-subtitle { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 26px; line-height: 1.6; }
+    .pb-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .pb-form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .pb-form-group label { font-size: 0.8rem; font-weight: 600; color: var(--gray-700); }
+    .pb-form-group input, .pb-form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200); border-radius: 10px; font-family: var(--font-body); font-size: 0.92rem; color: var(--gray-800); background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; outline: none; }
+    .pb-form-group input:focus, .pb-form-group textarea:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(74,158,255,0.12); }
+    .pb-form-group textarea { min-height: 110px; resize: vertical; }
+    .pb-form-submit { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--gray-900), #2d3748); color: white; border: none; border-radius: 100px; font-family: var(--font-body); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.22s, box-shadow 0.22s; }
+    .pb-form-submit:hover { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,79,168,0.3); }
+    .pb-form-success { display: none; text-align: center; padding: 20px; background: #d1fae5; border-radius: 12px; color: #065f46; font-weight: 700; font-size: 0.95rem; margin-top: 16px; }
+    @media (max-width: 900px) { .pb-contact-grid { grid-template-columns: 1fr; gap: 36px; } }
+    @media (max-width: 640px) { .pb-help-form { padding: 24px 18px; } .pb-form-row { grid-template-columns: 1fr; } }
 
     /* FOOTER */
     footer { background: linear-gradient(180deg, #0f3080 0%, #081e45 100%); color: white; padding: 40px 20px 20px; }
@@ -307,42 +388,183 @@
 
     <!-- ─── FLISERENS ─── -->
     <section class="calc-section active" id="calc-fliserens">
-      <div class="calc-wrap">
-        <div class="calc-form">
-          <h2>Fliserens</h2>
-          <p class="subtitle">Højtryksrens af indkørsler, gangstier og flisebelægninger.</p>
-          <div class="form-group">
-            <label>Areal (m²)</label>
-            <input type="number" id="fl-areal" placeholder="F.eks. 50" min="1" max="9999" oninput="calcFliserens()" />
-            <p class="hint">Kender du ikke dit areal? Vi kommer gratis ud og måler op.</p>
-          </div>
-          <div class="form-group">
-            <label>Vælg pakke</label>
-            <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="fl-pkg" value="35" onchange="calcFliserens()" /><span><strong>Basis</strong> — 35 kr/m² &nbsp;·&nbsp; Fliserens + algebehandling</span></label>
-              <label class="radio-option"><input type="radio" name="fl-pkg" value="50" checked onchange="calcFliserens()" /><span><strong>Standard</strong> — 50 kr/m² &nbsp;·&nbsp; Fugesand inkl. (ca. 3,20 kr./m²) ⭐ Mest valgt</span></label>
-              <label class="radio-option"><input type="radio" name="fl-pkg" value="60" onchange="calcFliserens()" /><span><strong>Premium</strong> — 60 kr/m² &nbsp;·&nbsp; Fugesand inkl. (ca. 3,20 kr./m²) + imprægnering</span></label>
+      <div class="fl-calc-wrapper">
+        <div class="fl-calc-header">
+          <span class="section-label" style="display:inline-block;background:var(--blue-light);color:var(--navy);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;">Prisberegner</span>
+          <h2>Beregn din pris</h2>
+          <p>Indtast dit areal og vælg en pakke – få din pris med det samme.</p>
+          <p style="font-size:0.88rem;color:var(--gray-600);margin-top:10px;display:flex;align-items:center;justify-content:center;gap:7px;">
+            <span style="color:var(--green);font-size:1rem;">✔</span>
+            Kender du ikke dit areal? Vi kommer gratis ud og måler op – helt uden beregning og uden forpligtelse.
+          </p>
+        </div>
+        <div class="fl-calc-card">
+          <div class="fl-calc-step">
+            <label class="fl-calc-label">
+              <span class="fl-calc-step-num">1</span>
+              Indtast areal (m²)
+            </label>
+            <div class="fl-calc-input-wrap">
+              <input type="number" id="fl-calcArea" class="fl-calc-input" placeholder="F.eks. 50" min="1" max="9999">
+              <span class="fl-calc-input-unit">m²</span>
             </div>
           </div>
-          <div class="form-group" style="background:var(--blue-light);border-radius:var(--radius);padding:14px 16px;font-size:0.85rem;color:var(--navy);">
-            <strong>10% forårsrabat</strong> — gælder til d. 1. april<br>
-            <strong>10% mængderabat</strong> — ved 100 m² eller derover<br>
-            <small style="opacity:0.7;">Rabat gælder kun arbejdsprisen – ikke fugesand</small>
+          <div class="fl-calc-step">
+            <label class="fl-calc-label">
+              <span class="fl-calc-step-num">2</span>
+              Vælg pakke
+            </label>
+            <div class="fl-calc-packages">
+              <label class="fl-calc-pkg" data-price="35">
+                <input type="radio" name="fl-calcPkg" value="35" id="fl-pkg35">
+                <div class="fl-calc-pkg-inner">
+                  <div class="fl-calc-pkg-name">Basis</div>
+                  <div class="fl-calc-pkg-price">35 kr/m²</div>
+                  <div class="fl-calc-pkg-desc">Fliserens + algebehandling</div>
+                </div>
+              </label>
+              <label class="fl-calc-pkg" data-price="50">
+                <input type="radio" name="fl-calcPkg" value="50" id="fl-pkg50">
+                <div class="fl-calc-pkg-inner">
+                  <div class="fl-calc-pkg-name">Standard</div>
+                  <div class="fl-calc-pkg-price">50 kr/m²</div>
+                  <div class="fl-calc-pkg-desc">Fugesand inkl. (ca. 1,48 kr./m²)</div>
+                </div>
+              </label>
+              <label class="fl-calc-pkg fl-calc-pkg-featured" data-price="60">
+                <input type="radio" name="fl-calcPkg" value="60" id="fl-pkg60">
+                <div class="fl-calc-pkg-inner">
+                  <div class="fl-calc-pkg-badge">Mest valgt</div>
+                  <div class="fl-calc-pkg-name">Premium</div>
+                  <div class="fl-calc-pkg-price">60 kr/m²</div>
+                  <div class="fl-calc-pkg-desc">Fugesand inkl. (ca. 1,48 kr./m²) + imprægnering (5,29 kr./m²)</div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div id="fl-fugesandToggleWrap" style="display:none;margin-top:-12px;margin-bottom:24px;">
+            <button type="button" id="fl-fugesandToggleBtn" onclick="toggleFugesandFL()" style="background:#f1f5f9;border:2px solid #e2e8f0;border-radius:10px;padding:10px 18px;font-family:var(--font-body);font-size:0.88rem;font-weight:600;color:#1f2937;cursor:pointer;width:100%;text-align:left;transition:background 0.2s,border-color 0.2s;">
+              ☐ Fravælg sand og sandfejning (−6,48 kr./m²)
+            </button>
+          </div>
+          <div class="fl-calc-discounts">
+            <div class="fl-calc-discount-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span><strong>10% forårsrabat</strong> — gælder til d. 1. april</span>
+            </div>
+            <div class="fl-calc-discount-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span><strong>10% mængderabat</strong> — ved 100 m² eller derover</span>
+            </div>
+          </div>
+          <div class="fl-calc-result" id="fl-calcResult">
+            <div class="fl-calc-result-label">Estimeret pris</div>
+            <div class="fl-calc-result-price" id="fl-calcPrice">—</div>
+            <div class="fl-calc-result-sub" id="fl-calcSub">Udfyld areal og vælg pakke ovenfor</div>
+            <a href="index.html#kontakt" class="btn fl-calc-result-btn" id="fl-calcBtn" style="display:none">Få gratis tilbud →</a>
           </div>
         </div>
-        <div class="calc-result" id="fl-result">
-          <h3>Estimeret pris</h3>
-          <div class="price-range" id="fl-price">—</div>
-          <p class="price-note" id="fl-note">Indtast areal og vælg pakke</p>
-          <div class="price-breakdown" id="fl-breakdown" style="display:none;">
-            <div class="price-breakdown-row"><span>Areal</span><span id="fl-b-areal">—</span></div>
-            <div class="price-breakdown-row"><span>Pakke</span><span id="fl-b-pkg">—</span></div>
-            <div class="price-breakdown-row" id="fl-b-fugesand-row" style="display:none;"><span>Fugesand</span><span id="fl-b-fugesand">—</span></div>
-            <div class="price-breakdown-row" id="fl-b-rabat-row" style="display:none;"><span id="fl-b-rabat-label">Rabat</span><span id="fl-b-rabat">—</span></div>
-            <div class="price-breakdown-row"><span>Estimeret total</span><span id="fl-b-total">—</span></div>
+
+        <!-- Inkluderet i pakken -->
+        <div class="fl-pkg-features" id="fl-pkg-features">
+          <div class="fl-pkg-col" id="fl-col-35">
+            <div class="fl-pkg-col-name">Basis</div>
+            <ul>
+              <li>Professionel højtryksrensning</li>
+              <li>Fjernelse af alger, mos og grønne belægninger</li>
+              <li>Algebehandling</li>
+              <li>Grundig fugerensning</li>
+              <li>Skånsom metode – overfladen beskadiges ikke</li>
+              <li>Fuldt erhvervsforsikret</li>
+            </ul>
           </div>
-          <p class="disclaimer">Prisoverslaget er vejledende. Den endelige pris aftales efter besigtigelse. Gratis og uforpligtende.</p>
-          <a href="index.html#kontakt" class="btn btn-green">Få gratis tilbud →</a>
+          <div class="fl-pkg-col" id="fl-col-50">
+            <div class="fl-pkg-col-name">Standard</div>
+            <ul>
+              <li>Professionel højtryksrensning</li>
+              <li>Fjernelse af alger, mos og grønne belægninger</li>
+              <li>Algebehandling</li>
+              <li>Grundig fugerensning</li>
+              <li>Fugesand (1,48 kr./m²)</li>
+              <li>Sandfejning inkl.</li>
+              <li>Skånsom metode – overfladen beskadiges ikke</li>
+              <li>Fuldt erhvervsforsikret</li>
+            </ul>
+          </div>
+          <div class="fl-pkg-col" id="fl-col-60">
+            <div class="fl-pkg-col-name">Premium</div>
+            <ul>
+              <li>Professionel højtryksrensning</li>
+              <li>Fjernelse af alger, mos og grønne belægninger</li>
+              <li>Algebehandling</li>
+              <li>Grundig fugerensning</li>
+              <li>Fugesand (1,48 kr./m²)</li>
+              <li>Sandfejning inkl.</li>
+              <li>Imprægnering (5,29 kr./m²)</li>
+              <li>15 års beskyttelse mod genvækst</li>
+              <li>Skånsom metode – overfladen beskadiges ikke</li>
+              <li>Fuldt erhvervsforsikret</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FLISERENS KONTAKTFORMULAR ─── -->
+    <section class="pb-contact-section" id="pb-hjaelp">
+      <div class="pb-contact-grid">
+        <div class="pb-form-left">
+          <span style="display:inline-block;background:var(--blue-light);color:var(--navy);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;">Kom i gang</span>
+          <h2>Brug for et <span style="color:var(--blue);">uforpligtende tilbud?</span></h2>
+          <p>Kontakt os direkte pr. telefon, eller udfyld formularen – så vender vi tilbage hurtigst muligt. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
+          <div class="pb-form-phones">
+            <a href="tel:+4557209141" class="pb-form-phone-link">📞 57 20 91 41 – Niklas</a>
+          </div>
+          <div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:10px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+            <span style="color:#059669;font-size:1.1rem;flex-shrink:0;margin-top:1px;">📍</span>
+            <p style="font-size:0.88rem;color:#065f46;line-height:1.65;margin:0;"><strong>Kender du ikke dit areal?</strong><br>Vi kommer gratis ud og måler op – helt uforpligtende og uden beregning.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);"><span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Gratis og uforpligtende tilbud</div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);"><span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Svar inden for 1 time på hverdage</div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:var(--gray-600);"><span style="color:#059669;font-size:1.1rem;flex-shrink:0;">✔</span> Ingen binding – du træffer beslutningen</div>
+          </div>
+        </div>
+        <div class="pb-help-form">
+          <h3>Brug for hjælp?</h3>
+          <p class="pb-form-subtitle">Ring på <a href="tel:+4557209141" style="color:var(--navy);font-weight:600;">57 20 91 41</a> – eller udfyld formularen og bliv kontaktet</p>
+          <form id="pb-contactForm" action="https://formsubmit.co/Kontakt@Multiservice.dk" method="POST">
+            <input type="hidden" name="_subject" value="Ny henvendelse fra prisberegneren – Multiservice Fyn" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://www.multiservice-fyn.dk/prisberegner.html?sendt=1" />
+            <input type="text" name="_honey" style="display:none" />
+            <div class="pb-form-row">
+              <div class="pb-form-group">
+                <label>Fornavn <span style="color:red;">*</span></label>
+                <input type="text" name="Fornavn" placeholder="Dit fornavn" required />
+              </div>
+              <div class="pb-form-group">
+                <label>Efternavn</label>
+                <input type="text" name="Efternavn" placeholder="Dit efternavn" />
+              </div>
+            </div>
+            <div class="pb-form-group">
+              <label>E-mailadresse <span style="color:red;">*</span></label>
+              <input type="email" name="Email" placeholder="din@email.dk" required />
+            </div>
+            <div class="pb-form-group">
+              <label>Telefon</label>
+              <input type="tel" name="Telefon" placeholder="+45 __ __ __ __" />
+            </div>
+            <div class="pb-form-group">
+              <label>Skriv en besked</label>
+              <textarea id="pb-besked" name="Besked" placeholder="Beskriv hvad du ønsker hjælp til..."></textarea>
+            </div>
+            <button type="submit" class="pb-form-submit">Indsend</button>
+          </form>
+          <div class="pb-form-success" id="pb-formSuccess">
+            ✅ Tak for din besked! Vi vender tilbage inden for 1 time.
+          </div>
         </div>
       </div>
     </section>
@@ -561,36 +783,134 @@
 
     function fmt(n) { return n.toLocaleString('da-DK'); }
 
-    function calcFliserens() {
-      const areal = parseFloat(document.getElementById('fl-areal').value) || 0;
-      const pkgEl = document.querySelector('input[name="fl-pkg"]:checked');
-      const pkg = pkgEl ? parseFloat(pkgEl.value) : 50;
-      const pkgName = pkg === 35 ? 'Basis' : pkg === 50 ? 'Standard' : 'Premium';
-      if (!areal) { document.getElementById('fl-price').textContent = '—'; document.getElementById('fl-note').textContent = 'Indtast areal og vælg pakke'; document.getElementById('fl-breakdown').style.display = 'none'; return; }
-      const hasFugesand = pkg >= 50;
-      const fugesandPris = hasFugesand ? areal * 3.2 : 0;
-      const workTotal = areal * pkg;
-      const SPRING_DEADLINE = new Date('2026-04-01');
-      const springDiscount = new Date() < SPRING_DEADLINE;
-      const volumeDiscount = areal >= 100;
-      let discountPct = 0;
-      if (springDiscount) discountPct += 10;
-      if (volumeDiscount) discountPct += 10;
-      const discountAmount = workTotal * (discountPct / 100);
-      const finalTotal = Math.round(workTotal - discountAmount + fugesandPris);
-      document.getElementById('fl-price').textContent = fmt(finalTotal) + ' kr.';
-      document.getElementById('fl-note').textContent = areal + ' m² · ' + pkgName + (discountPct > 0 ? ' · ' + discountPct + '% rabat' : '');
-      document.getElementById('fl-breakdown').style.display = 'flex';
-      document.getElementById('fl-breakdown').style.flexDirection = 'column';
-      document.getElementById('fl-b-areal').textContent = areal + ' m²';
-      document.getElementById('fl-b-pkg').textContent = pkgName + ' (' + pkg + ' kr/m²)';
-      document.getElementById('fl-b-fugesand-row').style.display = hasFugesand ? 'flex' : 'none';
-      document.getElementById('fl-b-fugesand').textContent = fmt(Math.round(fugesandPris)) + ' kr.';
-      document.getElementById('fl-b-rabat-row').style.display = discountPct > 0 ? 'flex' : 'none';
-      document.getElementById('fl-b-rabat-label').textContent = 'Rabat (' + discountPct + '%)';
-      document.getElementById('fl-b-rabat').textContent = '−' + fmt(Math.round(discountAmount)) + ' kr.';
-      document.getElementById('fl-b-total').textContent = fmt(finalTotal) + ' kr.';
+    // ── Fliserens Calculator (1:1 fra fliserens.html) ──
+    const flAreaInput = document.getElementById('fl-calcArea');
+    const flPriceEl   = document.getElementById('fl-calcPrice');
+    const flSubEl     = document.getElementById('fl-calcSub');
+    const flBtnEl     = document.getElementById('fl-calcBtn');
+    const FL_SPRING_DEADLINE = new Date('2026-04-01');
+
+    function flUpdateCalc() {
+      const rawArea = parseFloat(flAreaInput.value);
+      const area = rawArea > 0 ? Math.max(rawArea, 30) : rawArea;
+      const selected = document.querySelector('input[name="fl-calcPkg"]:checked');
+      const pkg = selected ? parseFloat(selected.value) : null;
+      const pkgName = selected ? selected.closest('.fl-calc-pkg').querySelector('.fl-calc-pkg-name').textContent : null;
+
+      const toggleWrap = document.getElementById('fl-fugesandToggleWrap');
+      if (pkg === 60) {
+        toggleWrap.style.display = 'block';
+      } else {
+        toggleWrap.style.display = 'none';
+        window._flFugesandFravalgt = false;
+        const btn = document.getElementById('fl-fugesandToggleBtn');
+        btn.innerHTML = '☐ Fravælg sand og sandfejning (−6,48 kr./m²)';
+        btn.style.background = '#f1f5f9';
+        btn.style.borderColor = '#e2e8f0';
+        btn.style.color = '#1f2937';
+      }
+
+      if (area > 0 && pkg) {
+        const fravalgt = pkg === 60 && window._flFugesandFravalgt;
+        const hasFugesand = pkg >= 50 && !fravalgt;
+        const hasImpregnering = pkg === 60;
+        const fugesandTotal = hasFugesand ? area * 1.48 : 0;
+        const sandfejningDeduction = fravalgt ? area * 5.0 : 0;
+        const impregneringTotal = hasImpregnering ? area * 5.29 : 0;
+        const workTotal = area * pkg;
+        const springDiscount = new Date() < FL_SPRING_DEADLINE;
+        const volumeDiscount = area >= 100;
+        let discountPct = 0;
+        if (springDiscount) discountPct += 10;
+        if (volumeDiscount) discountPct += 10;
+        const discountAmount = workTotal * (discountPct / 100);
+        const finalTotal = workTotal - discountAmount + fugesandTotal - sandfejningDeduction + impregneringTotal;
+        flPriceEl.textContent = Math.round(finalTotal).toLocaleString('da-DK') + ' kr.';
+        let discountLines = [];
+        if (springDiscount) discountLines.push('10% forårsrabat (udløber 1. april)');
+        if (volumeDiscount) discountLines.push('10% mængderabat (100+ m²)');
+        const minNote = rawArea > 0 && rawArea < 30 ? ' <small style="color:rgba(255,255,255,0.4)">(min. 30 m²)</small>' : '';
+        if (discountPct > 0) {
+          flSubEl.innerHTML = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ') — <strong style="color:#86efac">' + discountPct + '% rabat anvendt</strong>' + minNote + '<br><small style="color:rgba(255,255,255,0.4)">' + discountLines.join(' + ') + '</small>';
+        } else {
+          flSubEl.innerHTML = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ' pakke)' + minNote;
+        }
+        flBtnEl.style.display = 'inline-block';
+        flBtnEl.dataset.area = area;
+        flBtnEl.dataset.pkg = pkg;
+        flBtnEl.dataset.pkgName = pkgName;
+        flBtnEl.dataset.total = Math.round(finalTotal);
+        flBtnEl.dataset.discount = discountPct;
+      } else if (area > 0 && !pkg) {
+        flPriceEl.textContent = '—'; flSubEl.textContent = 'Vælg en pakke ovenfor'; flBtnEl.style.display = 'none';
+      } else if (!area && pkg) {
+        flPriceEl.textContent = '—'; flSubEl.textContent = 'Indtast dit areal ovenfor'; flBtnEl.style.display = 'none';
+      } else {
+        flPriceEl.textContent = '—'; flSubEl.textContent = 'Udfyld areal og vælg pakke ovenfor'; flBtnEl.style.display = 'none';
+      }
     }
+
+    function toggleFugesandFL() {
+      window._flFugesandFravalgt = !window._flFugesandFravalgt;
+      const btn = document.getElementById('fl-fugesandToggleBtn');
+      if (window._flFugesandFravalgt) {
+        btn.innerHTML = '☑ Tilføj sand og sandfejning (+6,48 kr./m²)';
+        btn.style.background = '#fee2e2';
+        btn.style.borderColor = '#fca5a5';
+        btn.style.color = '#991b1b';
+      } else {
+        btn.innerHTML = '☐ Fravælg sand og sandfejning (−6,48 kr./m²)';
+        btn.style.background = '#f1f5f9';
+        btn.style.borderColor = '#e2e8f0';
+        btn.style.color = '#1f2937';
+      }
+      flUpdateCalc();
+    }
+
+    function flUpdatePkgFeatures(pkg) {
+      [35, 50, 60].forEach(v => {
+        const col = document.getElementById('fl-col-' + v);
+        if (col) {
+          col.classList.toggle('active', v === pkg);
+          col.style.order = v === pkg ? '-1' : '0';
+        }
+      });
+    }
+
+    flBtnEl.addEventListener('click', function(e) {
+      e.preventDefault();
+      const area     = flBtnEl.dataset.area;
+      const pkg      = flBtnEl.dataset.pkg;
+      const pkgName  = flBtnEl.dataset.pkgName;
+      const total    = flBtnEl.dataset.total;
+      const discount = flBtnEl.dataset.discount;
+      let msg = `Hej,\n\nJeg har beregnet en pris via jeres prisberegner og vil gerne anmode om et tilbud.\n\nAreal: ${area} m²\nValgt pakke: ${pkgName} (${pkg} kr/m²)\nBeregnet pris: ${parseInt(total).toLocaleString('da-DK')} kr.`;
+      if (parseInt(discount) > 0) msg += `\nRabat anvendt: ${discount}%`;
+      msg += `\n\nVenlig hilsen`;
+      const besked = document.getElementById('pb-besked');
+      besked.value = msg;
+      besked.dispatchEvent(new Event('input'));
+      setTimeout(() => {
+        document.getElementById('pb-hjaelp').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          besked.focus();
+          besked.style.borderColor = 'var(--blue)';
+          besked.style.boxShadow = '0 0 0 3px rgba(46,127,232,0.2)';
+          setTimeout(() => { besked.style.borderColor = ''; besked.style.boxShadow = ''; }, 2000);
+        }, 600);
+      }, 100);
+    });
+
+    if (window.location.search.includes('sendt=1')) {
+      document.getElementById('pb-contactForm').style.display = 'none';
+      document.getElementById('pb-formSuccess').style.display = 'block';
+    }
+
+    flAreaInput.addEventListener('input', flUpdateCalc);
+    document.querySelectorAll('input[name="fl-calcPkg"]').forEach(r => r.addEventListener('change', () => {
+      flUpdateCalc();
+      flUpdatePkgFeatures(parseFloat(r.value));
+    }));
 
     function calcFacaderens() {
       const areal = parseFloat(document.getElementById('fa-areal').value) || 0;

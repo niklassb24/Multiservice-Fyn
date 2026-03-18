@@ -490,7 +490,7 @@
     .process-header { text-align: center; margin-bottom: 56px; }
     .process-header .lead { margin: 0 auto; }
     .steps-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px; max-width: 1100px; margin: 0 auto;
     }
     .step-card {
@@ -1136,24 +1136,21 @@
     .other-card {
       border-radius: var(--radius-lg); overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: relative; aspect-ratio: 4/3; cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+      cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 36px 20px; text-align: center; gap: 16px; text-decoration: none;
     }
     .other-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
-    .other-card-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    .other-card-icon {
+      width: 64px; height: 64px; background: rgba(255,255,255,0.12);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
-    .other-card-bg img { width: 100%; height: 100%; object-fit: cover; }
-    .other-card-body {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-      padding: 32px 16px 16px;
-    }
-    .other-card-body h3 { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 4px; }
-    .other-card-body span {
-      font-size: 0.78rem; color: rgba(255,255,255,0.7); font-weight: 600;
-    }
+    .other-card-icon svg { width: 32px; height: 32px; }
+    .other-card-body { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .other-card-body h3 { font-size: 1rem; font-weight: 800; color: white; margin: 0; }
+    .other-card-body span { font-size: 0.78rem; color: rgba(255,255,255,0.7); font-weight: 600; }
 
     /* ─── FINAL CTA ─── */
     .final-cta {
@@ -1565,6 +1562,29 @@
         <h2>Transparente priser – <span class="highlight">ingen skjulte omkostninger</span></h2>
         <p class="lead" style="margin:0 auto 8px;">Vælg den pakke der matcher dine behov. Alle priser er pr. m² og inkluderer transport på Fyn.</p>
       </div>
+      <div style="max-width:980px;margin:0 auto 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;">
+          <span style="font-size:1.4rem;flex-shrink:0;">🪨</span>
+          <div>
+            <div style="font-weight:700;color:#166534;font-size:0.9rem;margin-bottom:2px;">Fugesand</div>
+            <div style="font-size:0.85rem;color:#15803d;">1,48 kr. pr. m² — inkl. i Standard & Premium</div>
+          </div>
+        </div>
+        <div style="background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;">
+          <span style="font-size:1.4rem;flex-shrink:0;">🛡️</span>
+          <div>
+            <div style="font-weight:700;color:#1e40af;font-size:0.9rem;margin-bottom:2px;">Imprægnering</div>
+            <div style="font-size:0.85rem;color:#1d4ed8;">5,29 kr. pr. m² — inkl. i Premium</div>
+          </div>
+        </div>
+        <div style="background:#fefce8;border:1.5px solid #fde68a;border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;">
+          <span style="font-size:1.4rem;flex-shrink:0;">✅</span>
+          <div>
+            <div style="font-weight:700;color:#854d0e;font-size:0.9rem;margin-bottom:2px;">Minimumspris svarende til 30 m²</div>
+            <div style="font-size:0.85rem;color:#92400e;">Skal du have renset fx 15 m², fakturerer vi stadig for 30 m² — det er vores minimumsopgave. Ingen ekstra gebyrer oveni.</div>
+          </div>
+        </div>
+      </div>
       <div class="promo-rabat-banner" style="max-width:980px; margin:0 auto 16px; background:linear-gradient(90deg,#1a2b38 0%,#2e4455 50%,#1a2b38 100%); border-radius:14px; padding:14px 28px; display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:10px;color:white;">
           <span style="background:var(--yellow);color:#111;font-family:var(--font-display);font-weight:900;font-size:1.1rem;padding:4px 12px;border-radius:8px;white-space:nowrap;">10% RABAT</span>
@@ -1734,7 +1754,7 @@
                   
                   <div class="calc-pkg-name">Standard</div>
                   <div class="calc-pkg-price">50 kr/m²</div>
-                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²)</div>
+                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 1,48 kr./m²)</div>
                 </div>
               </label>
               <label class="calc-pkg calc-pkg-featured" data-price="60">
@@ -1743,10 +1763,17 @@
                   <div class="calc-pkg-badge">Mest valgt</div>
                   <div class="calc-pkg-name">Premium</div>
                   <div class="calc-pkg-price">60 kr/m²</div>
-                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 3,20 kr./m²) + imprægnering</div>
+                  <div class="calc-pkg-desc">Fugesand inkl. (ca. 1,48 kr./m²) + imprægnering (5,29 kr./m²)</div>
                 </div>
               </label>
             </div>
+          </div>
+
+          <!-- Fugesand toggle -->
+          <div id="fugesandToggleWrap" style="display:none;margin-top:14px;">
+            <button type="button" id="fugesandToggleBtn" onclick="toggleFugesand()" style="background:#f1f5f9;border:2px solid #e2e8f0;border-radius:10px;padding:10px 18px;font-family:var(--font-body);font-size:0.88rem;font-weight:600;color:var(--gray-800);cursor:pointer;width:100%;text-align:left;transition:background 0.2s,border-color 0.2s;">
+              ☐ Fravælg sand og sandfejning (−6,48 kr./m²)
+            </button>
           </div>
 
           <!-- Discount info -->
@@ -1792,7 +1819,6 @@
           <ul class="intro-list">
             <li><span class="check">✔</span> Komplet fjernelse af alger, mos og grønne belægninger</li>
             <li><span class="check">✔</span> Grundig fugerensning og genopfriskning af flisernes naturlige farve</li>
-            <li><span class="check">✔</span> Behandling med anti-alge- og mosforebyggende middel som tilvalg</li>
             <li><span class="check">✔</span> Professionelt udstyr med markant større kapacitet end forbrugerudstyr</li>
             <li><span class="check">✔</span> Skånsom metode – overfladen beskadiges ikke</li>
             <li><span class="check">✔</span> Fuldt erhvervsforsikret – du er altid dækket</li>
@@ -1809,7 +1835,7 @@
       <div class="surfaces-header">
         <span class="section-label">Anvendelsesområder</span>
         <h2>Vi renser <span class="highlight">alle typer</span> belægninger</h2>
-        <p class="lead" style="margin: 0 auto;">Uanset overfladetype og tilstand råder vi over udstyr og erfaring til at levere et optimalt resultat.</p>
+        <p class="lead" style="margin: 0 auto;">Med det rette udstyr og mange års erfaring sikrer vi et optimalt resultat på alle typer belægninger.</p>
       </div>
       <div class="surfaces-grid" style="grid-template-columns: repeat(3, 1fr);">
         <div class="surface-card">
@@ -1884,6 +1910,12 @@
         </div>
         <div class="step-card" data-step="5">
           <div class="step-num">5</div>
+          <div class="step-icon">🪨</div>
+          <h3>Fugesand</h3>
+          <p>Efter imprægnering påfyldes fugesand mellem fliserne, så de ligger stabilt og ikke forskubber sig med tiden.</p>
+        </div>
+        <div class="step-card" data-step="6">
+          <div class="step-num">6</div>
           <div class="step-icon">✅</div>
           <h3>Aflevering & dokumentation</h3>
           <p>Vi rydder op efter os og fremsender fotodokumentation af resultatet. Din tilstedeværelse er ikke påkrævet.</p>
@@ -2145,36 +2177,28 @@
       </div>
       <div class="other-grid">
         <a href="terrasserens.html" class="other-card">
-          <div class="other-card-bg">
-            <img src="images/BilledetTræTerrasserens.jpg" alt="Træterrasserens" loading="lazy" style="object-position: center bottom;" />
-          </div>
+          <div class="other-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="3" rx="1"/><line x1="4" y1="16" x2="4" y2="21"/><line x1="20" y1="16" x2="20" y2="21"/><line x1="6" y1="13" x2="6" y2="10"/><line x1="10" y1="13" x2="10" y2="10"/><line x1="14" y1="13" x2="14" y2="10"/><line x1="18" y1="13" x2="18" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/></svg></div>
           <div class="other-card-body">
             <h3>Træterrasserens</h3>
             <span>Læs mere →</span>
           </div>
         </a>
         <a href="facaderens.html" class="other-card">
-          <div class="other-card-bg">
-            <img src="images/facaderensbillede.jpg" alt="Facaderens" loading="lazy" />
-          </div>
+          <div class="other-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,10 12,3 21,10"/><rect x="5" y="10" width="14" height="11" rx="1"/><rect x="9" y="15" width="3" height="6"/><rect x="13" y="12" width="3" height="3"/></svg></div>
           <div class="other-card-body">
-            <h3>Facade-rens</h3>
+            <h3>Facaderens</h3>
             <span>Læs mere →</span>
           </div>
         </a>
         <a href="vinduespuds.html" class="other-card">
-          <div class="other-card-bg">
-            <img src="images/VinduespudsBillede.PNG" alt="Vinduespudsning" loading="lazy" />
-          </div>
+          <div class="other-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
           <div class="other-card-body">
             <h3>Vinduespudsning</h3>
             <span>Læs mere →</span>
           </div>
         </a>
         <a href="havearbejde.html" class="other-card">
-          <div class="other-card-bg">
-            <img src="images/havearbejdeBillede.PNG" alt="Havearbejde" loading="lazy" />
-          </div>
+          <div class="other-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c3 0 5.5 1.5 7 4z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5.5 1.5-7 4z"/><path d="M12 16C12 16 8 15 6 12c2.5-.5 4.5 1 6 4z"/><path d="M12 16C12 16 16 15 18 12c-2.5-.5-4.5 1-6 4z"/></svg></div>
           <div class="other-card-body">
             <h3>Havearbejde</h3>
             <span>Læs mere →</span>
@@ -2187,9 +2211,7 @@
   <!-- ─── FINAL CTA ─── -->
   <section class="final-cta" id="kontakt">
     <div class="container">
-      <div style="display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:#111;border-radius:100px;padding:8px 22px;font-size:0.82rem;font-weight:900;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px;">
-        🔥 10% FORÅRSRABAT — SPAR OP TIL HUNDREDEVIS AF KR.
-      </div>
+
       <h2>Klar til et <span style="color:var(--yellow);">professionelt resultat?</span></h2>
       <p>Kontakt os i dag og modtag et gratis, uforpligtende tilbud. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
       <div class="final-cta-btns">
@@ -2361,14 +2383,33 @@
     const SPRING_DEADLINE = new Date('2026-04-01');
 
     function updateCalc() {
-      const area = parseFloat(areaInput.value);
+      const rawArea = parseFloat(areaInput.value);
+      const area = rawArea > 0 ? Math.max(rawArea, 30) : rawArea;
       const selected = document.querySelector('input[name="calcPkg"]:checked');
       const pkg = selected ? parseFloat(selected.value) : null;
       const pkgName = selected ? selected.closest('.calc-pkg').querySelector('.calc-pkg-name').textContent : null;
 
+      // Show/hide fugesand toggle button
+      const toggleWrap = document.getElementById('fugesandToggleWrap');
+      if (pkg === 60) {
+        toggleWrap.style.display = 'block';
+      } else {
+        toggleWrap.style.display = 'none';
+        window._fugesandFravalgt = false;
+        const btn = document.getElementById('fugesandToggleBtn');
+        btn.innerHTML = '☐ Fravælg sand og sandfejning (−6,48 kr./m²)';
+        btn.style.background = '#f1f5f9';
+        btn.style.borderColor = '#e2e8f0';
+        btn.style.color = 'var(--gray-800)';
+      }
+
       if (area > 0 && pkg) {
-        const hasFugesand = pkg >= 50;
-        const fugesandTotal = hasFugesand ? area * 3.2 : 0;
+        const fravalgt = pkg === 60 && window._fugesandFravalgt;
+        const hasFugesand = pkg >= 50 && !fravalgt;
+        const hasImpregnering = pkg === 60;
+        const fugesandTotal = hasFugesand ? area * 1.48 : 0;
+        const sandfejningDeduction = fravalgt ? area * 5.0 : 0;
+        const impregneringTotal = hasImpregnering ? area * 5.29 : 0;
         const workTotal = area * pkg;
 
         const springDiscount = new Date() < SPRING_DEADLINE;
@@ -2379,7 +2420,7 @@
         if (volumeDiscount) discountPct += 10;
 
         const discountAmount = workTotal * (discountPct / 100);
-        const finalTotal = workTotal - discountAmount + fugesandTotal;
+        const finalTotal = workTotal - discountAmount + fugesandTotal - sandfejningDeduction + impregneringTotal;
 
         priceEl.textContent = Math.round(finalTotal).toLocaleString('da-DK') + ' kr.';
 
@@ -2387,10 +2428,11 @@
         if (springDiscount) discountLines.push('10% forårsrabat (udløber 1. april)');
         if (volumeDiscount) discountLines.push('10% mængderabat (100+ m²)');
 
+        const minNote = rawArea > 0 && rawArea < 30 ? ' <small style="color:rgba(255,255,255,0.4)">(min. 30 m²)</small>' : '';
         if (discountPct > 0) {
-          subEl.innerHTML = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ') — <strong style="color:#86efac">' + discountPct + '% rabat anvendt</strong><br><small style="color:rgba(255,255,255,0.4)">' + discountLines.join(' + ') + '</small>';
+          subEl.innerHTML = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ') — <strong style="color:#86efac">' + discountPct + '% rabat anvendt</strong>' + minNote + '<br><small style="color:rgba(255,255,255,0.4)">' + discountLines.join(' + ') + '</small>';
         } else {
-          subEl.textContent = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ' pakke)';
+          subEl.innerHTML = area + ' m² × ' + pkg + ' kr/m² (' + pkgName + ' pakke)' + minNote;
         }
 
         btnEl.style.display = 'inline-block';
@@ -2415,6 +2457,23 @@
         subEl.textContent = 'Udfyld areal og vælg pakke ovenfor';
         btnEl.style.display = 'none';
       }
+    }
+
+    function toggleFugesand() {
+      window._fugesandFravalgt = !window._fugesandFravalgt;
+      const btn = document.getElementById('fugesandToggleBtn');
+      if (window._fugesandFravalgt) {
+        btn.innerHTML = '☑ Tilføj sand og sandfejning (+6,48 kr./m²)';
+        btn.style.background = '#fee2e2';
+        btn.style.borderColor = '#fca5a5';
+        btn.style.color = '#991b1b';
+      } else {
+        btn.innerHTML = '☐ Fravælg sand og sandfejning (−6,48 kr./m²)';
+        btn.style.background = '#f1f5f9';
+        btn.style.borderColor = '#e2e8f0';
+        btn.style.color = 'var(--gray-800)';
+      }
+      updateCalc();
     }
 
     areaInput.addEventListener('input', updateCalc);
