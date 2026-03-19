@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multiservice Fyn | Fliserens, Træterrasserens & Facaderens på Fyn</title>
-  <meta name="description" content="Professionel fliserens, terrasserens, facaderens og vinduespudsning på Fyn. Kontakt Multiservice Fyn i dag – svar inden for 1 time. Ring +45 57 20 91 41." />
-  <meta name="keywords" content="fliserens fyn, terrasserens odense, facaderens fyn, vinduespudsning odense, multiservice fyn, rengøring odense, udvendig rengøring fyn" />
+  <meta name="description" content="Professionel fliserens, terrasserens, facaderens og vinduespolering på Fyn. Kontakt Multiservice Fyn i dag – svar inden for 1 time. Ring +45 57 20 91 41." />
+  <meta name="keywords" content="fliserens fyn, terrasserens odense, facaderens fyn, vinduespolering odense, multiservice fyn, rengøring odense, udvendig rengøring fyn" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.multiservice-fyn.dk/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Multiservice Fyn | Professionel Udvendig Rengøring" />
-  <meta property="og:description" content="Fliserens, terrasserens, facaderens og vinduespudsning på Fyn. Over 150 tilfredse kunder. Gratis tilbud på 1 time." />
+  <meta property="og:description" content="Fliserens, terrasserens, facaderens og vinduespolering på Fyn. Over 150 tilfredse kunder. Gratis tilbud på 1 time." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.multiservice-fyn.dk/" />
   <meta property="og:image" content="https://www.multiservice-fyn.dk/images/forsidebilledebaggrund.jpg" />
@@ -774,7 +774,18 @@
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
       border-radius: var(--radius-lg); padding: 28px; text-align: center; color: white;
     }
-    .contact-card .person-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .contact-card .person-icon { margin-bottom: 16px; display: flex; justify-content: center; }
+    .contact-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #2e7fe8 0%, #1a56b0 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(46,127,232,0.4);
+      position: relative; overflow: hidden;
+    }
+    .contact-avatar::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    }
     .contact-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
     .contact-card .role { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
     .contact-card a {
@@ -845,7 +856,7 @@
       .header-contact { display: none; }
       .hamburger { display: flex; }
       .header-top { font-size: 0.7rem; }
-      .floating-call-wrap { display: none; }
+      .floating-call-wrap { display: none !important; }
       .header-calc-btn {
         position: static !important;
         transform: translateX(-20px) !important;
@@ -933,65 +944,53 @@
       .trust-bar a { font-size: 0.62rem !important; padding: 8px 2px !important; }
     }
   </style>
+  <style>/* Hide Tawk.to default bubble */
+  [id^="tawk-"]:not([id="tawk-chat"]), [class^="tawk-min"], [id*="minified"], .tawk-text-truncate, [class*="tawk-notif"], [class*="tawk-status"], [class*="tawk-branding"] { display:none!important; }
+  </style>
 </head>
 <body>
-
-  <!-- ─── FLOATING CALL (mobile only) ─── -->
-  <div class="floating-call-wrap">
-    <div class="floating-popup" id="floatingPopup">
-      <a href="tel:+4557209141" class="floating-popup-row">
-        <span class="fp-icon">📞</span>
-        <span>+45 57 20 91 41</span>
-      </a>
-      <a href="mailto:Kontakt@Multiservice.dk" class="floating-popup-row">
-        <span class="fp-icon">✉</span>
-        <span>Kontakt@Multiservice.dk</span>
-      </a>
-    </div>
-    <button class="floating-call" id="floatingBtn" aria-label="Kontakt os">📞</button>
-  </div>
 
   <!-- ─── HEADER ─── -->
   <header>
     <div class="header-top">
       <div class="header-top-track">
         <div class="header-top-inner">
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
         </div>
         <div class="header-top-inner" aria-hidden="true">
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
-          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. APRIL</strong>
+          <strong style="color:#1a2b38;font-weight:900;letter-spacing:0.03em;">🔥 10% RABAT – TIL OG MED D. 1. MAJ</strong>
           <span style="color:rgba(10,30,60,0.3);">·</span>
         </div>
       </div>
@@ -1024,7 +1023,7 @@
         <div class="mega-col">
           <a href="vinduespuds.html">
             <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
-            <div><strong>Vinduespudsning</strong><small>Klare og strålende vinduer</small></div>
+            <div><strong>Vinduespolering</strong><small>Klare og strålende vinduer</small></div>
           </a>
           <a href="havearbejde.html">
             <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c3 0 5.5 1.5 7 4z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5.5 1.5-7 4z"/><path d="M12 16C12 16 8 15 6 12c2.5-.5 4.5 1 6 4z"/><path d="M12 16C12 16 16 15 18 12c-2.5-.5-4.5 1-6 4z"/></svg></span>
@@ -1036,10 +1035,6 @@
             <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
             <div><strong>Fliserens</strong><small>Rens og genopfrisk dine fliser</small></div>
           </a>
-          <a href="terrasserens.html">
-            <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="20" height="3" rx="1"/><line x1="4" y1="16" x2="4" y2="21"/><line x1="20" y1="16" x2="20" y2="21"/><line x1="6" y1="13" x2="6" y2="10"/><line x1="10" y1="13" x2="10" y2="10"/><line x1="14" y1="13" x2="14" y2="10"/><line x1="18" y1="13" x2="18" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/></svg></span>
-            <div><strong>Træterrasserens</strong><small>Få en smuk terrasse igen</small></div>
-          </a>
           <a href="facaderens.html">
             <span class="mega-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2e7fe8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,10 12,3 21,10"/><rect x="5" y="10" width="14" height="11" rx="1"/><rect x="9" y="15" width="3" height="6"/><rect x="13" y="12" width="3" height="3"/></svg></span>
             <div><strong>Facaderens</strong><small>Flot og ren facade</small></div>
@@ -1047,7 +1042,7 @@
         </div>
       </div>
       <div class="mega-contact">
-        <div class="mega-contact-status">● Vi er online</div>
+        <div class="mega-contact-status" id="onlineStatus">● Vi er online</div>
         <h3>Har du spørgsmål?</h3>
         <p>Vores medarbejdere sidder klar mandag til fredag kl. 07 – 18</p>
         <div class="mega-contact-links">
@@ -1065,9 +1060,9 @@
         <div class="mob-drop-menu">
           <div class="mob-drop-menu-inner">
             <a href="fliserens.html" onclick="toggleMenu()">Fliserens</a>
-            <a href="terrasserens.html" onclick="toggleMenu()">Træterrasserens</a>
+
             <a href="facaderens.html" onclick="toggleMenu()">Facaderens</a>
-            <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespudsning</a>
+            <a href="vinduespuds.html" onclick="toggleMenu()">Vinduespolering</a>
             <a href="havearbejde.html" onclick="toggleMenu()">Havearbejde</a>
           </div>
         </div>
@@ -1113,15 +1108,12 @@
 
     <!-- ─── SERVICES BAR ─── -->
     <div class="trust-bar" id="stats">
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);width:100%;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);width:100%;">
         <a href="fliserens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
           Fliserens
         </a>
         <a href="facaderens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
           Facaderens
-        </a>
-        <a href="terrasserens.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
-          Træterrasse
         </a>
         <a href="vinduespuds.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;color:white;font-size:1rem;font-weight:600;padding:18px 8px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.15);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
           Vinduer
@@ -1288,7 +1280,7 @@
             <div class="why-icon">💬</div>
             <div class="why-item-text">
               <h4>Personlig service</h4>
-              <p>Du taler direkte med Niklas – ingen mellemled.</p>
+              <p>Du taler direkte med Kundeservice – ingen mellemled.</p>
             </div>
           </li>
           <li class="why-item">
@@ -1405,7 +1397,7 @@
           <h2>Brug for et <span class="highlight">uforpligtende tilbud?</span></h2>
           <p>Kontakt os direkte pr. telefon, eller udfyld formularen – så vender vi tilbage hurtigst muligt. Vi besvarer alle henvendelser inden for 1 time på hverdage.</p>
           <div class="form-phones">
-            <a href="tel:+4557209141" class="form-phone-link">📞 57 20 91 41 – Niklas</a>
+            <a href="tel:+4557209141" class="form-phone-link">📞 57 20 91 41 – Kundeservice</a>
           </div>
           <p class="form-note">Foretrækker du at blive ringet op? Udfyld formularen, så kontakter vi dig.</p>
           <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;">
@@ -1471,8 +1463,25 @@
 
       <div class="contact-cards">
         <div class="contact-card">
-          <div class="person-icon">👨‍💼</div>
-          <h4>Niklas</h4>
+          <div class="person-icon">
+            <div class="contact-avatar">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hoved -->
+                <circle cx="24" cy="18" r="8" fill="white" opacity="0.95"/>
+                <!-- Krop/skuldre -->
+                <path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="white" opacity="0.95"/>
+                <!-- Headset bøjle -->
+                <path d="M14 18a10 10 0 0 1 20 0" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.75"/>
+                <!-- Venstre øretelefon -->
+                <rect x="11" y="17" width="5" height="8" rx="2.5" fill="white" opacity="0.75"/>
+                <!-- Højre øretelefon -->
+                <rect x="32" y="17" width="5" height="8" rx="2.5" fill="white" opacity="0.75"/>
+                <!-- Mikrofon -->
+                <path d="M33 23 Q36 26 34 29" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.75"/>
+              </svg>
+            </div>
+          </div>
+          <h4>Kundeservice</h4>
           <p class="role">Multiservice Fyn</p>
           <a href="tel:+4557209141">📞 +45 57 20 91 41</a>
           <a href="mailto:niklas@multiservice.dk">✉ niklas@multiservice.dk</a>
@@ -1507,7 +1516,7 @@
           <li><a href="#services">Fliserens</a></li>
           <li><a href="#services">Træterrasserens</a></li>
           <li><a href="#services">Facaderens</a></li>
-          <li><a href="#services">Vinduespudsning</a></li>
+          <li><a href="#services">Vinduespolering</a></li>
           <li><a href="#services">Havearbejde</a></li>
         </ul>
       </div>
@@ -1591,6 +1600,8 @@
     window.addEventListener('scroll', checkSocialVisibility, { passive: true });
     document.addEventListener('touchmove', checkSocialVisibility, { passive: true });
 
+    // Online status
+    (function() { var el = document.getElementById("onlineStatus"); if (!el) return; var now = new Date(); var day = now.getDay(); var hour = now.getHours(); var isWeekday = day >= 1 && day <= 5; var isWorkHours = hour >= 7 && hour < 18; if (isWeekday && isWorkHours) { el.style.color = "#22c55e"; el.innerHTML = "<span style=\"color:#22c55e;\">●</span> Vi er online"; } else { el.style.color = "#ef4444"; el.innerHTML = "<span style=\"color:#ef4444;\">●</span> Vi er offline"; } })();
     const headerTopBar = document.querySelector('.header-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -1668,5 +1679,118 @@
       <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
   </div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+var tawkChatOpen = false;
+Tawk_API.onChatHidden=function(){ tawkChatOpen=false; };
+Tawk_API.onChatMaximized=function(){ tawkChatOpen=true; };
+Tawk_API.onChatMinimized=function(){ tawkChatOpen=false; };
+setInterval(function(){
+  if(!tawkChatOpen && typeof Tawk_API.hideWidget==='function'){
+    Tawk_API.hideWidget();
+  }
+}, 100);
+Tawk_API.onLoad=function(){
+  Tawk_API.hideWidget();
+  // Skjul "We are here" notifikation
+  // Skjul ALLE tawk elementer undtagen selve chatvinduet
+  var s = document.createElement('style');
+  s.innerHTML = 'iframe[id*="tawk"], div[id*="tawk"]:not(#custom-chat-btn) { display:none!important; }';
+  document.head.appendChild(s);
+  var s2 = document.createElement('style');
+  s.innerHTML = '#tawkchat-minified-container, #tawkchat-status-text, .tawk-min-container, [class*="tawk-min"], [id*="tawk-min"], [id*="tawkchat-minified"] { display:none!important; opacity:0!important; visibility:hidden!important; }';
+  document.head.appendChild(s);
+  var obs = new MutationObserver(function(){
+    var selectors = ['#tawkchat-minified-container','[class*="tawk-min"]','[id*="tawk-min"]'];
+    selectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){ el.style.cssText='display:none!important'; });
+    });
+    document.querySelectorAll('iframe').forEach(function(f){
+      if(f.id && (f.id.includes('tawkchat-minified') || f.id.includes('tawk-min'))) f.style.cssText='display:none!important';
+    });
+  });
+  obs.observe(document.body, {childList:true, subtree:true});
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('#custom-chat-btn')) {
+      Tawk_API.minimize();
+    }
+  });
+};
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69bbebebefc5d11c3692973f/1jk3134k3';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+
+<style>
+#custom-chat-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #2e7fe8 0%, #1a56b0 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 22px 14px 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(46,127,232,0.45), 0 2px 8px rgba(0,0,0,0.15);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: chatPulse 2.5s infinite;
+}
+#custom-chat-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(46,127,232,0.55), 0 4px 12px rgba(0,0,0,0.2);
+  animation: none;
+}
+@keyframes chatPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(46,127,232,0.45), 0 0 0 0 rgba(46,127,232,0.4); }
+  50% { box-shadow: 0 4px 20px rgba(46,127,232,0.45), 0 0 0 10px rgba(46,127,232,0); }
+}
+#custom-chat-btn .chat-icon-wrap {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+#custom-chat-btn .chat-label { line-height: 1.2; }
+#custom-chat-btn .chat-label span { display: block; font-size: 0.72rem; font-weight: 500; opacity: 0.85; }
+@media (max-width: 480px) {
+  #custom-chat-btn { bottom: 72px; right: 16px; padding: 11px; border-radius: 50%; gap: 0; }
+  #custom-chat-btn .chat-label { display: none; }
+  #custom-chat-btn .chat-icon-wrap { width: 28px; height: 28px; background: none; }
+}
+</style>
+
+<button id="custom-chat-btn" onclick="Tawk_API.maximize()">
+  <div class="chat-icon-wrap">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <circle cx="9" cy="10" r="0.8" fill="white"/>
+      <circle cx="12" cy="10" r="0.8" fill="white"/>
+      <circle cx="15" cy="10" r="0.8" fill="white"/>
+    </svg>
+  </div>
+  <div class="chat-label">
+    Skriv til os
+    <span>Vi svarer hurtigt</span>
+  </div>
+</button>
+<!--End of Tawk.to Script-->
 </body>
 </html>
